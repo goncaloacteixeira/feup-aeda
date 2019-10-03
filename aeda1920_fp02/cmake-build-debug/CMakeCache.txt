@@ -303,6 +303,9 @@ INSTALL_GTEST:BOOL=ON
 PYTHON_EXECUTABLE:FILEPATH=/usr/bin/python
 
 //Path to a program.
+ProcessorCount_cmd_getconf:FILEPATH=/usr/bin/getconf.exe
+
+//Path to a program.
 ProcessorCount_cmd_nproc:FILEPATH=/usr/bin/nproc.exe
 
 //Path to a program.
@@ -372,9 +375,9 @@ CMAKE_CACHEFILE_DIR:INTERNAL=/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/a
 //Major version of cmake used to create the current loaded cache
 CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
 //Minor version of cmake used to create the current loaded cache
-CMAKE_CACHE_MINOR_VERSION:INTERNAL=15
+CMAKE_CACHE_MINOR_VERSION:INTERNAL=14
 //Patch version of cmake used to create the current loaded cache
-CMAKE_CACHE_PATCH_VERSION:INTERNAL=3
+CMAKE_CACHE_PATCH_VERSION:INTERNAL=5
 //ADVANCED property for variable: CMAKE_COLOR_MAKEFILE
 CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
 //Path to CMake executable.
@@ -447,6 +450,8 @@ CMAKE_GENERATOR_INSTANCE:INTERNAL=
 CMAKE_GENERATOR_PLATFORM:INTERNAL=
 //Name of generator toolset.
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
+//Have symbol pthread_create
+CMAKE_HAVE_LIBC_CREATE:INTERNAL=1
 //Test CMAKE_HAVE_LIBC_PTHREAD
 CMAKE_HAVE_LIBC_PTHREAD:INTERNAL=1
 //Have include pthread.h
@@ -526,7 +531,7 @@ CMAKE_RC_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_RC_FLAGS_RELWITHDEBINFO
 CMAKE_RC_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //Path to CMake installation.
-CMAKE_ROOT:INTERNAL=/cygdrive/c/Users/skidr/.CLion2019.2/system/cygwin_cmake/share/cmake-3.15.3
+CMAKE_ROOT:INTERNAL=/cygdrive/c/Users/skidr/.CLion2019.2/system/cygwin_cmake/share/cmake-3.14.5
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS
 CMAKE_SHARED_LINKER_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_DEBUG
@@ -563,6 +568,8 @@ FIND_PACKAGE_MESSAGE_DETAILS_PythonInterp:INTERNAL=[/usr/bin/python][v2.7.16()]
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //ADVANCED property for variable: PYTHON_EXECUTABLE
 PYTHON_EXECUTABLE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: ProcessorCount_cmd_getconf
+ProcessorCount_cmd_getconf-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ProcessorCount_cmd_nproc
 ProcessorCount_cmd_nproc-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: ProcessorCount_cmd_sysctl

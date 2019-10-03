@@ -14,6 +14,10 @@ string Veiculo::getMarca() const {
     return marca;
 }
 
+int Veiculo::getAno() const {
+    return ano;
+}
+
 Motorizado::Motorizado(string mc, int m, int a, string c, int cil) : Veiculo (mc, m, a)
 {
     combustivel = c;

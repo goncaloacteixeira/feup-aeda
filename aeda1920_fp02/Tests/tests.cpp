@@ -18,7 +18,7 @@ TEST(test_1, a_CriarVeiculos) {
 }
 
 TEST(test_1, b_CriarFrota){
-   /* Frota f;
+    Frota f;
     ASSERT_EQ(0, f.numVeiculos());
     ASSERT_EQ(0, f.menorAno());
     Veiculo *v1 =new Automovel("Fiat",5,1997,"gasolina",1200);
@@ -30,7 +30,7 @@ TEST(test_1, b_CriarFrota){
     f.adicionaVeiculo(v3);
     f.adicionaVeiculo(v4);
     ASSERT_EQ(4, f.numVeiculos());
-    ASSERT_EQ(1997, f.menorAno());*/
+    ASSERT_EQ(1997, f.menorAno());
 }
 
 TEST(test_1, c_InfoVeiculo){
