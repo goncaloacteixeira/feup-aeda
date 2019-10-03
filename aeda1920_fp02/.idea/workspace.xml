@@ -3,10 +3,10 @@
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
       <config projectName="aeda1920_fp02" targetName="gtest" />
-      <config projectName="aeda1920_fp02" targetName="aeda1920_fp02" />
       <config projectName="aeda1920_fp02" targetName="gmock_main" />
       <config projectName="aeda1920_fp02" targetName="gmock" />
       <config projectName="aeda1920_fp02" targetName="gtest_main" />
+      <config projectName="aeda1920_fp02" targetName="aeda1920_fp02" />
     </generated>
   </component>
   <component name="CMakeSettings">
@@ -15,23 +15,18 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ac616466-69a9-47bc-92fb-3bf8daca2353" name="Default Changelist" comment="passed third test | third exercise completed">
+    <list default="true" id="ac616466-69a9-47bc-92fb-3bf8daca2353" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/frota.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/frota.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Tests/frota.h" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/frota.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tests/tests.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/tests.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tests/veiculo.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/veiculo.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Tests/veiculo.h" beforeDir="false" afterPath="$PROJECT_DIR$/Tests/veiculo.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/aeda1920_fp02.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/aeda1920_fp02.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/aeda1920_fp02.dir/Tests/frota.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/aeda1920_fp02.dir/Tests/frota.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/aeda1920_fp02.dir/Tests/tests.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/aeda1920_fp02.dir/Tests/tests.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/aeda1920_fp02.dir/Tests/veiculo.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/aeda1920_fp02.dir/Tests/veiculo.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/aeda1920_fp02.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/aeda1920_fp02.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/aeda1920_fp02.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/aeda1920_fp02.dir/depend.make" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/aeda1920_fp02.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/aeda1920_fp02.exe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/lib/googletest-master/googletest/CMakeFiles/gtest.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/lib/googletest-master/googletest/CMakeFiles/gtest.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/lib/googletest-master/googletest/CMakeFiles/gtest.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/lib/googletest-master/googletest/CMakeFiles/gtest.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/depend.internal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/lib/googletest-master/googletest/CMakeFiles/gtest_main.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/lib/libgtest_maind.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/lib/libgtest_maind.a" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/lib/libgtestd.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/lib/libgtestd.a" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,20 +61,32 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Google Test.test_1.c_InfoVeiculo">
-    <configuration name="test_1.a_CriarVeiculos" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="aeda1920_fp02" TARGET_NAME="aeda1920_fp02" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="aeda1920_fp02" RUN_TARGET_NAME="aeda1920_fp02" TEST_CLASS="test_1" TEST_METHOD="a_CriarVeiculos" TEST_MODE="SUITE_TEST">
+  <component name="RunManager" selected="CMake Application.aeda1920_fp02">
+    <configuration name="test_1.d_InfoFrota" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="aeda1920_fp02" TARGET_NAME="aeda1920_fp02" RUN_TARGET_PROJECT_NAME="aeda1920_fp02" RUN_TARGET_NAME="aeda1920_fp02" TEST_CLASS="test_1" TEST_METHOD="d_InfoFrota" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
         <option name="BeforeTestRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test_1.b_CriarFrota" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="aeda1920_fp02" TARGET_NAME="aeda1920_fp02" RUN_TARGET_PROJECT_NAME="aeda1920_fp02" RUN_TARGET_NAME="aeda1920_fp02" TEST_CLASS="test_1" TEST_METHOD="b_CriarFrota" TEST_MODE="SUITE_TEST">
+    <configuration name="test_1.e_OperadorMenor" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="aeda1920_fp02" TARGET_NAME="aeda1920_fp02" RUN_TARGET_PROJECT_NAME="aeda1920_fp02" RUN_TARGET_NAME="aeda1920_fp02" TEST_CLASS="test_1" TEST_METHOD="e_OperadorMenor" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
         <option name="BeforeTestRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test_1.c_InfoVeiculo" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="aeda1920_fp02" TARGET_NAME="aeda1920_fp02" RUN_TARGET_PROJECT_NAME="aeda1920_fp02" RUN_TARGET_NAME="aeda1920_fp02" TEST_CLASS="test_1" TEST_METHOD="c_InfoVeiculo" TEST_MODE="SUITE_TEST">
+    <configuration name="test_1.f_OperadorFuncao" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="aeda1920_fp02" TARGET_NAME="aeda1920_fp02" RUN_TARGET_PROJECT_NAME="aeda1920_fp02" RUN_TARGET_NAME="aeda1920_fp02" TEST_CLASS="test_1" TEST_METHOD="f_OperadorFuncao" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_1.g_ImpostoVeiculo" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="aeda1920_fp02" TARGET_NAME="aeda1920_fp02" RUN_TARGET_PROJECT_NAME="aeda1920_fp02" RUN_TARGET_NAME="aeda1920_fp02" TEST_CLASS="test_1" TEST_METHOD="g_ImpostoVeiculo" TEST_MODE="SUITE_TEST">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="BeforeTestRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="test_1.h_ImpostoFrota" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" temporary="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="aeda1920_fp02" TARGET_NAME="aeda1920_fp02" RUN_TARGET_PROJECT_NAME="aeda1920_fp02" RUN_TARGET_NAME="aeda1920_fp02" TEST_CLASS="test_1" TEST_METHOD="h_ImpostoFrota" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
         <option name="BeforeTestRunTask" enabled="true" />
@@ -116,15 +123,19 @@
       <item itemvalue="CMake Application.gmock_main" />
       <item itemvalue="CMake Application.gtest" />
       <item itemvalue="CMake Application.gtest_main" />
-      <item itemvalue="Google Test.test_1.a_CriarVeiculos" />
-      <item itemvalue="Google Test.test_1.b_CriarFrota" />
-      <item itemvalue="Google Test.test_1.c_InfoVeiculo" />
+      <item itemvalue="Google Test.test_1.d_InfoFrota" />
+      <item itemvalue="Google Test.test_1.e_OperadorMenor" />
+      <item itemvalue="Google Test.test_1.f_OperadorFuncao" />
+      <item itemvalue="Google Test.test_1.g_ImpostoVeiculo" />
+      <item itemvalue="Google Test.test_1.h_ImpostoFrota" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Google Test.test_1.c_InfoVeiculo" />
-        <item itemvalue="Google Test.test_1.a_CriarVeiculos" />
-        <item itemvalue="Google Test.test_1.b_CriarFrota" />
+        <item itemvalue="Google Test.test_1.h_ImpostoFrota" />
+        <item itemvalue="Google Test.test_1.g_ImpostoVeiculo" />
+        <item itemvalue="Google Test.test_1.f_OperadorFuncao" />
+        <item itemvalue="Google Test.test_1.e_OperadorMenor" />
+        <item itemvalue="Google Test.test_1.d_InfoFrota" />
       </list>
     </recent_temporary>
   </component>
@@ -139,7 +150,8 @@
       <option name="presentableId" value="Default" />
       <updated>1570062092212</updated>
       <workItem from="1570062094942" duration="1778000" />
-      <workItem from="1570111837564" duration="2846000" />
+      <workItem from="1570111837564" duration="3116000" />
+      <workItem from="1570134518865" duration="3167000" />
     </task>
     <task id="LOCAL-00001" summary="passed first test | first exercise completed">
       <created>1570063831753</created>
@@ -155,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570113556794</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="passed third test | third exercise completed">
+      <created>1570114722206</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1570114722206</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

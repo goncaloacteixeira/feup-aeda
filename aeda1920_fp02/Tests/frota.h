@@ -11,9 +11,11 @@ public:
     Frota();
     void adicionaVeiculo(Veiculo *v1);
 	friend ostream & operator<<(ostream & o, const Frota & f);
-
-	int numVeiculos() const;
+    int numVeiculos() const;
 	int menorAno() const;
+    float totalImposto() const;
+
+    vector<Veiculo *> operator () (int anoM) const;
 };
 
 #endif /*FROTA_H_*/

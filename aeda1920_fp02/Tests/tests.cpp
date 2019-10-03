@@ -43,7 +43,7 @@ TEST(test_1, c_InfoVeiculo){
 }
 
 TEST(test_1, d_InfoFrota){
-    /*Veiculo *v1 =new Automovel("Fiat",5,2016,"gasolina",1200);
+    Veiculo *v1 =new Automovel("Fiat",5,2016,"gasolina",1200);
     Veiculo *v2= new Camiao("Ford",3,2017,"gasolina",1400,1000);
     Veiculo *v3=new Bicicleta("XX",4,2018,"TodoTerreno");
     Frota f;
@@ -52,20 +52,20 @@ TEST(test_1, d_InfoFrota){
     f.adicionaVeiculo(v3);
     ASSERT_TRUE(true);
     cout << "Este teste nunca falha! VERIFICAR informação escrita no monitor" << endl;
-    cout << f;*/
+    cout << f;
 }
 
 TEST(test_1, e_OperadorMenor) {
-   /* Automovel a1("Fiat",3,2017,"gasolina",1200);
+    Automovel a1("Fiat",3,2017,"gasolina",1200);
     Camiao c1("Ford",5,2017,"gasolina",1400,1000);
     Bicicleta b1("XX",4,2018,"TodoTerreno");
     ASSERT_EQ(true, a1<c1);
     ASSERT_EQ(false,b1<c1);
-    ASSERT_EQ(true,a1<b1);*/
+    ASSERT_EQ(true,a1<b1);
 }
 
 TEST(test_1, f_OperadorFuncao) {
-   /* Frota f;
+    Frota f;
     Veiculo *v1 =new Automovel("Fiat",5,2016,"gasolina",1200);
     Veiculo *v2= new Camiao("Ford",3,2017,"gasolina",1400,1000);
     Veiculo *v3=new Automovel("Renault",9,2016,"gasoleo",1300);
@@ -84,25 +84,25 @@ TEST(test_1, f_OperadorFuncao) {
     ASSERT_EQ(0, v.size());
     v = f(2010);
     ASSERT_EQ(1, v.size());
-    ASSERT_EQ("Renault", v[0]->getMarca());*/
+    ASSERT_EQ("Renault", v[0]->getMarca());
 }
 
 TEST(test_1, g_ImpostoVeiculo) {
-    /*Automovel a1("Fiat",5,1997,"gasolina",1200);
+    Automovel a1("Fiat",5,1997,"gasolina",1200);
     Camiao c1("Ford",3,1999,"gasolina",1400,1000);
     Bicicleta b1("XX",4,2002,"TodoTerreno");
     ASSERT_NEAR(29.06, a1.calcImposto(),0.001);
     ASSERT_NEAR(45.15,c1.calcImposto(),0.001);
-    ASSERT_NEAR(0,b1.calcImposto(),0.001);*/
+    ASSERT_NEAR(0,b1.calcImposto(),0.001);
 }
 
 TEST(test_1, h_ImpostoFrota) {
-    /*Veiculo *v1 =new Automovel("Fiat",5,1997,"gasolina",1200);
+    Veiculo *v1 =new Automovel("Fiat",5,1997,"gasolina",1200);
     Veiculo *v2= new Camiao("Ford",3,1999,"gasolina",1400,1000);
     Veiculo *v3=new Bicicleta("XX",4,2002,"TodoTerreno");
     Frota f;
     f.adicionaVeiculo(v1);
     f.adicionaVeiculo(v2);
     f.adicionaVeiculo(v3);
-    ASSERT_NEAR(74.21, f.totalImposto(),0.001);*/
+    ASSERT_NEAR(74.21, f.totalImposto(),0.001);
 }

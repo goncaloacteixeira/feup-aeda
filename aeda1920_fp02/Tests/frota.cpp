@@ -1,5 +1,6 @@
 #include "frota.h"
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -28,3 +29,52 @@ int Frota::menorAno() const {
     }
     return 0;
 }
+
+ostream &operator<<(ostream &o, const Frota &f) {
+    if (f.numVeiculos() == 0)
+    {
+        cout << "no veicles to show\n";
+    }
+    else
+    {
+        for (int i = 0; i < f.numVeiculos(); i++)
+        {
+            f.veiculos[i]->info();
+            (i != f.numVeiculos() -1) ? cout << "-----\n" : cout << "";
+        }
+    }
+}
+
+vector<Veiculo *> Frota::operator()(int anoM) const {
+    vector<Veiculo *> veicM;
+
+    if (this->numVeiculos() != 0)
+    {
+        for (int i = 0; i < this->numVeiculos(); i++)
+        {
+            if (this->veiculos[i]->getAno() == anoM)
+                veicM.push_back(this->veiculos[i]);
+        }
+    }
+    else
+    {
+        cerr << "no veicles available";
+        return {};
+    }
+    return  veicM;
+}
+
+float Frota::totalImposto() const {
+    float imposto = 0;
+
+    if (this->numVeiculos() != 0)
+    {
+        for (int i = 0; i < this->numVeiculos(); i++)
+        {
+            imposto += this->veiculos[i]->calcImposto();
+        }
+    }
+    return imposto;
+}
+
+
