@@ -34,12 +34,12 @@ TEST(test_1, b_CriarFrota){
 }
 
 TEST(test_1, c_InfoVeiculo){
-   /* Automovel a1("Fiat",5,1997,"gasolina",1200);
+    Automovel a1("Fiat",5,1997,"gasolina",1200);
     Camiao c1("Ford",3,1999,"gasolina",1400,1000);
     Bicicleta b1("XX",4,2002,"TodoTerreno");
     ASSERT_EQ(5, a1.info());
     ASSERT_EQ(6,c1.info());
-    ASSERT_EQ(4,b1.info());*/
+    ASSERT_EQ(4,b1.info());
 }
 
 TEST(test_1, d_InfoFrota){
