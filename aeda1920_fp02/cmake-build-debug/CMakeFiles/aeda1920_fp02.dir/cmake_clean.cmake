@@ -1,10 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/aeda1920_fp02.dir/main.cpp.o"
-  "CMakeFiles/aeda1920_fp02.dir/Tests/tests.cpp.o"
   "CMakeFiles/aeda1920_fp02.dir/Tests/frota.cpp.o"
+  "CMakeFiles/aeda1920_fp02.dir/Tests/tests.cpp.o"
   "CMakeFiles/aeda1920_fp02.dir/Tests/veiculo.cpp.o"
-  "aeda1920_fp02.pdb"
+  "CMakeFiles/aeda1920_fp02.dir/main.cpp.o"
   "aeda1920_fp02.exe"
+  "aeda1920_fp02.pdb"
   "libaeda1920_fp02.dll.a"
 )
 

@@ -11,10 +11,10 @@
 				<Option working_dir="/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gmock_main">
@@ -36,10 +36,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/../../../../lib/../include/w32api"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 gmock_main"/>
-					<CompileFile command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 gmock_main"/>
+					<CompileFile command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gmock_main/fast">
@@ -61,10 +61,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/../../../../lib/../include/w32api"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 gmock_main/fast"/>
-					<CompileFile command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 gmock_main/fast"/>
+					<CompileFile command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gmock">
@@ -86,10 +86,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/../../../../lib/../include/w32api"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 gmock"/>
-					<CompileFile command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 gmock"/>
+					<CompileFile command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gmock/fast">
@@ -111,10 +111,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/../../../../lib/../include/w32api"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 gmock/fast"/>
-					<CompileFile command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 gmock/fast"/>
+					<CompileFile command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googlemock/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gtest_main">
@@ -134,10 +134,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/../../../../lib/../include/w32api"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 gtest_main"/>
-					<CompileFile command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 gtest_main"/>
+					<CompileFile command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gtest_main/fast">
@@ -157,10 +157,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/../../../../lib/../include/w32api"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 gtest_main/fast"/>
-					<CompileFile command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 gtest_main/fast"/>
+					<CompileFile command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gtest">
@@ -180,10 +180,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/../../../../lib/../include/w32api"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 gtest"/>
-					<CompileFile command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 gtest"/>
+					<CompileFile command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="gtest/fast">
@@ -203,10 +203,10 @@
 					<Add directory="/usr/lib/gcc/x86_64-pc-cygwin/7.4.0/../../../../lib/../include/w32api"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 gtest/fast"/>
-					<CompileFile command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make.exe -j12 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 gtest/fast"/>
+					<CompileFile command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make.exe -j4 -f &quot;/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/cmake-build-debug/lib/googletest-master/googletest/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>

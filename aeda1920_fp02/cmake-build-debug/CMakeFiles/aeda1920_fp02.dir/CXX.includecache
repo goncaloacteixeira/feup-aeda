@@ -540,7 +540,19 @@ frota.h
 string
 -
 
+/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/Tests/veiculo.cpp
+veiculo.h
+/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/Tests/veiculo.h
+iostream
+-
+
 /cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/Tests/veiculo.h
 string
 -
+
+/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/main.cpp
+gtest/gtest.h
+/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/gtest/gtest.h
+gmock/gmock.h
+/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02/gmock/gmock.h
 
