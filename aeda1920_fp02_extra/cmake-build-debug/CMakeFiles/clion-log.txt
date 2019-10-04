@@ -1,0 +1,4 @@
+C:\Users\skidr\.CLion2019.2\system\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra/cmake-build-debug
