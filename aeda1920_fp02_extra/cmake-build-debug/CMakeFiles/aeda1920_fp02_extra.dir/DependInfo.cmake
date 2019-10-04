@@ -6,6 +6,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra/Tests/animal.cpp" "/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra/cmake-build-debug/CMakeFiles/aeda1920_fp02_extra.dir/Tests/animal.cpp.o"
   "/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra/Tests/tests.cpp" "/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra/cmake-build-debug/CMakeFiles/aeda1920_fp02_extra.dir/Tests/tests.cpp.o"
+  "/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra/Tests/veterinario.cpp" "/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra/cmake-build-debug/CMakeFiles/aeda1920_fp02_extra.dir/Tests/veterinario.cpp.o"
+  "/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra/Tests/zoo.cpp" "/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra/cmake-build-debug/CMakeFiles/aeda1920_fp02_extra.dir/Tests/zoo.cpp.o"
   "/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra/main.cpp" "/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra/cmake-build-debug/CMakeFiles/aeda1920_fp02_extra.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

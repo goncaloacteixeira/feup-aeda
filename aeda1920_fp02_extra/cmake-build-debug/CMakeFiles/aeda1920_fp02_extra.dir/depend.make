@@ -3,6 +3,7 @@
 
 CMakeFiles/aeda1920_fp02_extra.dir/Tests/animal.cpp.o: ../Tests/animal.cpp
 CMakeFiles/aeda1920_fp02_extra.dir/Tests/animal.cpp.o: ../Tests/animal.h
+CMakeFiles/aeda1920_fp02_extra.dir/Tests/animal.cpp.o: ../Tests/veterinario.h
 
 CMakeFiles/aeda1920_fp02_extra.dir/Tests/tests.cpp.o: ../lib/googletest-master/googlemock/include/gmock/gmock-actions.h
 CMakeFiles/aeda1920_fp02_extra.dir/Tests/tests.cpp.o: ../lib/googletest-master/googlemock/include/gmock/gmock-cardinalities.h
@@ -44,6 +45,16 @@ CMakeFiles/aeda1920_fp02_extra.dir/Tests/tests.cpp.o: ../lib/googletest-master/g
 CMakeFiles/aeda1920_fp02_extra.dir/Tests/tests.cpp.o: ../lib/googletest-master/googletest/include/gtest/internal/gtest-type-util.h
 CMakeFiles/aeda1920_fp02_extra.dir/Tests/tests.cpp.o: ../Tests/animal.h
 CMakeFiles/aeda1920_fp02_extra.dir/Tests/tests.cpp.o: ../Tests/tests.cpp
+CMakeFiles/aeda1920_fp02_extra.dir/Tests/tests.cpp.o: ../Tests/veterinario.h
+CMakeFiles/aeda1920_fp02_extra.dir/Tests/tests.cpp.o: ../Tests/zoo.h
+
+CMakeFiles/aeda1920_fp02_extra.dir/Tests/veterinario.cpp.o: ../Tests/veterinario.cpp
+CMakeFiles/aeda1920_fp02_extra.dir/Tests/veterinario.cpp.o: ../Tests/veterinario.h
+
+CMakeFiles/aeda1920_fp02_extra.dir/Tests/zoo.cpp.o: ../Tests/animal.h
+CMakeFiles/aeda1920_fp02_extra.dir/Tests/zoo.cpp.o: ../Tests/veterinario.h
+CMakeFiles/aeda1920_fp02_extra.dir/Tests/zoo.cpp.o: ../Tests/zoo.cpp
+CMakeFiles/aeda1920_fp02_extra.dir/Tests/zoo.cpp.o: ../Tests/zoo.h
 
 CMakeFiles/aeda1920_fp02_extra.dir/main.cpp.o: ../lib/googletest-master/googlemock/include/gmock/gmock-actions.h
 CMakeFiles/aeda1920_fp02_extra.dir/main.cpp.o: ../lib/googletest-master/googlemock/include/gmock/gmock-cardinalities.h

@@ -327,6 +327,18 @@
 		<Unit filename="/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra/Tests/tests.cpp">
 			<Option target="aeda1920_fp02_extra"/>
 		</Unit>
+		<Unit filename="/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra/Tests/veterinario.cpp">
+			<Option target="aeda1920_fp02_extra"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra/Tests/veterinario.h">
+			<Option target="aeda1920_fp02_extra"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra/Tests/zoo.cpp">
+			<Option target="aeda1920_fp02_extra"/>
+		</Unit>
+		<Unit filename="/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra/Tests/zoo.h">
+			<Option target="aeda1920_fp02_extra"/>
+		</Unit>
 		<Unit filename="/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra/lib/googletest-master/googlemock/src/gmock-all.cc">
 			<Option target="gmock"/>
 		</Unit>

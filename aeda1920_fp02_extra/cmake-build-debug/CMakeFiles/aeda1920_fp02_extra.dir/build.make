@@ -96,11 +96,39 @@ CMakeFiles/aeda1920_fp02_extra.dir/Tests/animal.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/aeda1920_fp02_extra.dir/Tests/animal.cpp.s"
 	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra/Tests/animal.cpp -o CMakeFiles/aeda1920_fp02_extra.dir/Tests/animal.cpp.s
 
+CMakeFiles/aeda1920_fp02_extra.dir/Tests/zoo.cpp.o: CMakeFiles/aeda1920_fp02_extra.dir/flags.make
+CMakeFiles/aeda1920_fp02_extra.dir/Tests/zoo.cpp.o: ../Tests/zoo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/aeda1920_fp02_extra.dir/Tests/zoo.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aeda1920_fp02_extra.dir/Tests/zoo.cpp.o -c /cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra/Tests/zoo.cpp
+
+CMakeFiles/aeda1920_fp02_extra.dir/Tests/zoo.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/aeda1920_fp02_extra.dir/Tests/zoo.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra/Tests/zoo.cpp > CMakeFiles/aeda1920_fp02_extra.dir/Tests/zoo.cpp.i
+
+CMakeFiles/aeda1920_fp02_extra.dir/Tests/zoo.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/aeda1920_fp02_extra.dir/Tests/zoo.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra/Tests/zoo.cpp -o CMakeFiles/aeda1920_fp02_extra.dir/Tests/zoo.cpp.s
+
+CMakeFiles/aeda1920_fp02_extra.dir/Tests/veterinario.cpp.o: CMakeFiles/aeda1920_fp02_extra.dir/flags.make
+CMakeFiles/aeda1920_fp02_extra.dir/Tests/veterinario.cpp.o: ../Tests/veterinario.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/aeda1920_fp02_extra.dir/Tests/veterinario.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aeda1920_fp02_extra.dir/Tests/veterinario.cpp.o -c /cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra/Tests/veterinario.cpp
+
+CMakeFiles/aeda1920_fp02_extra.dir/Tests/veterinario.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/aeda1920_fp02_extra.dir/Tests/veterinario.cpp.i"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra/Tests/veterinario.cpp > CMakeFiles/aeda1920_fp02_extra.dir/Tests/veterinario.cpp.i
+
+CMakeFiles/aeda1920_fp02_extra.dir/Tests/veterinario.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/aeda1920_fp02_extra.dir/Tests/veterinario.cpp.s"
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra/Tests/veterinario.cpp -o CMakeFiles/aeda1920_fp02_extra.dir/Tests/veterinario.cpp.s
+
 # Object files for target aeda1920_fp02_extra
 aeda1920_fp02_extra_OBJECTS = \
 "CMakeFiles/aeda1920_fp02_extra.dir/main.cpp.o" \
 "CMakeFiles/aeda1920_fp02_extra.dir/Tests/tests.cpp.o" \
-"CMakeFiles/aeda1920_fp02_extra.dir/Tests/animal.cpp.o"
+"CMakeFiles/aeda1920_fp02_extra.dir/Tests/animal.cpp.o" \
+"CMakeFiles/aeda1920_fp02_extra.dir/Tests/zoo.cpp.o" \
+"CMakeFiles/aeda1920_fp02_extra.dir/Tests/veterinario.cpp.o"
 
 # External object files for target aeda1920_fp02_extra
 aeda1920_fp02_extra_EXTERNAL_OBJECTS =
@@ -108,12 +136,14 @@ aeda1920_fp02_extra_EXTERNAL_OBJECTS =
 aeda1920_fp02_extra.exe: CMakeFiles/aeda1920_fp02_extra.dir/main.cpp.o
 aeda1920_fp02_extra.exe: CMakeFiles/aeda1920_fp02_extra.dir/Tests/tests.cpp.o
 aeda1920_fp02_extra.exe: CMakeFiles/aeda1920_fp02_extra.dir/Tests/animal.cpp.o
+aeda1920_fp02_extra.exe: CMakeFiles/aeda1920_fp02_extra.dir/Tests/zoo.cpp.o
+aeda1920_fp02_extra.exe: CMakeFiles/aeda1920_fp02_extra.dir/Tests/veterinario.cpp.o
 aeda1920_fp02_extra.exe: CMakeFiles/aeda1920_fp02_extra.dir/build.make
 aeda1920_fp02_extra.exe: lib/libgtestd.a
 aeda1920_fp02_extra.exe: lib/libgtest_maind.a
 aeda1920_fp02_extra.exe: lib/libgtestd.a
 aeda1920_fp02_extra.exe: CMakeFiles/aeda1920_fp02_extra.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable aeda1920_fp02_extra.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable aeda1920_fp02_extra.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/aeda1920_fp02_extra.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

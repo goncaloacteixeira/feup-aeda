@@ -7,6 +7,6 @@ add_subdirectory(lib/googletest-master)
 include_directories(lib/googletest-master/googletest/include)
 include_directories(lib/googletest-master/googlemock/include)
 
-add_executable(aeda1920_fp02_extra main.cpp Tests/tests.cpp Tests/animal.cpp)
+add_executable(aeda1920_fp02_extra main.cpp Tests/tests.cpp Tests/animal.cpp Tests/zoo.cpp Tests/veterinario.cpp)
 
 target_link_libraries(aeda1920_fp02_extra gtest gtest_main)

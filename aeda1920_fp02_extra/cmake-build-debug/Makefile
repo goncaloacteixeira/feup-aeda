@@ -275,6 +275,60 @@ Tests/tests.cpp.s:
 	$(MAKE) -f CMakeFiles/aeda1920_fp02_extra.dir/build.make CMakeFiles/aeda1920_fp02_extra.dir/Tests/tests.cpp.s
 .PHONY : Tests/tests.cpp.s
 
+Tests/veterinario.o: Tests/veterinario.cpp.o
+
+.PHONY : Tests/veterinario.o
+
+# target to build an object file
+Tests/veterinario.cpp.o:
+	$(MAKE) -f CMakeFiles/aeda1920_fp02_extra.dir/build.make CMakeFiles/aeda1920_fp02_extra.dir/Tests/veterinario.cpp.o
+.PHONY : Tests/veterinario.cpp.o
+
+Tests/veterinario.i: Tests/veterinario.cpp.i
+
+.PHONY : Tests/veterinario.i
+
+# target to preprocess a source file
+Tests/veterinario.cpp.i:
+	$(MAKE) -f CMakeFiles/aeda1920_fp02_extra.dir/build.make CMakeFiles/aeda1920_fp02_extra.dir/Tests/veterinario.cpp.i
+.PHONY : Tests/veterinario.cpp.i
+
+Tests/veterinario.s: Tests/veterinario.cpp.s
+
+.PHONY : Tests/veterinario.s
+
+# target to generate assembly for a file
+Tests/veterinario.cpp.s:
+	$(MAKE) -f CMakeFiles/aeda1920_fp02_extra.dir/build.make CMakeFiles/aeda1920_fp02_extra.dir/Tests/veterinario.cpp.s
+.PHONY : Tests/veterinario.cpp.s
+
+Tests/zoo.o: Tests/zoo.cpp.o
+
+.PHONY : Tests/zoo.o
+
+# target to build an object file
+Tests/zoo.cpp.o:
+	$(MAKE) -f CMakeFiles/aeda1920_fp02_extra.dir/build.make CMakeFiles/aeda1920_fp02_extra.dir/Tests/zoo.cpp.o
+.PHONY : Tests/zoo.cpp.o
+
+Tests/zoo.i: Tests/zoo.cpp.i
+
+.PHONY : Tests/zoo.i
+
+# target to preprocess a source file
+Tests/zoo.cpp.i:
+	$(MAKE) -f CMakeFiles/aeda1920_fp02_extra.dir/build.make CMakeFiles/aeda1920_fp02_extra.dir/Tests/zoo.cpp.i
+.PHONY : Tests/zoo.cpp.i
+
+Tests/zoo.s: Tests/zoo.cpp.s
+
+.PHONY : Tests/zoo.s
+
+# target to generate assembly for a file
+Tests/zoo.cpp.s:
+	$(MAKE) -f CMakeFiles/aeda1920_fp02_extra.dir/build.make CMakeFiles/aeda1920_fp02_extra.dir/Tests/zoo.cpp.s
+.PHONY : Tests/zoo.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -325,6 +379,12 @@ help:
 	@echo "... Tests/tests.o"
 	@echo "... Tests/tests.i"
 	@echo "... Tests/tests.s"
+	@echo "... Tests/veterinario.o"
+	@echo "... Tests/veterinario.i"
+	@echo "... Tests/veterinario.s"
+	@echo "... Tests/zoo.o"
+	@echo "... Tests/zoo.i"
+	@echo "... Tests/zoo.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -1,6 +1,6 @@
-
 #include "animal.h"
-#include <sstream>
+#include <vector>
+
 using namespace std;
 
 /*
@@ -12,6 +12,8 @@ int Animal::maisJovem = 1000000;
 Animal::Animal(string nome, int idade) {
     this->nome = nome;
     this->idade = idade;
+
+    this->vet = nullptr;
 
     if (idade <= maisJovem)
         maisJovem = idade;
@@ -29,6 +31,15 @@ string Animal::getNome() const {
     return nome;
 }
 
+
+string Animal::getInformacao() {
+    if (vet != nullptr)
+    {
+        return nome + ", " + to_string(idade) + ", " + vet->getNome() + ", " + to_string(vet->getCod());
+    }
+    return nome + ", " + to_string(idade);
+}
+
 /*
  * Classe Cao
  */
@@ -43,6 +54,10 @@ bool Cao::eJovem() {
     return  false;
 }
 
+string Cao::getInformacao() {
+    return Animal::getInformacao() + ", " + raca;
+}
+
 /*
  * Classe Voador
  */
@@ -50,6 +65,14 @@ bool Cao::eJovem() {
 Voador::Voador(int vmax, int amax) {
     this->velocidade_max = vmax;
     this->altura_max = amax;
+}
+
+int Voador::getVmax() {
+    return velocidade_max;
+}
+
+int Voador::getAmax() {
+    return altura_max;
 }
 
 /*
@@ -64,6 +87,10 @@ bool Morcego::eJovem() {
     if (idade < 4)
         return true;
     return  false;
+}
+
+string Morcego::getInformacao() {
+    return Animal::getInformacao() + ", " + to_string(this->getVmax()) + ", " + to_string(this->getAmax());
 }
 
 

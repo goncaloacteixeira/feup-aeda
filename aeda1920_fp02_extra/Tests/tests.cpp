@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 #include <gmock/gmock.h>
-#include "animal.h"
+#include "zoo.h"
 #include <string>
 #include <fstream>
 
@@ -26,7 +26,7 @@ TEST(test, a_criarAnimais){
 }
 
 TEST(test, b_adicionarAnimais){
-    /*Zoo z1;
+    Zoo z1;
 
     Animal *a1=new Cao("kurika",10,"estrela");  //nome, idade, ra�a
     Animal *a2=new Morcego("bobo",2,70,2);  //nome, idade, velocidade_maxima, altura_maxima
@@ -40,11 +40,11 @@ TEST(test, b_adicionarAnimais){
     z1.adicionaAnimal(a4);
     z1.adicionaAnimal(a5);
 
-    ASSERT_EQ(5, z1.numAnimais());*/
+    ASSERT_EQ(5, z1.numAnimais());
 }
 
 TEST(test, c_imprimirAnimais){
-    /*Zoo z1;
+    Zoo z1;
 
     Animal *a1=new Cao("kurika",10,"estrela");  //nome, idade, ra�a
     ASSERT_EQ("kurika, 10, estrela", a1->getInformacao());
@@ -55,7 +55,7 @@ TEST(test, c_imprimirAnimais){
     z1.adicionaAnimal(a1);
     z1.adicionaAnimal(a2);
 
-    cout << z1.getInformacao();*/
+    cout << z1.getInformacao();
 }
 
 TEST(test, d_verificarAnimalJovem){
