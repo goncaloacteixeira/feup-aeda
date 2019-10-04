@@ -8,7 +8,7 @@ using testing::Eq;
 
 
 TEST(test, a_criarAnimais){
-   /* Animal *a1=new Cao("kurika",10,"estrela");  //nome, idade, ra�a
+    Animal *a1=new Cao("kurika",10,"estrela");  //nome, idade, ra�a
     Animal *a2=new Morcego("bobo",2,70,2);  //nome, idade, velocidade_maxima, altura_maxima
     Animal *a3=new Cao("bobby",3,"rafeiro");
     Animal *a4=new Cao("fly",7,"dalmata");
@@ -22,7 +22,7 @@ TEST(test, a_criarAnimais){
     ASSERT_EQ(false, a4->eJovem());
     ASSERT_EQ(true, a2->eJovem());
     ASSERT_EQ(false, a5->eJovem());
-    ASSERT_EQ(2, Animal::getMaisJovem());*/
+    ASSERT_EQ(2, Animal::getMaisJovem());
 }
 
 TEST(test, b_adicionarAnimais){

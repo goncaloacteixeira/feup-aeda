@@ -15,6 +15,8 @@ protected:
 	static int maisJovem;
 public:
 	Animal(string nome, int idade);
+	static int getMaisJovem();
+	virtual bool eJovem();
 	// virtual ~Animal(){};
 	string getNome() const;
 	//completar
@@ -25,6 +27,7 @@ class Cao: public Animal {
 	string raca;
 public:
 	Cao(string nome, int idade, string raca);
+	bool eJovem();
 	//completar
 };
 
@@ -34,7 +37,7 @@ class Voador {
 	int altura_max;
 public:
 	Voador(int vmax, int amax);
-    virtual ~Voador(){};
+    // virtual ~Voador(){};
 	//completar
 };
 
@@ -42,7 +45,8 @@ public:
 class Morcego: public Animal, public Voador {
 public:
 	Morcego(string nome, int idade, int vmax, int amax);
-	//completar
+    bool eJovem();
+    //completar
 };
 
 
