@@ -11,5 +11,10 @@ long Veterinario::getCod() const {
     return codOrdem;
 }
 
+Veterinario::Veterinario(string nome, int cod) {
+    this->nome = nome;
+    this->codOrdem = cod;
+}
+
 
 

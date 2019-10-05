@@ -19,6 +19,7 @@ public:
 	virtual bool eJovem();
 	void setVet(Veterinario *vet);
 	Veterinario getVet();
+	int getIdade();
 	// virtual ~Animal(){};
 	string getNome() const;
 	virtual string getInformacao();

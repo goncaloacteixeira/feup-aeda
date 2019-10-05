@@ -59,7 +59,7 @@ TEST(test, c_imprimirAnimais){
 }
 
 TEST(test, d_verificarAnimalJovem){
-   /* Zoo z1;
+    Zoo z1;
 
     Animal *a1=new Cao("kurika",10,"estrela");  //nome, idade, ra�a
     Animal *a2=new Morcego("bobo",2,70,2);  //nome, idade, velocidade_maxima, altura_maxima
@@ -68,11 +68,11 @@ TEST(test, d_verificarAnimalJovem){
     z1.adicionaAnimal(a2);
 
     ASSERT_EQ(false, z1.animalJovem("kurika"));
-    ASSERT_EQ(true, z1.animalJovem("bobo"));*/
+    ASSERT_EQ(true, z1.animalJovem("bobo"));
 }
 
 TEST(test, e_alocarVeterinarios){
-  /*  Zoo z1;
+    Zoo z1;
 
     Animal *a1=new Cao("kurika",10,"estrela");  //nome, idade, ra�a
     Animal *a2=new Morcego("bobo",2,70,2);  //nome, idade, velocidade_maxima, altura_maxima
@@ -87,18 +87,18 @@ TEST(test, e_alocarVeterinarios){
     z1.adicionaAnimal(a5);
 
     //TODO trocar o caminho do ficheiro para o caminho correcto; caminho relativo n�o funciona!
-    ifstream fVet("vets.txt");
+    ifstream fVet("C:/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra/Tests/vets.txt");
     if (!fVet) cerr << "Ficheiro de veterinarios inexistente!\n";
     else z1.alocaVeterinarios(fVet);
     fVet.close();
 
     ASSERT_EQ(5, z1.numAnimais());
     ASSERT_EQ(3, z1.numVeterinarios());
-    ASSERT_EQ("kurika, 10, Rui Silva, 1234, estrela", a1->getInformacao());*/
+    ASSERT_EQ("kurika, 10, Rui Silva, 1234, estrela", a1->getInformacao());
 }
 
 TEST(test, f_removerVeterinario){
-    /*Zoo z1;
+    Zoo z1;
 
     Animal *a1=new Cao("kurika",10,"estrela");  //nome, idade, ra�a
     Animal *a2=new Morcego("bobo",2,70,2);  //nome, idade, velocidade_maxima, altura_maxima
@@ -113,7 +113,7 @@ TEST(test, f_removerVeterinario){
     z1.adicionaAnimal(a5);
 
     //TODO trocar o caminho do ficheiro para o caminho correcto; caminho relativo n�o funciona!
-    ifstream fVet("vets.txt");
+    ifstream fVet("C:/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp02_extra/Tests/vets.txt");
     if (!fVet) cerr << "Ficheiro de veterinarios inexistente!\n";
     else z1.alocaVeterinarios(fVet);
     fVet.close();
@@ -124,11 +124,11 @@ TEST(test, f_removerVeterinario){
 
     z1.removeVeterinario("Rui Silva");
 
-    ASSERT_EQ("kurika, 10, Artur Costa, 3542, estrela", a1->getInformacao());*/
+    ASSERT_EQ("kurika, 10, Artur Costa, 3542, estrela", a1->getInformacao());
 }
 
 TEST(test, h_compararZoos){
-   /* Zoo z1;
+    Zoo z1;
 
     Animal *a1=new Cao("kurika",10,"estrela");  //nome, idade, ra�a
     Animal *a2=new Morcego("bobo",2,70,2);  //nome, idade, velocidade_maxima, altura_maxima
@@ -154,5 +154,5 @@ TEST(test, h_compararZoos){
     z2.adicionaAnimal(b3);
     z2.adicionaAnimal(b4);
 
-    ASSERT_EQ(true, z2 < z1);*/
+    ASSERT_EQ(true, z2 < z1);
 }

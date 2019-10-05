@@ -40,6 +40,18 @@ string Animal::getInformacao() {
     return nome + ", " + to_string(idade);
 }
 
+void Animal::setVet(Veterinario *vet) {
+    this->vet = vet;
+}
+
+Veterinario Animal::getVet() {
+    return *vet;
+}
+
+int Animal::getIdade() {
+    return idade;
+}
+
 /*
  * Classe Cao
  */

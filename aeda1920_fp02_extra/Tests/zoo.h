@@ -15,7 +15,12 @@ public:
 	int numAnimais() const;
 	int numVeterinarios() const;
 	string getInformacao();
-	//completar
+	bool animalJovem(string nomeA);
+    void alocaVeterinarios(ifstream &isV);
+    void atribuirVeterinarios();
+    bool removeVeterinario(string nomeV);
+
+    bool operator < (Zoo& zoo2) const;
 };
 
 
