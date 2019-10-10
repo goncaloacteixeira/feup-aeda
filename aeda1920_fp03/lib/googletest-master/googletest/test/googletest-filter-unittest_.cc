@@ -94,7 +94,7 @@ TEST(HasDeathTest, Test1) {
   EXPECT_DEATH_IF_SUPPORTED(exit(1), ".*");
 }
 
-// We need at least two death Tests to make sure that the all death Tests
+// We need at least two death tests to make sure that the all death tests
 // aren't on the first shard.
 TEST(HasDeathTest, Test2) {
   EXPECT_DEATH_IF_SUPPORTED(exit(1), ".*");
@@ -125,8 +125,8 @@ TEST_P(ParamTest, TestX) {
 TEST_P(ParamTest, TestY) {
 }
 
-INSTANTIATE_TEST_CASE_P(SeqP, ParamTest, testing::Values(1, 2));
-INSTANTIATE_TEST_CASE_P(SeqQ, ParamTest, testing::Values(5, 6));
+INSTANTIATE_TEST_SUITE_P(SeqP, ParamTest, testing::Values(1, 2));
+INSTANTIATE_TEST_SUITE_P(SeqQ, ParamTest, testing::Values(5, 6));
 
 }  // namespace
 

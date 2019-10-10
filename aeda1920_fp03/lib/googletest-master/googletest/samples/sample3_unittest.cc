@@ -33,22 +33,22 @@
 // test fixture.
 //
 // A test fixture is a place to hold objects and functions shared by
-// all Tests in a test case.  Using a test fixture avoids duplicating
+// all tests in a test case.  Using a test fixture avoids duplicating
 // the test code necessary to initialize and cleanup those common
 // objects for each test.  It is also useful for defining sub-routines
-// that your Tests need to invoke a lot.
+// that your tests need to invoke a lot.
 //
 // <TechnicalDetails>
 //
-// The Tests share the test fixture in the sense of code sharing, not
+// The tests share the test fixture in the sense of code sharing, not
 // data sharing.  Each test is given its own fresh copy of the
 // fixture.  You cannot expect the data modified by one test to be
 // passed on to another test, which is a bad idea.
 //
-// The reason for this design is that Tests should be independent and
+// The reason for this design is that tests should be independent and
 // repeatable.  In particular, a test should not fail as the result of
 // another test's failure.  If one test depends on info produced by
-// another test, then the two Tests should really be one big test.
+// another test, then the two tests should really be one big test.
 //
 // The macros for indicating the success/failure of a test
 // (EXPECT_TRUE, FAIL, etc) need to know what the current test is
@@ -107,7 +107,7 @@ class QueueTestSmpl3 : public testing::Test {
     delete new_q;
   }
 
-  // Declares the variables your Tests want to use.
+  // Declares the variables your tests want to use.
   Queue<int> q0_;
   Queue<int> q1_;
   Queue<int> q2_;

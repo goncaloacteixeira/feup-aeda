@@ -37,7 +37,7 @@
 
 #include "gtest/gtest.h"
 
-// This macro defines 10 dummy Tests.
+// This macro defines 10 dummy tests.
 #define TEN_TESTS_(test_case_name) \
   TEST(test_case_name, T0) {} \
   TEST(test_case_name, T1) {} \
@@ -50,7 +50,7 @@
   TEST(test_case_name, T8) {} \
   TEST(test_case_name, T9) {}
 
-// This macro defines 100 dummy Tests.
+// This macro defines 100 dummy tests.
 #define HUNDRED_TESTS_(test_case_name_prefix) \
   TEN_TESTS_(test_case_name_prefix ## 0) \
   TEN_TESTS_(test_case_name_prefix ## 1) \
@@ -63,7 +63,7 @@
   TEN_TESTS_(test_case_name_prefix ## 8) \
   TEN_TESTS_(test_case_name_prefix ## 9)
 
-// This macro defines 1000 dummy Tests.
+// This macro defines 1000 dummy tests.
 #define THOUSAND_TESTS_(test_case_name_prefix) \
   HUNDRED_TESTS_(test_case_name_prefix ## 0) \
   HUNDRED_TESTS_(test_case_name_prefix ## 1) \
@@ -83,7 +83,7 @@ THOUSAND_TESTS_(T)
 int main(int argc, char **argv) {
   testing::InitGoogleTest(&argc, argv);
 
-  // We don't actually need to run the dummy Tests - the purpose is to
+  // We don't actually need to run the dummy tests - the purpose is to
   // ensure that they compile.
   return 0;
 }

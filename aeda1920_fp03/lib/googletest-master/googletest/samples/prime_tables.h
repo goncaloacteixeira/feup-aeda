@@ -31,7 +31,7 @@
 
 // This provides interface PrimeTable that determines whether a number is a
 // prime and determines a next prime number. This interface is used
-// in Google Test samples demonstrating use of parameterized Tests.
+// in Google Test samples demonstrating use of parameterized tests.
 
 #ifndef GTEST_SAMPLES_PRIME_TABLES_H_
 #define GTEST_SAMPLES_PRIME_TABLES_H_
@@ -43,7 +43,7 @@ class PrimeTable {
  public:
   virtual ~PrimeTable() {}
 
-  // Returns true iff n is a prime number.
+  // Returns true if and only if n is a prime number.
   virtual bool IsPrime(int n) const = 0;
 
   // Returns the smallest prime number greater than p; or returns -1

@@ -109,7 +109,7 @@ TEST_P(PrimeTableTest, ReturnsFalseForNonPrimes) {
   // In this case, the test parameter is a PrimeTable interface pointer which
   // we can use directly.
   // Please note that you can also save it in the fixture's SetUp() method
-  // or constructor and use saved copy in the Tests.
+  // or constructor and use saved copy in the tests.
 
   EXPECT_FALSE(table_->IsPrime(-5));
   EXPECT_FALSE(table_->IsPrime(0));
@@ -137,19 +137,18 @@ TEST_P(PrimeTableTest, CanGetNextPrime) {
   EXPECT_EQ(131, table_->GetNextPrime(128));
 }
 
-// In order to run value-parameterized Tests, you need to instantiate them,
+// In order to run value-parameterized tests, you need to instantiate them,
 // or bind them to a list of values which will be used as test parameters.
 // You can instantiate them in a different translation module, or even
 // instantiate them several times.
 //
-// Here, we instantiate our Tests with a list of parameters. We must combine
+// Here, we instantiate our tests with a list of parameters. We must combine
 // all variations of the boolean flag suppressing PrecalcPrimeTable and some
-// meaningful values for Tests. We choose a small value (1), and a value that
+// meaningful values for tests. We choose a small value (1), and a value that
 // will put some of the tested numbers beyond the capability of the
 // PrecalcPrimeTable instance and some inside it (10). Combine will produce all
 // possible combinations.
-INSTANTIATE_TEST_CASE_P(MeaningfulTestParameters,
-                        PrimeTableTest,
-                        Combine(Bool(), Values(1, 10)));
+INSTANTIATE_TEST_SUITE_P(MeaningfulTestParameters, PrimeTableTest,
+                         Combine(Bool(), Values(1, 10)));
 
 }  // namespace

@@ -35,7 +35,7 @@ class Grafo {
 	vector< No<N,A> *> nos;
   public: 
     Grafo();
-    ~Grafo(); 
+    ~Grafo();
     Grafo & inserirNo(const N &dados);
     Grafo & inserirAresta(const N &inicio, const N &fim, const A &val);
     Grafo & eliminarAresta(const N &inicio, const N &fim);
@@ -45,7 +45,34 @@ class Grafo {
     void imprimir(std::ostream &os) const; 
 };
 
-template <class N, class A> 
+template<class N, class A>
+Grafo<N, A>::Grafo() {
+    this->nos = {};
+}
+
+template<class N, class A>
+Grafo<N, A>::~Grafo() {
+}
+
+template<class N, class A>
+int Grafo<N, A>::numArestas(void) const {
+    int count = 0;
+    if (this->numNos() == 0)
+        return count;
+    for (int i = 0; i < numNos(); i++)
+    {
+        count += nos[i]->arestas.size();
+    }
+    return count;
+}
+
+template<class N, class A>
+int Grafo<N, A>::numNos(void) const {
+    return nos.size();
+}
+
+
+template <class N, class A>
 std::ostream & operator<<(std::ostream &out, const Grafo<N,A> &g);
 
 

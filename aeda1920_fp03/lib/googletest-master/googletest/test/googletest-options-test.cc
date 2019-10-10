@@ -27,9 +27,9 @@
 // (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 // OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //
-// Google Test UnitTestOptions Tests
+// Google Test UnitTestOptions tests
 //
-// This file Tests classes and functions used internally by
+// This file tests classes and functions used internally by
 // Google Test.  They are subject to change without notice.
 //
 // This file is #included from gtest.cc, to avoid changing build or
@@ -111,7 +111,6 @@ TEST(OutputFileHelpersTest, GetCurrentExecutableName) {
 #elif GTEST_OS_FUCHSIA
   const bool success = exe_str == "app";
 #else
-  // FIXME: remove the hard-coded "lt-" prefix when libtool replacement is ready
   const bool success =
       exe_str == "googletest-options-test" ||
       exe_str == "gtest_all_test" ||

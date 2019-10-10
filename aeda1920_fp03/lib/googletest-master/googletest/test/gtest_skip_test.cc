@@ -42,7 +42,7 @@ TEST(SkipTest, DoesSkip) {
 class Fixture : public Test {
  protected:
   void SetUp() override {
-    GTEST_SKIP() << "skipping all Tests for this fixture";
+    GTEST_SKIP() << "skipping all tests for this fixture";
   }
 };
 

@@ -6,9 +6,9 @@
 using testing::Eq;
 
 TEST(test, a_ConstrutorNosArestas){
-   /* Grafo<string,int> g;
+    Grafo<string,int> g;
     ASSERT_EQ(0, g.numNos());
-    ASSERT_EQ(0, g.numArestas());*/
+    ASSERT_EQ(0, g.numArestas());
 }
 
 TEST(test, b_InserirNo){

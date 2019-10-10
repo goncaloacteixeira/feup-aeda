@@ -55,7 +55,6 @@ NO_STACKTRACE_SUPPORT_FLAG = '--no_stacktrace_support'
 IS_LINUX = os.name == 'posix' and os.uname()[0] == 'Linux'
 IS_WINDOWS = os.name == 'nt'
 
-# FIXME: remove the _lin suffix.
 GOLDEN_NAME = 'googletest-output-test-golden-lin.txt'
 
 PROGRAM_PATH = gtest_test_utils.GetTestExecutablePath('googletest-output-test_')
@@ -157,19 +156,19 @@ def NormalizeToCurrentPlatform(test_output):
 def RemoveTestCounts(output):
   """Removes test counts from a Google Test program's output."""
 
-  output = re.sub(r'\d+ Tests?, listed below',
-                  '? Tests, listed below', output)
+  output = re.sub(r'\d+ tests?, listed below',
+                  '? tests, listed below', output)
   output = re.sub(r'\d+ FAILED TESTS',
                   '? FAILED TESTS', output)
-  output = re.sub(r'\d+ Tests? from \d+ test cases?',
-                  '? Tests from ? test cases', output)
-  output = re.sub(r'\d+ Tests? from ([a-zA-Z_])',
-                  r'? Tests from \1', output)
-  return re.sub(r'\d+ Tests?\.', '? Tests.', output)
+  output = re.sub(r'\d+ tests? from \d+ test cases?',
+                  '? tests from ? test cases', output)
+  output = re.sub(r'\d+ tests? from ([a-zA-Z_])',
+                  r'? tests from \1', output)
+  return re.sub(r'\d+ tests?\.', '? tests.', output)
 
 
 def RemoveMatchingTests(test_output, pattern):
-  """Removes output of specified Tests from a Google Test program's output.
+  """Removes output of specified tests from a Google Test program's output.
 
   This function strips not only the beginning and the end of a test but also
   all output in between.
@@ -177,10 +176,10 @@ def RemoveMatchingTests(test_output, pattern):
   Args:
     test_output:       A string containing the test output.
     pattern:           A regex string that matches names of test cases or
-                       Tests to remove.
+                       tests to remove.
 
   Returns:
-    Contents of test_output with Tests whose names match pattern removed.
+    Contents of test_output with tests whose names match pattern removed.
   """
 
   test_output = re.sub(
@@ -337,8 +336,8 @@ if __name__ == '__main__':
     else:
       message = (
           """Unable to write a golden file when compiled in an environment
-that does not support all the required features (death Tests,
-typed Tests, stack traces, and multiple threads).
+that does not support all the required features (death tests,
+typed tests, stack traces, and multiple threads).
 Please build this test and generate the golden file using Blaze on Linux.""")
 
       sys.stderr.write(message)

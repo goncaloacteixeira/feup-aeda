@@ -30,16 +30,16 @@
 
 // Unit test for Google Test's --gtest_list_tests flag.
 //
-// A user can ask Google Test to list all Tests that will run
+// A user can ask Google Test to list all tests that will run
 // so that when using a filter, a user will know what
-// Tests to look for. The Tests will not be run after listing.
+// tests to look for. The tests will not be run after listing.
 //
 // This program will be invoked from a Python unit test.
 // Don't run it directly.
 
 #include "gtest/gtest.h"
 
-// Several different test cases and Tests that will be listed.
+// Several different test cases and tests that will be listed.
 TEST(Foo, Bar1) {
 }
 
@@ -73,7 +73,7 @@ TEST_F(FooTest, Test3) {
 TEST(FooDeathTest, Test1) {
 }
 
-// A group of value-parameterized Tests.
+// A group of value-parameterized tests.
 
 class MyType {
  public:
@@ -99,13 +99,13 @@ TEST_P(ValueParamTest, TestA) {
 TEST_P(ValueParamTest, TestB) {
 }
 
-INSTANTIATE_TEST_CASE_P(
+INSTANTIATE_TEST_SUITE_P(
     MyInstantiation, ValueParamTest,
     testing::Values(MyType("one line"),
                     MyType("two\nlines"),
                     MyType("a very\nloooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong line")));  // NOLINT
 
-// A group of typed Tests.
+// A group of typed tests.
 
 // A deliberately long type name for testing the line-truncating
 // behavior when printing a type parameter.
@@ -123,7 +123,7 @@ class MyArray {
 typedef testing::Types<VeryLoooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooogName,  // NOLINT
                        int*, MyArray<bool, 42> > MyTypes;
 
-TYPED_TEST_CASE(TypedTest, MyTypes);
+TYPED_TEST_SUITE(TypedTest, MyTypes);
 
 TYPED_TEST(TypedTest, TestA) {
 }
@@ -131,13 +131,13 @@ TYPED_TEST(TypedTest, TestA) {
 TYPED_TEST(TypedTest, TestB) {
 }
 
-// A group of type-parameterized Tests.
+// A group of type-parameterized tests.
 
 template <typename T>
 class TypeParamTest : public testing::Test {
 };
 
-TYPED_TEST_CASE_P(TypeParamTest);
+TYPED_TEST_SUITE_P(TypeParamTest);
 
 TYPED_TEST_P(TypeParamTest, TestA) {
 }
@@ -145,9 +145,9 @@ TYPED_TEST_P(TypeParamTest, TestA) {
 TYPED_TEST_P(TypeParamTest, TestB) {
 }
 
-REGISTER_TYPED_TEST_CASE_P(TypeParamTest, TestA, TestB);
+REGISTER_TYPED_TEST_SUITE_P(TypeParamTest, TestA, TestB);
 
-INSTANTIATE_TYPED_TEST_CASE_P(My, TypeParamTest, MyTypes);
+INSTANTIATE_TYPED_TEST_SUITE_P(My, TypeParamTest, MyTypes);
 
 int main(int argc, char **argv) {
   ::testing::InitGoogleTest(&argc, argv);

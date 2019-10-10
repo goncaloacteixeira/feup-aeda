@@ -30,7 +30,7 @@
 
 // Google Mock - a framework for writing C++ mock classes.
 //
-// This file Tests the spec builder syntax.
+// This file tests the spec builder syntax.
 
 #include "gmock/gmock-spec-builders.h"
 
@@ -78,6 +78,7 @@ using testing::Expectation;
 using testing::ExpectationSet;
 using testing::GMOCK_FLAG(verbose);
 using testing::Gt;
+using testing::IgnoreResult;
 using testing::InSequence;
 using testing::Invoke;
 using testing::InvokeWithoutArgs;
@@ -228,7 +229,7 @@ TEST(ExpectCallSyntaxTest, WorksWithMethodNameExpandedFromMacro) {
   EXPECT_EQ(42, cc.Method());
 }
 
-#undef Method  // Done with macro redefinition Tests.
+#undef Method  // Done with macro redefinition tests.
 
 // Tests that ON_CALL evaluates its arguments exactly once as promised
 // by Google Mock.
@@ -1022,7 +1023,7 @@ TEST(UnexpectedCallTest, DoesDefaultAction) {
 // Tests that when an unexpected void function generates the right
 // failure message.
 TEST(UnexpectedCallTest, GeneratesFailureForVoidFunction) {
-  // First, Tests the message when there is only one EXPECT_CALL().
+  // First, tests the message when there is only one EXPECT_CALL().
   MockA a1;
   EXPECT_CALL(a1, DoA(1));
   a1.DoA(1);
@@ -1041,7 +1042,7 @@ TEST(UnexpectedCallTest, GeneratesFailureForVoidFunction) {
       "         Expected: to be called once\n"
       "           Actual: called once - saturated and active");
 
-  // Next, Tests the message when there are more than one EXPECT_CALL().
+  // Next, tests the message when there are more than one EXPECT_CALL().
   MockA a2;
   EXPECT_CALL(a2, DoA(1));
   EXPECT_CALL(a2, DoA(3));
@@ -1951,12 +1952,14 @@ TEST(DeletingMockEarlyTest, Failure2) {
 
 class EvenNumberCardinality : public CardinalityInterface {
  public:
-  // Returns true iff call_count calls will satisfy this cardinality.
+  // Returns true if and only if call_count calls will satisfy this
+  // cardinality.
   bool IsSatisfiedByCallCount(int call_count) const override {
     return call_count % 2 == 0;
   }
 
-  // Returns true iff call_count calls will saturate this cardinality.
+  // Returns true if and only if call_count calls will saturate this
+  // cardinality.
   bool IsSaturatedByCallCount(int /* call_count */) const override {
     return false;
   }
@@ -1991,7 +1994,7 @@ TEST(ExpectationBaseTest,
   EXPECT_NONFATAL_FAILURE(delete a, "to be called even number of times");
 }
 
-// The following Tests verify the message generated when a mock
+// The following tests verify the message generated when a mock
 // function is called.
 
 struct Printable {
@@ -2176,8 +2179,8 @@ class GMockVerboseFlagTest : public VerboseFlagPreservingFixture {
         "call should not happen.  Do not suppress it by blindly adding "
         "an EXPECT_CALL() if you don't mean to enforce the call.  "
         "See "
-        "https://github.com/abseil/googletest/blob/master/googlemock/docs/"
-        "CookBook.md#"
+        "https://github.com/google/googletest/blob/master/googlemock/docs/"
+        "cook_book.md#"
         "knowing-when-to-expect for details.";
 
     // A void-returning function.
@@ -2763,7 +2766,7 @@ int gmock_main(int argc, char **argv) {
 int main(int argc, char **argv) {
 #endif  // GMOCK_RENAME_MAIN
   testing::InitGoogleMock(&argc, argv);
-  // Ensures that the Tests pass no matter what value of
+  // Ensures that the tests pass no matter what value of
   // --gmock_catch_leaked_mocks and --gmock_verbose the user specifies.
   testing::GMOCK_FLAG(catch_leaked_mocks) = true;
   testing::GMOCK_FLAG(verbose) = testing::internal::kWarningVerbosity;

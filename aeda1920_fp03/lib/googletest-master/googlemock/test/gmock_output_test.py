@@ -39,6 +39,7 @@ gmock_output_test.py
 
 """
 
+from io import open    # pylint: disable=redefined-builtin, g-importing-member
 import os
 import re
 import sys
@@ -64,9 +65,9 @@ def RemoveReportHeaderAndFooter(output):
   """Removes Google Test result report's header and footer from the output."""
 
   output = re.sub(r'.*gtest_main.*\n', '', output)
-  output = re.sub(r'\[.*\d+ Tests.*\n', '', output)
+  output = re.sub(r'\[.*\d+ tests.*\n', '', output)
   output = re.sub(r'\[.* test environment .*\n', '', output)
-  output = re.sub(r'\[=+\] \d+ Tests .* ran.*', '', output)
+  output = re.sub(r'\[=+\] \d+ tests .* ran.*', '', output)
   output = re.sub(r'.* FAILED TESTS\n', '', output)
   return output
 
@@ -140,7 +141,7 @@ def GetShellCommandOutput(cmd):
 
 
 def GetNormalizedCommandOutputAndLeakyTests(cmd):
-  """Runs a command and returns its normalized output and a list of leaky Tests.
+  """Runs a command and returns its normalized output and a list of leaky tests.
 
   Args:
     cmd:  the shell command.
@@ -152,10 +153,11 @@ def GetNormalizedCommandOutputAndLeakyTests(cmd):
 
 
 class GMockOutputTest(gmock_test_utils.TestCase):
+
   def testOutput(self):
     (output, leaky_tests) = GetNormalizedCommandOutputAndLeakyTests(COMMAND)
     golden_file = open(GOLDEN_PATH, 'rb')
-    golden = golden_file.read()
+    golden = golden_file.read().decode('utf-8')
     golden_file.close()
 
     # The normalized output should match the golden file.

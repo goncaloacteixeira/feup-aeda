@@ -32,11 +32,11 @@
 
 A user can specify which test(s) in a Google Test program to run via either
 the GTEST_FILTER environment variable or the --gtest_filter flag.
-This script Tests such functionality by invoking
+This script tests such functionality by invoking
 googletest-filter-unittest_ (a program written with Google Test) with different
 environments and command line flags.
 
-Note that test sharding may also influence which Tests are filtered. Therefore,
+Note that test sharding may also influence which tests are filtered. Therefore,
 we test that here also.
 """
 
@@ -98,30 +98,30 @@ SHARD_STATUS_FILE_ENV_VAR = 'GTEST_SHARD_STATUS_FILE'
 # The command line flag for specifying the test filters.
 FILTER_FLAG = 'gtest_filter'
 
-# The command line flag for including disabled Tests.
+# The command line flag for including disabled tests.
 ALSO_RUN_DISABLED_TESTS_FLAG = 'gtest_also_run_disabled_tests'
 
 # Command to run the googletest-filter-unittest_ program.
 COMMAND = gtest_test_utils.GetTestExecutablePath('googletest-filter-unittest_')
 
-# Regex for determining whether parameterized Tests are enabled in the binary.
+# Regex for determining whether parameterized tests are enabled in the binary.
 PARAM_TEST_REGEX = re.compile(r'/ParamTest')
 
 # Regex for parsing test case names from Google Test's output.
-TEST_CASE_REGEX = re.compile(r'^\[\-+\] \d+ Tests? from (\w+(/\w+)?)')
+TEST_CASE_REGEX = re.compile(r'^\[\-+\] \d+ tests? from (\w+(/\w+)?)')
 
 # Regex for parsing test names from Google Test's output.
 TEST_REGEX = re.compile(r'^\[\s*RUN\s*\].*\.(\w+(/\w+)?)')
 
-# The command line flag to tell Google Test to output the list of Tests it
+# The command line flag to tell Google Test to output the list of tests it
 # will run.
 LIST_TESTS_FLAG = '--gtest_list_tests'
 
-# Indicates whether Google Test supports death Tests.
+# Indicates whether Google Test supports death tests.
 SUPPORTS_DEATH_TESTS = 'HasDeathTest' in gtest_test_utils.Subprocess(
     [COMMAND, LIST_TESTS_FLAG]).output
 
-# Full names of all Tests in googletest-filter-unittests_.
+# Full names of all tests in googletest-filter-unittests_.
 PARAM_TESTS = [
     'SeqP/ParamTest.TestX/0',
     'SeqP/ParamTest.TestX/1',
@@ -150,7 +150,7 @@ if SUPPORTS_DEATH_TESTS:
 else:
   DEATH_TESTS = []
 
-# All the non-disabled Tests.
+# All the non-disabled tests.
 ACTIVE_TESTS = [
     'FooTest.Abc',
     'FooTest.Xyz',
@@ -188,7 +188,7 @@ def RunAndReturnOutput(args = None):
 
 
 def RunAndExtractTestList(args = None):
-  """Runs the test program and returns its exit code and a list of Tests run."""
+  """Runs the test program and returns its exit code and a list of tests run."""
 
   p = gtest_test_utils.Subprocess([COMMAND] + (args or []), env=environ)
   tests_run = []
@@ -218,7 +218,7 @@ def InvokeWithModifiedEnv(extra_env, function, *args, **kwargs):
 
 
 def RunWithSharding(total_shards, shard_index, command):
-  """Runs a test program shard and returns exit code and a list of Tests run."""
+  """Runs a test program shard and returns exit code and a list of tests run."""
 
   extra_env = {SHARD_INDEX_ENV_VAR: str(shard_index),
                TOTAL_SHARDS_ENV_VAR: str(total_shards)}
@@ -228,7 +228,7 @@ def RunWithSharding(total_shards, shard_index, command):
 
 
 class GTestFilterUnitTest(gtest_test_utils.TestCase):
-  """Tests the env variable or the command line flag to filter Tests."""
+  """Tests the env variable or the command line flag to filter tests."""
 
   # Utilities.
 
@@ -251,7 +251,7 @@ class GTestFilterUnitTest(gtest_test_utils.TestCase):
     self.assertEqual(set(set_var), set(full_partition))
 
   def AdjustForParameterizedTests(self, tests_to_run):
-    """Adjust tests_to_run in case value parameterized Tests are disabled."""
+    """Adjust tests_to_run in case value parameterized tests are disabled."""
 
     global param_tests_present
     if not param_tests_present:
@@ -260,11 +260,11 @@ class GTestFilterUnitTest(gtest_test_utils.TestCase):
       return tests_to_run
 
   def RunAndVerify(self, gtest_filter, tests_to_run):
-    """Checks that the binary runs correct set of Tests for a given filter."""
+    """Checks that the binary runs correct set of tests for a given filter."""
 
     tests_to_run = self.AdjustForParameterizedTests(tests_to_run)
 
-    # First, Tests using the environment variable.
+    # First, tests using the environment variable.
 
     # Windows removes empty variables from the environment when passing it
     # to a new process.  This means it is impossible to pass an empty filter
@@ -279,7 +279,7 @@ class GTestFilterUnitTest(gtest_test_utils.TestCase):
       self.AssertSetEqual(tests_run, tests_to_run)
     # pylint: enable-msg=C6403
 
-    # Next, Tests using the command line flag.
+    # Next, tests using the command line flag.
 
     if gtest_filter is None:
       args = []
@@ -291,17 +291,17 @@ class GTestFilterUnitTest(gtest_test_utils.TestCase):
 
   def RunAndVerifyWithSharding(self, gtest_filter, total_shards, tests_to_run,
                                args=None, check_exit_0=False):
-    """Checks that binary runs correct Tests for the given filter and shard.
+    """Checks that binary runs correct tests for the given filter and shard.
 
     Runs all shards of googletest-filter-unittest_ with the given filter, and
-    verifies that the right set of Tests were run. The union of Tests run
+    verifies that the right set of tests were run. The union of tests run
     on each shard should be identical to tests_to_run, without duplicates.
     If check_exit_0, .
 
     Args:
-      gtest_filter: A filter to apply to the Tests.
+      gtest_filter: A filter to apply to the tests.
       total_shards: A total number of shards to split test run into.
-      tests_to_run: A set of Tests expected to run.
+      tests_to_run: A set of tests expected to run.
       args   :      Arguments to pass to the to the test binary.
       check_exit_0: When set to a true value, make sure that all shards
                     return 0.
@@ -329,14 +329,14 @@ class GTestFilterUnitTest(gtest_test_utils.TestCase):
     # pylint: enable-msg=C6403
 
   def RunAndVerifyAllowingDisabled(self, gtest_filter, tests_to_run):
-    """Checks that the binary runs correct set of Tests for the given filter.
+    """Checks that the binary runs correct set of tests for the given filter.
 
     Runs googletest-filter-unittest_ with the given filter, and enables
-    disabled Tests. Verifies that the right set of Tests were run.
+    disabled tests. Verifies that the right set of tests were run.
 
     Args:
-      gtest_filter: A filter to apply to the Tests.
-      tests_to_run: A set of Tests expected to run.
+      gtest_filter: A filter to apply to the tests.
+      tests_to_run: A set of tests expected to run.
     """
 
     tests_to_run = self.AdjustForParameterizedTests(tests_to_run)
@@ -352,7 +352,7 @@ class GTestFilterUnitTest(gtest_test_utils.TestCase):
   def setUp(self):
     """Sets up test case.
 
-    Determines whether value-parameterized Tests are enabled in the binary and
+    Determines whether value-parameterized tests are enabled in the binary and
     sets the flags accordingly.
     """
 
@@ -420,7 +420,7 @@ class GTestFilterUnitTest(gtest_test_utils.TestCase):
     self.RunAndVerify('*.TestOne', ['BarTest.TestOne', 'BazTest.TestOne'])
 
   def testFilterDisabledTests(self):
-    """Select only the disabled Tests to run."""
+    """Select only the disabled tests to run."""
 
     self.RunAndVerify('DISABLED_FoobarTest.Test1', [])
     self.RunAndVerifyAllowingDisabled('DISABLED_FoobarTest.Test1',
@@ -547,10 +547,10 @@ class GTestFilterUnitTest(gtest_test_utils.TestCase):
         'BarTest.TestThree',
         ] + DEATH_TESTS + PARAM_TESTS)
 
-    # Value parameterized Tests.
+    # Value parameterized tests.
     self.RunAndVerify('*/*', PARAM_TESTS)
 
-    # Value parameterized Tests filtering by the sequence name.
+    # Value parameterized tests filtering by the sequence name.
     self.RunAndVerify('SeqP/*', [
         'SeqP/ParamTest.TestX/0',
         'SeqP/ParamTest.TestX/1',
@@ -558,7 +558,7 @@ class GTestFilterUnitTest(gtest_test_utils.TestCase):
         'SeqP/ParamTest.TestY/1',
         ])
 
-    # Value parameterized Tests filtering by the test name.
+    # Value parameterized tests filtering by the test name.
     self.RunAndVerify('*/0', [
         'SeqP/ParamTest.TestX/0',
         'SeqP/ParamTest.TestY/0',
@@ -603,19 +603,19 @@ class GTestFilterUnitTest(gtest_test_utils.TestCase):
                                      RunAndReturnOutput,
                                      [LIST_TESTS_FLAG])
     finally:
-      # This assertion ensures that Google Test enumerated the Tests as
+      # This assertion ensures that Google Test enumerated the tests as
       # opposed to running them.
       self.assert_('[==========]' not in output,
                    'Unexpected output during test enumeration.\n'
                    'Please ensure that LIST_TESTS_FLAG is assigned the\n'
-                   'correct flag value for listing Google Test Tests.')
+                   'correct flag value for listing Google Test tests.')
 
       self.assert_(os.path.exists(shard_status_file))
       os.remove(shard_status_file)
 
   if SUPPORTS_DEATH_TESTS:
     def testShardingWorksWithDeathTests(self):
-      """Tests integration with death Tests and sharding."""
+      """Tests integration with death tests and sharding."""
 
       gtest_filter = 'HasDeathTest.*:SeqP/*'
       expected_tests = [

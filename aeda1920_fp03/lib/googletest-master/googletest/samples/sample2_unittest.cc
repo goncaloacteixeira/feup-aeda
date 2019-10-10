@@ -34,7 +34,7 @@
 //
 // Usually, it's a good idea to have one test for each method in your
 // class.  You don't have to do that exactly, but it helps to keep
-// your Tests organized.  You may also throw in additional Tests as
+// your tests organized.  You may also throw in additional tests as
 // needed.
 
 #include "sample2.h"

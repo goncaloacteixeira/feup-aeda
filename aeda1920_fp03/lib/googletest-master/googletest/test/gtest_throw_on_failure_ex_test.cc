@@ -82,7 +82,7 @@ int main(int argc, char** argv) {
   // We want to ensure that people can use Google Test assertions in
   // other testing frameworks, as long as they initialize Google Test
   // properly and set the thrown-on-failure mode.  Therefore, we don't
-  // use Google Test's constructs for defining and running Tests
+  // use Google Test's constructs for defining and running tests
   // (e.g. TEST and RUN_ALL_TESTS) here.
 
   TestFailureThrowsRuntimeError();
