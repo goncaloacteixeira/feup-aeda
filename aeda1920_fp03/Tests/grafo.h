@@ -43,7 +43,7 @@ class Grafo {
     A & valorAresta(const N &inicio, const N &fim);
     int numArestas(void) const;
     int numNos(void) const;
-    void imprimir(std::ostream &os) const; 
+    void imprimir(std::ostream &os) const;
 };
 
 template<class N, class A>
@@ -57,7 +57,9 @@ Grafo<N, A>::~Grafo() {
 
 
 template <class N, class A>
-std::ostream & operator<<(std::ostream &out, const Grafo<N,A> &g);
+std::ostream & operator<<(std::ostream &out, const Grafo<N,A> &g){
+    g.imprimir(out);
+}
 
 
 // excecao NoRepetido
@@ -263,8 +265,11 @@ void Grafo<N, A>::imprimir(std::ostream &os) const {
             os << " )";
         }
     }
-
 }
+
+
+
+
 
 
 
