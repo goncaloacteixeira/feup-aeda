@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -std=gnu++11
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/cygdrive/c/Users/skidr/OneDrive/Desktop/new/lib/googletest-master/googlemock/include -isystem /cygdrive/c/Users/skidr/OneDrive/Desktop/new/lib/googletest-master/googletest/include -isystem /cygdrive/c/Users/skidr/OneDrive/Desktop/new/lib/googletest-master/googletest 
+CXX_INCLUDES = -I/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp03/lib/googletest-master/googlemock/include -isystem /cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp03/lib/googletest-master/googletest/include -isystem /cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp03/lib/googletest-master/googletest 
 

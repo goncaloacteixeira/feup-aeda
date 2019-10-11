@@ -12,7 +12,7 @@ TEST(test, a_ConstrutorNosArestas){
 }
 
 TEST(test, b_InserirNo){
-  /*  Grafo<string,int> f;
+    Grafo<string,int> f;
     f.inserirNo("A");
     f.inserirNo("B");
     f.inserirNo("C");
@@ -30,7 +30,7 @@ TEST(test, b_InserirNo){
     }
     f.inserirNo("D");
     f.inserirNo("E");
-    ASSERT_EQ(5, f.numNos());*/
+    ASSERT_EQ(5, f.numNos());
 }
 
 TEST(test, c_InserirAresta){

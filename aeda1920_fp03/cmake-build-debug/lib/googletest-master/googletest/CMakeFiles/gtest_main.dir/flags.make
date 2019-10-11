@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -Wall -Wshadow -Werror -Wno-error=dangling-else -DGTEST_HAS_PTH
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -isystem /cygdrive/c/Users/skidr/OneDrive/Desktop/new/lib/googletest-master/googletest/include -isystem /cygdrive/c/Users/skidr/OneDrive/Desktop/new/lib/googletest-master/googletest 
+CXX_INCLUDES = -isystem /cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp03/lib/googletest-master/googletest/include -isystem /cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp03/lib/googletest-master/googletest 
 

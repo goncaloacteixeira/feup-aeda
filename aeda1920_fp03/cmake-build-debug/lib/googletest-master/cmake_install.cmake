@@ -1,4 +1,4 @@
-# Install script for directory: /cygdrive/c/Users/skidr/OneDrive/Desktop/new/lib/googletest-master
+# Install script for directory: /cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp03/lib/googletest-master
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,7 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/cygdrive/c/Users/skidr/OneDrive/Desktop/new/cmake-build-debug/lib/googletest-master/googlemock/cmake_install.cmake")
+  include("/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp03/cmake-build-debug/lib/googletest-master/googlemock/cmake_install.cmake")
 
 endif()
 

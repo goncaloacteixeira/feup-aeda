@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -104,3 +105,17 @@ std::ostream & operator<<(std::ostream &out, const NoInexistente<N> &ni)
 { out << "No inexistente: " << ni.info; return out; }
 
 
+
+template<class N, class A>
+Grafo<N, A> &Grafo<N, A>::inserirNo(const N &dados) {
+    if (this->numNos() != 0) {
+        for (int i = 0; i < this->numNos(); i++) {
+            if (nos[i]->info == dados) {
+                throw NoRepetido<N>(dados);
+                return *this;
+            }
+        }
+    }
+    nos.push_back(new No<N, A>(dados));
+    return *this;
+}

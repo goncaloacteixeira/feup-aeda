@@ -43,10 +43,10 @@ RM = /cygdrive/c/Users/skidr/.CLion2019.2/system/cygwin_cmake/bin/cmake.exe -E r
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /cygdrive/c/Users/skidr/OneDrive/Desktop/new
+CMAKE_SOURCE_DIR = /cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp03
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /cygdrive/c/Users/skidr/OneDrive/Desktop/new/cmake-build-debug
+CMAKE_BINARY_DIR = /cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp03/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/aeda1920_fp03.dir/depend.make
@@ -59,29 +59,29 @@ include CMakeFiles/aeda1920_fp03.dir/flags.make
 
 CMakeFiles/aeda1920_fp03.dir/main.cpp.o: CMakeFiles/aeda1920_fp03.dir/flags.make
 CMakeFiles/aeda1920_fp03.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/skidr/OneDrive/Desktop/new/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/aeda1920_fp03.dir/main.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aeda1920_fp03.dir/main.cpp.o -c /cygdrive/c/Users/skidr/OneDrive/Desktop/new/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp03/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/aeda1920_fp03.dir/main.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aeda1920_fp03.dir/main.cpp.o -c /cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp03/main.cpp
 
 CMakeFiles/aeda1920_fp03.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/aeda1920_fp03.dir/main.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/skidr/OneDrive/Desktop/new/main.cpp > CMakeFiles/aeda1920_fp03.dir/main.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp03/main.cpp > CMakeFiles/aeda1920_fp03.dir/main.cpp.i
 
 CMakeFiles/aeda1920_fp03.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/aeda1920_fp03.dir/main.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/skidr/OneDrive/Desktop/new/main.cpp -o CMakeFiles/aeda1920_fp03.dir/main.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp03/main.cpp -o CMakeFiles/aeda1920_fp03.dir/main.cpp.s
 
 CMakeFiles/aeda1920_fp03.dir/Tests/tests.cpp.o: CMakeFiles/aeda1920_fp03.dir/flags.make
 CMakeFiles/aeda1920_fp03.dir/Tests/tests.cpp.o: ../Tests/tests.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/skidr/OneDrive/Desktop/new/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/aeda1920_fp03.dir/Tests/tests.cpp.o"
-	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aeda1920_fp03.dir/Tests/tests.cpp.o -c /cygdrive/c/Users/skidr/OneDrive/Desktop/new/Tests/tests.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp03/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/aeda1920_fp03.dir/Tests/tests.cpp.o"
+	/usr/bin/c++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/aeda1920_fp03.dir/Tests/tests.cpp.o -c /cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp03/Tests/tests.cpp
 
 CMakeFiles/aeda1920_fp03.dir/Tests/tests.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/aeda1920_fp03.dir/Tests/tests.cpp.i"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/skidr/OneDrive/Desktop/new/Tests/tests.cpp > CMakeFiles/aeda1920_fp03.dir/Tests/tests.cpp.i
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp03/Tests/tests.cpp > CMakeFiles/aeda1920_fp03.dir/Tests/tests.cpp.i
 
 CMakeFiles/aeda1920_fp03.dir/Tests/tests.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/aeda1920_fp03.dir/Tests/tests.cpp.s"
-	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/skidr/OneDrive/Desktop/new/Tests/tests.cpp -o CMakeFiles/aeda1920_fp03.dir/Tests/tests.cpp.s
+	/usr/bin/c++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp03/Tests/tests.cpp -o CMakeFiles/aeda1920_fp03.dir/Tests/tests.cpp.s
 
 # Object files for target aeda1920_fp03
 aeda1920_fp03_OBJECTS = \
@@ -98,7 +98,7 @@ aeda1920_fp03.exe: lib/libgtestd.a
 aeda1920_fp03.exe: lib/libgtest_maind.a
 aeda1920_fp03.exe: lib/libgtestd.a
 aeda1920_fp03.exe: CMakeFiles/aeda1920_fp03.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/c/Users/skidr/OneDrive/Desktop/new/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable aeda1920_fp03.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp03/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable aeda1920_fp03.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/aeda1920_fp03.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -111,6 +111,6 @@ CMakeFiles/aeda1920_fp03.dir/clean:
 .PHONY : CMakeFiles/aeda1920_fp03.dir/clean
 
 CMakeFiles/aeda1920_fp03.dir/depend:
-	cd /cygdrive/c/Users/skidr/OneDrive/Desktop/new/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /cygdrive/c/Users/skidr/OneDrive/Desktop/new /cygdrive/c/Users/skidr/OneDrive/Desktop/new /cygdrive/c/Users/skidr/OneDrive/Desktop/new/cmake-build-debug /cygdrive/c/Users/skidr/OneDrive/Desktop/new/cmake-build-debug /cygdrive/c/Users/skidr/OneDrive/Desktop/new/cmake-build-debug/CMakeFiles/aeda1920_fp03.dir/DependInfo.cmake --color=$(COLOR)
+	cd /cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp03/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp03 /cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp03 /cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp03/cmake-build-debug /cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp03/cmake-build-debug /cygdrive/c/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp03/cmake-build-debug/CMakeFiles/aeda1920_fp03.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/aeda1920_fp03.dir/depend
 
