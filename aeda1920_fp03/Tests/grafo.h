@@ -152,6 +152,11 @@ template<class N, class A>
 Grafo<N, A> &Grafo<N, A>::inserirAresta(const N &inicio, const N &fim, const A &val) {
     if (this->numNos() == 0)
         throw NoInexistente<N>(inicio);
+    bool inicioExiste = false;
+    for (int i = 0; i < this->numNos(); i++){
+        if (nos[i]->info == inicio)
+            inicioExiste = true;
+    }
     for (int i = 0; i < this->numNos(); i++)
     {
         if (nos[i]->info == inicio){
@@ -159,13 +164,17 @@ Grafo<N, A> &Grafo<N, A>::inserirAresta(const N &inicio, const N &fim, const A &
                 for (int j = 0; j < nos[i]->arestas.size(); j++)
                 {
                     if (nos[i]->arestas[j].destino->info == fim)
+                    {
                         throw ArestaRepetida<N>(inicio, fim);
+                    }
                 }
             }
             nos[i]->arestas.push_back(Aresta<N,A>(new No<N,A>(fim), val));
             return *this;
         }
     }
+    if (inicioExiste)
+        throw NoInexistente<N>(fim);
     throw NoInexistente<N>(inicio);
 }
 
@@ -174,6 +183,11 @@ A &Grafo<N, A>::valorAresta(const N &inicio, const N &fim) {
     if (this->numArestas() == 0)
         throw ArestaInexistente<N>(inicio, fim);
     bool flag = false;
+    bool inicioExiste = false;
+    for (int i = 0; i < this->numNos(); i++){
+        if (nos[i]->info == inicio)
+            inicioExiste = true;
+    }
     for (int i = 0; i < this->numNos(); i++)
     {
         if (nos[i]->info == inicio)
@@ -191,8 +205,50 @@ A &Grafo<N, A>::valorAresta(const N &inicio, const N &fim) {
     }
     if (flag)
         throw ArestaInexistente<N>(inicio, fim);
+    if (inicioExiste)
+        throw NoInexistente<N>(fim);
     throw NoInexistente<N>(inicio);
 }
+
+template<class N, class A>
+Grafo<N,A> &Grafo<N, A>::eliminarAresta(const N &inicio, const N &fim) {
+    if (this->numArestas() == 0)
+        throw ArestaInexistente<N>(inicio, fim);
+    bool inicioExiste = false;
+    bool fimExiste = false;
+    int i = 0;
+    for (i; i < this->numNos(); i++){
+        if (nos[i]->info == inicio) {
+            inicioExiste = true;
+            break;
+        }
+    }
+    for (int k = 0; k < this->numNos(); k++){
+        if (nos[k]->info == fim) {
+            fimExiste = true;
+            break;
+        }
+    }
+    if (inicioExiste && fimExiste)
+    {
+        if (nos[i]->arestas.size() == 0)
+            throw ArestaInexistente<N>(inicio, fim);
+        for (int j = 0; j < nos[i]->arestas.size(); j++)
+        {
+            if (nos[i]->arestas[j].destino->info == fim)
+            {
+                nos[i]->arestas.erase(nos[i]->arestas.begin() + j);
+                return *this;
+            }
+        }
+        throw ArestaInexistente<N>(inicio, fim);
+    }
+    if (!inicioExiste)
+        throw NoInexistente<N>(inicio);
+    throw NoInexistente<N>(fim);
+}
+
+
 
 
 

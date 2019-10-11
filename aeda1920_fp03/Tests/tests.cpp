@@ -116,7 +116,7 @@ TEST(test, d_ValorAresta){
 
 
 TEST(test, e_EliminarAresta){
- /*   Grafo<string,int> f;
+    Grafo<string,int> f;
     f.inserirNo("A");
     f.inserirNo("B");
     f.inserirNo("C");
@@ -137,7 +137,7 @@ TEST(test, e_EliminarAresta){
         f.eliminarAresta("A", "A");
     }
     catch (ArestaInexistente<string> &e) {
-        //cout << "Apanhou excecao " << e << endl;
+        cout << "Apanhou excecao " << e << endl;
         ostringstream ostr;
         ostr << e;
         string str = "Aresta inexistente: A , A";
@@ -156,7 +156,7 @@ TEST(test, e_EliminarAresta){
         ASSERT_EQ(str1, ostr1.str());
     }
 
-    ASSERT_EQ(6, f.numArestas());*/
+    ASSERT_EQ(6, f.numArestas());
 }
 
 TEST(test, f_ImprimirGrafo){
