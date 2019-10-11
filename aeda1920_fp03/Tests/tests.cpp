@@ -34,7 +34,7 @@ TEST(test, b_InserirNo){
 }
 
 TEST(test, c_InserirAresta){
-  /*  Grafo<string,int> f;
+    Grafo<string,int> f;
     f.inserirNo("A");
     f.inserirNo("B");
     f.inserirNo("C");
@@ -70,11 +70,11 @@ TEST(test, c_InserirAresta){
         ASSERT_EQ(str1, ostr1.str());
     }
 
-    ASSERT_EQ(7, f.numArestas());*/
+    ASSERT_EQ(7, f.numArestas());
 }
 
 TEST(test, d_ValorAresta){
-   /* Grafo<string,int> f;
+    Grafo<string,int> f;
     f.inserirNo("A");
     f.inserirNo("B");
     f.inserirNo("C");
@@ -111,7 +111,7 @@ TEST(test, d_ValorAresta){
         ostr1 << e;
         string str1 = "No inexistente: F";
         ASSERT_EQ(str1, ostr1.str());
-    }*/
+    }
 }
 
 

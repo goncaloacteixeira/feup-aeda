@@ -55,23 +55,6 @@ template<class N, class A>
 Grafo<N, A>::~Grafo() {
 }
 
-template<class N, class A>
-int Grafo<N, A>::numArestas(void) const {
-    int count = 0;
-    if (this->numNos() == 0)
-        return count;
-    for (int i = 0; i < numNos(); i++)
-    {
-        count += nos[i]->arestas.size();
-    }
-    return count;
-}
-
-template<class N, class A>
-int Grafo<N, A>::numNos(void) const {
-    return nos.size();
-}
-
 
 template <class N, class A>
 std::ostream & operator<<(std::ostream &out, const Grafo<N,A> &g);
@@ -105,6 +88,52 @@ std::ostream & operator<<(std::ostream &out, const NoInexistente<N> &ni)
 { out << "No inexistente: " << ni.info; return out; }
 
 
+// excecao ArestaRepetida
+template <class N>
+class ArestaRepetida {
+public:
+    N inicio;
+    N destino;
+    ArestaRepetida(N inicio, N destino) {
+        this->inicio = inicio;
+        this->destino = destino;
+    }
+};
+template <class N>
+std::ostream & operator<<(std::ostream &out, const ArestaRepetida<N> &ni)
+{ out << "Aresta repetida: " << ni.inicio << " , " << ni.destino; return out; }
+
+// excecao ArestaInexistente
+template <class N>
+class ArestaInexistente {
+public:
+    N inicio;
+    N destino;
+    ArestaInexistente(N inicio, N destino) {
+        this->inicio = inicio;
+        this->destino = destino;
+    }
+};
+template <class N>
+std::ostream & operator<<(std::ostream &out, const ArestaInexistente<N> &ni)
+{ out << "Aresta inexistente: " << ni.inicio << " , " << ni.destino; return out; }
+
+template<class N, class A>
+int Grafo<N, A>::numNos(void) const {
+    return nos.size();
+}
+
+template<class N, class A>
+int Grafo<N, A>::numArestas(void) const {
+    int count = 0;
+    if (this->numNos() == 0)
+        return count;
+    for (int i = 0; i < numNos(); i++)
+    {
+        count += nos[i]->arestas.size();
+    }
+    return count;
+}
 
 template<class N, class A>
 Grafo<N, A> &Grafo<N, A>::inserirNo(const N &dados) {
@@ -112,10 +141,58 @@ Grafo<N, A> &Grafo<N, A>::inserirNo(const N &dados) {
         for (int i = 0; i < this->numNos(); i++) {
             if (nos[i]->info == dados) {
                 throw NoRepetido<N>(dados);
-                return *this;
             }
         }
     }
     nos.push_back(new No<N, A>(dados));
     return *this;
 }
+
+template<class N, class A>
+Grafo<N, A> &Grafo<N, A>::inserirAresta(const N &inicio, const N &fim, const A &val) {
+    if (this->numNos() == 0)
+        throw NoInexistente<N>(inicio);
+    for (int i = 0; i < this->numNos(); i++)
+    {
+        if (nos[i]->info == inicio){
+            if (nos[i]->arestas.size() != 0) {
+                for (int j = 0; j < nos[i]->arestas.size(); j++)
+                {
+                    if (nos[i]->arestas[j].destino->info == fim)
+                        throw ArestaRepetida<N>(inicio, fim);
+                }
+            }
+            nos[i]->arestas.push_back(Aresta<N,A>(new No<N,A>(fim), val));
+            return *this;
+        }
+    }
+    throw NoInexistente<N>(inicio);
+}
+
+template<class N, class A>
+A &Grafo<N, A>::valorAresta(const N &inicio, const N &fim) {
+    if (this->numArestas() == 0)
+        throw ArestaInexistente<N>(inicio, fim);
+    bool flag = false;
+    for (int i = 0; i < this->numNos(); i++)
+    {
+        if (nos[i]->info == inicio)
+        {
+            flag = true;
+            if (nos[i]->arestas.size() != 0)
+            {
+                for (int j = 0; j < nos[i]->arestas.size(); j++)
+                {
+                    if (nos[i]->arestas[j].destino->info == fim)
+                        return nos[i]->arestas[j].valor;
+                }
+            }
+        }
+    }
+    if (flag)
+        throw ArestaInexistente<N>(inicio, fim);
+    throw NoInexistente<N>(inicio);
+}
+
+
+
