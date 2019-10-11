@@ -160,7 +160,7 @@ TEST(test, e_EliminarAresta){
 }
 
 TEST(test, f_ImprimirGrafo){
-   /* Grafo<string,int> f;
+    Grafo<string,int> f;
     f.inserirNo("A");
     f.inserirNo("B");
     f.inserirNo("C");
@@ -176,9 +176,9 @@ TEST(test, f_ImprimirGrafo){
     ASSERT_EQ(7, f.numArestas());
     ostringstream ostr;
     f.imprimir(ostr);
-    string str = "( A[ B 5] [ C 8] ) ( B[ D 9] ) ( C[ D 3] [ E 4] ) ( D[ E 2] [ B 11] ) ( E) ";
-    cout << str.c_str()<<endl;
-    ASSERT_EQ(str, ostr.str());*/
+    string str = "( A [B 5] [C 8] )( B [D 9] )( C [D 3] [E 4] )( D [E 2] [B 11] )( E )";
+    cout << str.c_str() <<endl;
+    ASSERT_EQ(str, ostr.str());
 }
 
 TEST(test, g_OperadorSaida){

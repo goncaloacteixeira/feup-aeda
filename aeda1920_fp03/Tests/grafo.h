@@ -248,6 +248,24 @@ Grafo<N,A> &Grafo<N, A>::eliminarAresta(const N &inicio, const N &fim) {
     throw NoInexistente<N>(fim);
 }
 
+template<class N, class A>
+void Grafo<N, A>::imprimir(std::ostream &os) const {
+    if (this->numNos() != 0)
+    {
+        for (int i = 0; i < this->numNos(); i++){
+            os << "( " << nos[i]->info;
+            if (nos[i]->arestas.size() != 0)
+            {
+                for (int j = 0; j < nos[i]->arestas.size(); j++){
+                    os << " [" << nos[i]->arestas[j].destino->info << " " << nos[i]->arestas[j].valor << "]";
+                }
+            }
+            os << " )";
+        }
+    }
+
+}
+
 
 
 
