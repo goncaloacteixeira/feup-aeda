@@ -13,4 +13,3 @@ void insertionSort(vector<Comparable> &v)
 	v[j] = tmp;
     } 
 }
-

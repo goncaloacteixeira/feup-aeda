@@ -23,9 +23,12 @@ unsigned int ParqueEstacionamento::getNumLugares() const { return lotacao; }
 unsigned int ParqueEstacionamento::getNumLugaresOcupados() const { return lotacao-vagas; }
 
 
-// a imnplementar
 int ParqueEstacionamento::posicaoCliente(const string &nome) const
 {
+    for (int i = 0; i < this->clientes.size(); i++) {
+        if (clientes[i].nome == nome)
+            return i;
+    }
     return -1;
 }
 
