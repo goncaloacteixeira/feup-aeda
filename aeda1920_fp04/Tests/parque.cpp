@@ -32,13 +32,15 @@ int ParqueEstacionamento::posicaoCliente(const string &nome) const
     return -1;
 }
 
-//a implementar
 int ParqueEstacionamento::getFrequencia(const string &nome) const
 {
-    return -1;
+    int pos = posicaoCliente(nome);
+    if (pos != -1) {
+        return clientes[pos].frequencia;
+    }
+    throw ClienteNaoExistente(nome);
 }
 
-// a alterar/atualizar ?
 bool ParqueEstacionamento::adicionaCliente(const string & nome)
 {
  	if ( numClientes == numMaximoClientes ) return false;
@@ -46,6 +48,7 @@ bool ParqueEstacionamento::adicionaCliente(const string & nome)
 	InfoCartao info;
 	info.nome = nome;
     info.presente = false;
+    info.frequencia = 0;
 	clientes.push_back(info);
 	numClientes++;
 	return true;
@@ -73,6 +76,8 @@ bool ParqueEstacionamento::entrar(const string & nome)
 	int pos = posicaoCliente(nome);
 	if ( pos == -1 ) return false;
 	if ( clientes[pos].presente == true ) return false;
+
+	clientes[pos].frequencia += 1;
 	clientes[pos].presente = true;
 	vagas--;
 	return true;

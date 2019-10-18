@@ -19,7 +19,7 @@ TEST(test, a_Pesquisa){
 }
 
 TEST(test, b_UtilizacaoParque){
-    /*ParqueEstacionamento p1(10,20);
+    ParqueEstacionamento p1(10,20);
     p1.adicionaCliente("Joao Santos");
     p1.adicionaCliente("Pedro Morais");
     p1.adicionaCliente("Rui Silva");
@@ -48,7 +48,7 @@ TEST(test, b_UtilizacaoParque){
     catch (ClienteNaoExistente &e) {
         cout << "Apanhou excecao. Cliente nao existente: " << e.getNome() << endl;
         EXPECT_EQ("Tiago Silva", e.getNome());
-    }*/
+    }
 }
 
 TEST(test, c_OrdenaFrequencia){
