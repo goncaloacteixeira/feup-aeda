@@ -46,4 +46,11 @@ public:
     string getNome() const { return nome; }
 };
 
+class PosicaoNaoExistente {
+    size_t p;
+public:
+    PosicaoNaoExistente(size_t p) { this->p = p; }
+    size_t getValor() const { return p; }
+};
+
 #endif /*PARQUE_H_*/

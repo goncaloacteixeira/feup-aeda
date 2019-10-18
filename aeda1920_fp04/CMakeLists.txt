@@ -9,6 +9,6 @@ include_directories(lib/googletest-master/googlemock/include)
 
 
 
-add_executable(aeda1920_fp04 main.cpp Tests/tests.cpp Tests/parque.cpp Tests/sequentialSearch.h Tests/insertionSort.h)
+add_executable(aeda1920_fp04 main.cpp Tests/tests.cpp Tests/parque.cpp)
 
 target_link_libraries(aeda1920_fp04 gtest gtest_main)

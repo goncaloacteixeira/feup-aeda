@@ -111,7 +111,7 @@ TEST(test, d_GamasUso){
 }
 
 TEST(test, e_OrdenaNome){
-/*    ParqueEstacionamento p1(10,20);
+    ParqueEstacionamento p1(10,20);
     p1.adicionaCliente("Joao Santos");
     p1.adicionaCliente("Pedro Morais");
     p1.adicionaCliente("Rui Silva");
@@ -134,11 +134,11 @@ TEST(test, e_OrdenaNome){
     InfoCartao ic1=p1.getClientes()[2];
     EXPECT_EQ("Pedro Morais", ic1.nome);
     InfoCartao ic2=p1.getClientes()[0];
-    EXPECT_EQ("Joao Santos", ic2.nome);*/
+    EXPECT_EQ("Joao Santos", ic2.nome);
 }
 
 TEST(test, f_InfoClientes){
-   /* ParqueEstacionamento p1(10,20);
+    ParqueEstacionamento p1(10,20);
     p1.adicionaCliente("Joao Santos");
     p1.adicionaCliente("Pedro Morais");
     p1.adicionaCliente("Rui Silva");
@@ -161,5 +161,5 @@ TEST(test, f_InfoClientes){
         cout << "Este teste nunca falha. Verifique no monitor a informacao" << endl;
         cout << "Apanhou excecao. Posicao nao existente:" << e.getValor() << endl;
         EXPECT_EQ(6, e.getValor());
-    }*/
+    }
 }

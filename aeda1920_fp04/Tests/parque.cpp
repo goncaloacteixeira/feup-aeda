@@ -1,12 +1,8 @@
 #include "parque.h"
-#include "insertionSort.h"
-#include "sequentialSearch.h"
 #include <algorithm>
 #include <vector>
 
 using namespace std;
-
-
 
 ParqueEstacionamento::ParqueEstacionamento(unsigned int lot, unsigned int nMaxCli):
 	lotacao(lot), numMaximoClientes(nMaxCli) {
@@ -54,7 +50,6 @@ bool ParqueEstacionamento::adicionaCliente(const string & nome)
 	return true;
 }
 
-// a alterar/atualizar ?
 bool ParqueEstacionamento::retiraCliente(const string & nome)
 {
 	for (vector<InfoCartao>::iterator it = clientes.begin(); it != clientes.end(); it++)
@@ -69,7 +64,6 @@ bool ParqueEstacionamento::retiraCliente(const string & nome)
 	return false;
 }
 
-// a alterar/atualizar ?
 bool ParqueEstacionamento::entrar(const string & nome)
 {
 	if ( vagas == 0 ) return false;
@@ -83,7 +77,7 @@ bool ParqueEstacionamento::entrar(const string & nome)
 	return true;
 }
 
-// a alterar/atualizar ?
+
 bool ParqueEstacionamento::sair(const string & nome)
 {
 	int pos = posicaoCliente(nome);
@@ -114,14 +108,17 @@ void ParqueEstacionamento::ordenaClientesPorFrequencia()
 }
 
 
-// a implementar
 void ParqueEstacionamento::ordenaClientesPorNome()
 {
-    return;
+    sort(clientes.begin(),
+            clientes.end(),
+            [](const InfoCartao& lhs, const InfoCartao& rhs)
+            {
+                return lhs.nome < rhs.nome;
+            });
 }
 
 
-// a implementar
 vector<string> ParqueEstacionamento::clientesGamaUso(int n1, int n2) {
     vector<string> nomes = {};
     if (this->numClientes != 0) {
@@ -136,15 +133,24 @@ vector<string> ParqueEstacionamento::clientesGamaUso(int n1, int n2) {
 }
 
 
-// a implementar
 ostream & operator<<(ostream & os, const ParqueEstacionamento & pe) {
+    if (pe.numClientes != -1) {
+        for (int i = 0; i < pe.numClientes; i++) {
+            os << "Nome: " << pe.clientes[i].nome << "\nFrequencia: " << pe.clientes[i].frequencia << "\nPresente? ";
+            (pe.clientes[i].presente) ? os << "Sim\n" : os << "Nao\n";
+            if (i != pe.numClientes - 1)
+                os << "::::::::::\n";
+        }
+    }
     return os;
 }
 
 
-// a implmentar
 InfoCartao ParqueEstacionamento::getClienteAtPos(vector<InfoCartao>::size_type p) const
 {
-    InfoCartao info;
-    return info;
+    if (this->numClientes == 0)
+        throw PosicaoNaoExistente(p);
+    if (p >= clientes.size())
+        throw PosicaoNaoExistente(p);
+    return clientes[p];
 }
