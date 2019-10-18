@@ -97,27 +97,47 @@ bool ParqueEstacionamento::sair(const string & nome)
 
 void ParqueEstacionamento::ordenaClientesPorFrequencia()
 {
-    insertionSort(clientes);
+    InfoCartao temp;
+    int i, j;
+    for(j = 1; j < clientes.size(); j++)    // Start with 1 (not 0)
+    {
+        temp = clientes[j];
+        for(i = j - 1; (i >= 0) && (clientes[i].frequencia <= temp.frequencia); i--)   // Smaller values move up
+        {
+            if (clientes[i].frequencia == temp.frequencia && clientes[i].nome > temp.nome)    // test if name comes after, if true, then put it right to the previous value
+                clientes[i+1] = clientes[i];
+            if (clientes[i].frequencia != temp.frequencia)
+                clientes[i+1] = clientes[i];
+        }
+        clientes[i+1] = temp;    //Put key into its proper location
+    }
 }
 
 
 // a implementar
 void ParqueEstacionamento::ordenaClientesPorNome()
 {
+    return;
 }
 
 
 // a implementar
-vector<string> ParqueEstacionamento::clientesGamaUso(int n1, int n2)
-{
-    vector<string> nomes;
+vector<string> ParqueEstacionamento::clientesGamaUso(int n1, int n2) {
+    vector<string> nomes = {};
+    if (this->numClientes != 0) {
+        this->ordenaClientesPorFrequencia();
+        for (int i = 0; i < clientes.size(); i++) {
+            if (clientes[i].frequencia >= n1 && clientes[i].frequencia <= n2) {
+                nomes.push_back(clientes[i].nome);
+            }
+        }
+    }
     return nomes;
 }
 
 
 // a implementar
-ostream & operator<<(ostream & os, const ParqueEstacionamento & pe)
-{
+ostream & operator<<(ostream & os, const ParqueEstacionamento & pe) {
     return os;
 }
 

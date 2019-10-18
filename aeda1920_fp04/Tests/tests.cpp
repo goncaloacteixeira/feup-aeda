@@ -82,7 +82,7 @@ TEST(test, c_OrdenaFrequencia){
 }
 
 TEST(test, d_GamasUso){
-/*    ParqueEstacionamento p1(10,20);
+    ParqueEstacionamento p1(10,20);
     p1.adicionaCliente("Joao Santos");
     p1.adicionaCliente("Pedro Morais");
     p1.adicionaCliente("Rui Silva");
@@ -107,7 +107,7 @@ TEST(test, d_GamasUso){
         EXPECT_EQ("Rui Silva", clientes[0]);
         EXPECT_EQ("Maria Tavares", clientes[1]);
         EXPECT_EQ("Susana Costa", clientes[2]);
-    }*/
+    }
 }
 
 TEST(test, e_OrdenaNome){
