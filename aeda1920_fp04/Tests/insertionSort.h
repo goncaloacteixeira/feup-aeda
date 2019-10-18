@@ -1,15 +1,21 @@
 #include <vector>
 using namespace std;
 
-template <class Comparable> 
-void insertionSort(vector<Comparable> &v)
+template <class T>
+void insertionSort(vector<T> &v)
 {
-    for (unsigned int p = 1; p < v.size(); p++)
+    T temp;
+    int i, j;
+    for(j = 1; j < v.size(); j++)    // Start with 1 (not 0)
     {
-	Comparable tmp = v[p];
-	int j;
-	for (j = p; j > 0 && tmp < v[j-1]; j--)
-	   v[j] = v[j-1];
-	v[j] = tmp;
-    } 
+        temp = v[j];
+        for(i = j - 1; (i >= 0) && (v[i].frequencia <= temp.frequencia); i--)   // Smaller values move up
+        {
+            if (v[i].frequencia == temp.frequencia && v[i].nome > temp.nome)    // test if name comes after, if true, then put it right to the previous value
+                v[i+1] = v[i];
+            if (v[i].frequencia != temp.frequencia)
+                v[i+1] = v[i];
+        }
+        v[i+1] = temp;    //Put key into its proper location
+    }
 }

@@ -94,10 +94,10 @@ bool ParqueEstacionamento::sair(const string & nome)
 	return true;
 }
 
-		
-// a implementar
+
 void ParqueEstacionamento::ordenaClientesPorFrequencia()
 {
+    insertionSort(clientes);
 }
 
 
