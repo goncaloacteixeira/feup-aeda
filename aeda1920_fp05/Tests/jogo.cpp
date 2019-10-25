@@ -57,8 +57,26 @@ string Jogo::escreve() const
 // a implementar
 Crianca& Jogo::perdeJogo(string frase)
 {
-    Crianca *c1 = new Crianca();
-    return *c1;
+    Crianca *c1;
+    unsigned int length = numPalavras(frase);
+    if (length == 0) {
+        *c1 = criancas.front();
+        criancas.erase(criancas.begin());
+        return *c1;
+    }
+    int index;
+    if (length > criancas.size())
+    {
+        index = length % criancas.size();
+    }
+    else
+    {
+        index = length - 1;
+    }
+    list<Crianca>::iterator it = criancas.begin();
+    advance(it, index);
+    criancas.erase(it);
+    return *it;
 }
 
 // a implementar

@@ -70,7 +70,7 @@ TEST(test, b_imprimeJogo){
 }
 
 TEST(test, c_perdeJogo){
-    /*Crianca c1("Rui",6);
+    Crianca c1("Rui",6);
     Crianca c2("Ana",4);
     Crianca c3("Rita",6);
     Crianca c4("Joao",5);
@@ -95,7 +95,7 @@ TEST(test, c_perdeJogo){
     jogo2.insereCrianca(c2);
     jogo2.insereCrianca(c3);
     cx = jogo2.perdeJogo(s);
-    EXPECT_EQ("Ana", cx.getNome());*/
+    EXPECT_EQ("Rita", cx.getNome());
 }
 
 TEST(test, d_inverteJogo){
