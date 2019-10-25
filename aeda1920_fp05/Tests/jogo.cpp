@@ -23,26 +23,24 @@ unsigned int Jogo::numPalavras(string frase)
   return n;
 }
 
-// a implementar
 Jogo::Jogo()
 {
+    this->criancas= {};
 }
 
-// a implementar
 Jogo::Jogo(list<Crianca>& lc2)
 {
+    this->criancas = lc2;
 }
 
-// a implementar
 void Jogo::insereCrianca(const Crianca &c1)
 {
+    criancas.push_back(c1);
 }
 
-// a implementar
 list<Crianca> Jogo::getCriancasJogo() const
 {
-    list<Crianca> res;
-    return res;
+    return criancas;
 }
 
 // a implementar
@@ -72,9 +70,9 @@ list<Crianca> Jogo::divide(unsigned id)
     return res;
 }
 
-// a implementar
 void Jogo::setCriancasJogo(const list<Crianca>& l1)
 {
+    this->criancas = l1;
 }
 
 // a implementar
