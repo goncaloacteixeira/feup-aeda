@@ -43,7 +43,6 @@ list<Crianca> Jogo::getCriancasJogo() const
     return criancas;
 }
 
-
 string Jogo::escreve() const
 {
     string res = "";
@@ -54,7 +53,6 @@ string Jogo::escreve() const
     return res;
 }
 
-// a implementar
 Crianca& Jogo::perdeJogo(string frase)
 {
     Crianca *c1;
@@ -79,17 +77,21 @@ Crianca& Jogo::perdeJogo(string frase)
     return *it;
 }
 
-// a implementar
 list<Crianca>& Jogo::inverte()
 {
+    criancas.reverse();
     return criancas;
 }
 
 // a implementar
 list<Crianca> Jogo::divide(unsigned id)
 {
-    list<Crianca> res;
-    return res;
+    list<Crianca> nc;
+    for (Crianca crianca : criancas) {
+        if (crianca.getIdade() > id)
+            nc.push_back(crianca);
+    }
+    return nc;
 }
 
 void Jogo::setCriancasJogo(const list<Crianca>& l1)

@@ -99,7 +99,7 @@ TEST(test, c_perdeJogo){
 }
 
 TEST(test, d_inverteJogo){
-    /*Crianca c1("Rui",6);
+    Crianca c1("Rui",6);
     Crianca c2("Vasco",5);
     Crianca c3("Ana",4);
     Crianca c4("Joao",5);
@@ -119,11 +119,11 @@ TEST(test, d_inverteJogo){
 
     list<Crianca> invertida = jogo1.inverte();
     EXPECT_EQ("Rita", invertida.front().getNome());
-    EXPECT_EQ("Rui", invertida.back().getNome());*/
+    EXPECT_EQ("Rui", invertida.back().getNome());
 }
 
 TEST(test, e_divideJogo){
-    /*Crianca c1("Rui",6);
+    Crianca c1("Rui",6);
     Crianca c2("Ana",4);
     Crianca c3("Rita",3);
     Crianca c4("Joao",5);
@@ -143,7 +143,7 @@ TEST(test, e_divideJogo){
 }
 
 TEST(test, f_igualdadeJogo){
-    list<Crianca> criancas1;
+    /*list<Crianca> criancas1;
     criancas1.push_back( Crianca("Rui",6) );
     criancas1.push_back( Crianca("Ana",4) );
     criancas1.push_back( Crianca("Rita",3) );
