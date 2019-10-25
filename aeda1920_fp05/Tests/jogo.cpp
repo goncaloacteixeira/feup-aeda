@@ -99,15 +99,14 @@ void Jogo::setCriancasJogo(const list<Crianca>& l1)
     this->criancas = l1;
 }
 
-// a implementar
 bool Jogo::operator==(Jogo& j2)
 {
-	return true;
+	if (this->criancas == j2.criancas)
+	    return true;
+	return false;
 }
 
-// a implementar
 list<Crianca> Jogo::baralha() const
 {
-    list<Crianca> res;
-    return res;
+
 }

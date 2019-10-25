@@ -143,7 +143,7 @@ TEST(test, e_divideJogo){
 }
 
 TEST(test, f_igualdadeJogo){
-    /*list<Crianca> criancas1;
+    list<Crianca> criancas1;
     criancas1.push_back( Crianca("Rui",6) );
     criancas1.push_back( Crianca("Ana",4) );
     criancas1.push_back( Crianca("Rita",3) );
@@ -166,7 +166,7 @@ TEST(test, f_igualdadeJogo){
     criancas2.push_back( Crianca("Ines",5) );
 
     jogo2.setCriancasJogo(criancas2);
-    EXPECT_EQ(false, jogo1 == jogo2);*/
+    EXPECT_EQ(false, jogo1 == jogo2);
 }
 
 TEST(test, g_baralhaCriancas){
