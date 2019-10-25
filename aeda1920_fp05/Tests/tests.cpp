@@ -56,7 +56,7 @@ TEST(test, a_insereCrianca){
 }
 
 TEST(test, b_imprimeJogo){
-    /*Jogo jogo1;
+    Jogo jogo1;
     EXPECT_EQ("", jogo1.escreve());
 
     Crianca c1("Rui",6);
@@ -66,7 +66,7 @@ TEST(test, b_imprimeJogo){
     jogo1.insereCrianca(c2);
     jogo1.insereCrianca(c3);
     cout << jogo1.escreve();
-    EXPECT_EQ("Rui : 6\nAna : 4\nVasco : 5\n", jogo1.escreve());*/
+    EXPECT_EQ("Rui : 6\nAna : 4\nVasco : 5\n", jogo1.escreve());
 }
 
 TEST(test, c_perdeJogo){

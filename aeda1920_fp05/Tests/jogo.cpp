@@ -43,10 +43,14 @@ list<Crianca> Jogo::getCriancasJogo() const
     return criancas;
 }
 
-// a implementar
+
 string Jogo::escreve() const
 {
-    string res;
+    string res = "";
+    for (_List_const_iterator<Crianca> it = criancas.begin(); it != criancas.end(); it++)
+    {
+        res += it->escreve() + "\n";
+    }
     return res;
 }
 
