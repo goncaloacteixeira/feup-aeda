@@ -170,7 +170,7 @@ TEST(test, f_igualdadeJogo){
 }
 
 TEST(test, g_baralhaCriancas){
-    /*list<Crianca> criancas;
+    list<Crianca> criancas;
     criancas.push_back( Crianca("Rui",6) );
     criancas.push_back( Crianca("Ana",4) );
     criancas.push_back( Crianca("Rita",3) );
@@ -193,5 +193,5 @@ TEST(test, g_baralhaCriancas){
     EXPECT_EQ("Ines", it->getNome());
 
     Jogo jogo2(criancas2);
-    EXPECT_EQ(false, jogo1 == jogo2);*/
+    EXPECT_EQ(false, jogo1 == jogo2);
 }

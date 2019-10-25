@@ -106,7 +106,14 @@ bool Jogo::operator==(Jogo& j2)
 	return false;
 }
 
+#include <algorithm>
+#include <vector>
+#include <random>       // default_random_engine
 list<Crianca> Jogo::baralha() const
 {
+    vector<Crianca> temp(criancas.begin(), criancas.end());
+    unsigned seed = rand();
+    shuffle (temp.begin(), temp.end(), default_random_engine(seed));
 
+    return list<Crianca> {temp.begin(), temp.end()};
 }
