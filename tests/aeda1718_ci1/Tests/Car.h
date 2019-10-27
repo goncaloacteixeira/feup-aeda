@@ -21,7 +21,7 @@ public:
 	std::string getModel() const;
 	float getPrice() const;
 	void setPrice(float price);
-//	virtual float range() const = 0;
+	virtual float range() const = 0;
 	bool operator == (const Car &car) const;
 	friend std::ostream & operator<<(std::ostream & os, const Car &car);
 };
@@ -36,6 +36,7 @@ public:
 	void setTank(float t);
 	float getL_100km() const;
 	void setL_100km(float l_100km);
+	float range() const;
 };
 
 class ElectricCar : public Car {
@@ -48,12 +49,14 @@ public:
 	void setBattery(float b);
 	float getKWh_100km() const;
 	void setKWh_100km(float kWh_100km);
+	virtual float range() const;
 };
 
 class HybridCar : public FuelCar, public ElectricCar {
 public:
 	HybridCar(std::string brand, std::string model);
 	HybridCar(std::string brand, std::string model, float price, float tank, float l_100km, float battery, float kWh_100km);
+	float range() const;
 };
 
 #endif /* SRC_CAR_H_ */

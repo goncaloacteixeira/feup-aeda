@@ -30,9 +30,23 @@ void Car::setPrice(float price) {
 	this->price = price;
 }
 
+bool Car::operator==(const Car &car) const {
+    return this->getBrand() == car.getBrand() && this->getModel() == car.getModel();
+}
+
+std::ostream &operator<<(std::ostream &os, const Car &car) {
+    os << car.brand << " " << car.model << " (" << car.price << ")";
+}
+
 FuelCar::FuelCar(string b, string m) : Car(b, m) {
 	tank = 0;
 	l_100km = 0;
+}
+
+FuelCar::FuelCar(string brand, string model, float price, float tank, float l_100km) : Car(brand, model) {
+    this->tank = tank;
+    this->l_100km = l_100km;
+    this->setPrice(price);
 }
 
 float FuelCar::getTank() const {
@@ -51,9 +65,20 @@ void FuelCar::setL_100km(float l_100km) {
 	this->l_100km = l_100km;
 }
 
+float FuelCar::range() const {
+    return (100.0*tank / l_100km);
+}
+
+
 ElectricCar::ElectricCar(string b, string m) : Car(b, m) {
 	battery = 0;
 	kWh_100km = 0;
+}
+
+ElectricCar::ElectricCar(string brand, string model, float price, float battery, float kWh_100km) : Car(brand, model) {
+    this->battery = battery;
+    this->kWh_100km = kWh_100km;
+    this->setPrice(price);
 }
 
 float ElectricCar::getBattery() const {
@@ -72,6 +97,11 @@ void ElectricCar::setKWh_100km(float kWh_100km) {
 	this->kWh_100km = kWh_100km;
 }
 
+float ElectricCar::range() const {
+    return (100.0 * battery / kWh_100km);
+}
+
+
 HybridCar::HybridCar(string brand, string model) : FuelCar(brand, model), ElectricCar(brand, model) {
 }
 
@@ -82,5 +112,9 @@ HybridCar::HybridCar(string brand, string model, float price, float tank, float 
 	this->ElectricCar::setPrice(price);
 	this->setBattery(battery);
 	this->setKWh_100km(kWh_100km);
+}
+
+float HybridCar::range() const {
+    return FuelCar::range() + ElectricCar::range();
 }
 
