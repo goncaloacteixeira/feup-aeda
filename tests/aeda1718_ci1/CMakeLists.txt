@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(aeda1819_ci1)
+project(aeda1718_ci1)
 
 set(CMAKE_CXX_STANDARD 11)
 
@@ -9,6 +9,6 @@ include_directories(lib/googletest-master/googlemock/include)
 
 
 
-add_executable(aeda1819_ci1 main.cpp Tests/tests.cpp Tests/Account.cpp Tests/Bank.cpp Tests/BankOfficer.cpp)
+add_executable(aeda1718_ci1 main.cpp Tests/Test.cpp Tests/Car.cpp)
 
-target_link_libraries(aeda1819_ci1 gtest gtest_main)
+target_link_libraries(aeda1718_ci1 gtest gtest_main)

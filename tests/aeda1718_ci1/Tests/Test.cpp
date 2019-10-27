@@ -1,6 +1,5 @@
-#include "cute.h"
-#include "ide_listener.h"
-#include "cute_runner.h"
+#include <gtest/gtest.h>
+#include <gmock/gmock.h>
 #include "Garage.h"
 #include "Car.h"
 #include <vector>
@@ -8,40 +7,35 @@
 
 using namespace std;
 
-void test_a() {
-/*
+TEST(test_1, a) {
 	FuelCar fc("ford", "fiesta", 30000, 60, 5);
 	ElectricCar ec("tesla", "s", 70000, 30, 10);
 
-	ASSERT_EQUAL("ford", fc.getBrand());
-	ASSERT_EQUAL("fiesta", fc.getModel());
-	ASSERT_EQUAL(30000, fc.getPrice());
-	ASSERT_EQUAL(60, fc.getTank());
-	ASSERT_EQUAL(5, fc.getL_100km());
+	EXPECT_EQ("ford", fc.getBrand());
+	EXPECT_EQ("fiesta", fc.getModel());
+    EXPECT_EQ(30000, fc.getPrice());
+	EXPECT_EQ(60, fc.getTank());
+	EXPECT_EQ(5, fc.getL_100km());
 
-	ASSERT_EQUAL("tesla", ec.getBrand());
-	ASSERT_EQUAL("s", ec.getModel());
-	ASSERT_EQUAL(70000, ec.getPrice());
-	ASSERT_EQUAL(30, ec.getBattery());
-	ASSERT_EQUAL(10, ec.getKWh_100km());
-*/
+    EXPECT_EQ("tesla", ec.getBrand());
+    EXPECT_EQ("s", ec.getModel());
+    EXPECT_EQ(70000, ec.getPrice());
+    EXPECT_EQ(30, ec.getBattery());
+    EXPECT_EQ(10, ec.getKWh_100km());
 }
 
-void test_b() {
-/*
+TEST(test_1, b){
 	FuelCar fc1("ford", "fiesta");
 	FuelCar fc2("ford", "fiesta");
 	ElectricCar ec3("tesla", "s");
 	HybridCar hc4("tesla", "s");
 
-	ASSERT_EQUAL(fc1, fc2);
-	ASSERT_EQUAL(false, fc1 == ec3);
-	ASSERT_EQUAL(ec3, (FuelCar) hc4);
-*/
+    EXPECT_EQ(fc1, fc2);
+    EXPECT_EQ(false, fc1 == ec3);
+    EXPECT_EQ(ec3, (FuelCar) hc4);
 }
 
-void test_c() {
-/*
+TEST(test_1, c) {
 	FuelCar fc("ford", "fiesta");
 	fc.setTank(60);
 	fc.setL_100km(5);
@@ -54,14 +48,12 @@ void test_c() {
 	hc.setBattery(30);
 	hc.setKWh_100km(10);
 
-	ASSERT_EQUAL(1200, fc.range());
-	ASSERT_EQUAL(300, ec.range());
-	ASSERT_EQUAL(1500, hc.range());
-*/
+    EXPECT_EQ(1200, fc.range());
+    EXPECT_EQ(300, ec.range());
+    EXPECT_EQ(1500, hc.range());
 }
 
-void test_d() {
-/*
+TEST(test_1, d) {
 	FuelCar* fc1 = new FuelCar("ford", "fiesta");
 	FuelCar* fc2 = new FuelCar("ford", "fiesta");
 	ElectricCar* ec3 = new ElectricCar("tesla", "s");
@@ -69,15 +61,13 @@ void test_d() {
 
 	Garage<Car> g(2);
 
-	ASSERT_EQUAL(true, g.addVehicle(fc1));
-	ASSERT_EQUAL(false, g.addVehicle(fc2));
-	ASSERT_EQUAL(true, g.addVehicle(ec3));
-	ASSERT_EQUAL(false, g.addVehicle(ec4));
-*/
+    EXPECT_EQ(true, g.addVehicle(fc1));
+    EXPECT_EQ(false, g.addVehicle(fc2));
+    EXPECT_EQ(true, g.addVehicle(ec3));
+    EXPECT_EQ(false, g.addVehicle(ec4));
 }
 
-void test_e() {
-/*
+TEST(test_1, e) {
 	FuelCar* fc1 = new FuelCar("peugeot", "3008");
 	fc1->setPrice(30000);
 	fc1->setTank(60);
@@ -105,19 +95,17 @@ void test_e() {
 	g.sortVehicles();
 	cars = g.getVehicles();
 
-	ASSERT_EQUAL("peugeot", cars[1]->getBrand());
-	ASSERT_EQUAL(30000, cars[1]->getPrice());
-	ASSERT_EQUAL("ford", cars[0]->getBrand());
-	ASSERT_EQUAL(38000, cars[0]->getPrice());
-	ASSERT_EQUAL("tesla", cars[3]->getBrand());
-	ASSERT_EQUAL(70000, cars[3]->getPrice());
-	ASSERT_EQUAL("tesla", cars[2]->getBrand());
-	ASSERT_EQUAL(78000, cars[2]->getPrice());
-*/
+    EXPECT_EQ("peugeot", cars[1]->getBrand());
+    EXPECT_EQ(30000, cars[1]->getPrice());
+    EXPECT_EQ("ford", cars[0]->getBrand());
+    EXPECT_EQ(38000, cars[0]->getPrice());
+    EXPECT_EQ("tesla", cars[3]->getBrand());
+    EXPECT_EQ(70000, cars[3]->getPrice());
+    EXPECT_EQ("tesla", cars[2]->getBrand());
+    EXPECT_EQ(78000, cars[2]->getPrice());
 }
 
-void test_f() {
-/*
+TEST(test_1, f) {
 	FuelCar* fc1 = new FuelCar("peugeot", "3008");
 	fc1->setPrice(30000);
 	fc1->setTank(60);
@@ -143,16 +131,14 @@ void test_f() {
 	cars.push_back(ec4);
 	g.setVehicles(cars);
 
-    ASSERT_EQUAL(fc1, g.removeVehicle("peugeot", "3008"));
-    ASSERT_EQUAL(3, g.getVehicles().size());
-    ASSERT_THROWS(g.removeVehicle("ford", "focus"), NoSuchVehicleException);
-    ASSERT_EQUAL(ec4, g.removeVehicle("tesla", "m"));
-    ASSERT_EQUAL(2, g.getVehicles().size());
-*/
+    EXPECT_EQ(fc1, g.removeVehicle("peugeot", "3008"));
+    EXPECT_EQ(3, g.getVehicles().size());
+    EXPECT_THROW(g.removeVehicle("ford", "focus"), NoSuchVehicleException);
+    EXPECT_EQ(ec4, g.removeVehicle("tesla", "m"));
+    EXPECT_EQ(2, g.getVehicles().size());
 }
 
-void test_g() {
-/*
+TEST(test_1, g) {
 	FuelCar* fc1 = new FuelCar("peugeot", "3008");
 	fc1->setPrice(30000);
 	fc1->setTank(60);
@@ -178,18 +164,16 @@ void test_g() {
 	cars.push_back(ec4);
 	g.setVehicles(cars);
 
-	ASSERT_THROWS(g.avgPrice("ford"), NoSuchBrandException);
+	EXPECT_THROW(g.avgPrice("ford"), NoSuchBrandException);
 	try {
 		g.avgPrice("ford");
 	} catch(NoSuchBrandException &e) {
-		ASSERT_EQUAL("ford", e.getBrand());
+        EXPECT_EQ("ford", e.getBrand());
 	}
-	ASSERT_EQUAL(21000, g.avgPrice("peugeot"));
-*/
+    EXPECT_EQ(21000, g.avgPrice("peugeot"));
 }
 
-void test_h() {
-/*
+TEST(test_1, h) {
 	FuelCar fc("toyota", "auris");
 	fc.setPrice(30000);
 	fc.setTank(60);
@@ -202,33 +186,11 @@ void test_h() {
 
 	stringstream ss1;
 	ss1 << fc;
-	ASSERT_EQUAL("toyota auris (30000)", ss1.str());
+    EXPECT_EQ("toyota auris (30000)", ss1.str());
 	stringstream ss2;
 	ss2 << ec;
-	ASSERT_EQUAL("toyota yaris (20000)", ss2.str());
+    EXPECT_EQ("toyota yaris (20000)", ss2.str());
 	stringstream ss3;
 	ss3 << (FuelCar) hc;
-	ASSERT_EQUAL("toyota prius (40000)", ss3.str());
-*/
+    EXPECT_EQ("toyota prius (40000)", ss3.str());
 }
-
-
-void runSuite(){
-	cute::suite s;
-	s.push_back(CUTE(test_a));
-	s.push_back(CUTE(test_b));
-	s.push_back(CUTE(test_c));
-	s.push_back(CUTE(test_d));
-	s.push_back(CUTE(test_e));
-	s.push_back(CUTE(test_f));
-	s.push_back(CUTE(test_g));
-	s.push_back(CUTE(test_h));
-	cute::ide_listener<> lis;
-	cute::makeRunner(lis)(s, "AEDA 2017/2018 - Componente Individual 1 - Testes Unitarios Estudantes");
-}
-
-int main(){
-    runSuite();
-    return 0;
-}
-
