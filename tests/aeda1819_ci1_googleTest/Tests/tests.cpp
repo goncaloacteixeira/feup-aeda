@@ -9,7 +9,7 @@
 using testing::Eq;
 
 
-/*TEST(test_1, a){
+TEST(test_1, a){
     vector<int> v1;
     v1.push_back(10); v1.push_back(8);
     v1.push_back(12);
@@ -21,9 +21,9 @@ using testing::Eq;
     v2.push_back("sol"); v2.push_back("rio");
     v2.push_back("sol");
     EXPECT_EQ(3, numberDifferent(v2));
-}*/
+}
 
-/*TEST(test_1, b){
+TEST(test_1, b){
     CheckingAccount c1("manuel", "bi123","PT311", 200.0, 500.0);
     CheckingAccount c2("manuel", "bi123","PT311", 200.0, 800.0);
     CheckingAccount c3("manuel", "bi123","PT311", 200.0, 5000.0);
@@ -35,9 +35,9 @@ using testing::Eq;
     EXPECT_NEAR(0.0, c3.getCharge(),0.01);
     EXPECT_NEAR(0.0, c4.getCharge(),0.01);
     EXPECT_NEAR(0.8, c5.getCharge(),0.01);
-}*/
+}
 
-/*TEST(test_1, c){
+TEST(test_1, c){
     string codH1= "bi123";
      string codH2= "bi444";
      Account *d1 = new SavingsAccount("ana", codH1,"PT411", 200.0, 2.0);
@@ -58,7 +58,7 @@ using testing::Eq;
 
      ba.addAccount(new TimeAccount("ana", codH1,"PT413", 1000.0, 5.0));
      EXPECT_NEAR(275.0,ba.getWithdraw(codH1),0.01);
-}*/
+}
 
 TEST(test_1, d){
     Bank ba;
@@ -109,7 +109,7 @@ TEST(test_1, e){
     EXPECT_EQ(4, b4.getID());
 }
 
-/*TEST(test_1, f){
+TEST(test_1, f){
     BankOfficer b1;
     b1. setName("joao");
     b1.addAccount(new CheckingAccount("rui", "bi123","PT611", 200.0, 500.0));
@@ -133,9 +133,9 @@ TEST(test_1, e){
 
     EXPECT_EQ(true, b2>b3);
     EXPECT_EQ(false, b3>b1);
-}*/
+}
 
-/*TEST(test_1, g){
+TEST(test_1, g){
     Bank ba;
     BankOfficer b1;
     b1. setName("joao");
@@ -177,7 +177,7 @@ TEST(test_1, e){
     new CheckingAccount("rui", "bi678","PT732", 200.0, 500.0);
     bx = ba.addAccountToBankOfficer(ac1,"fernando");
     EXPECT_EQ(2,bx.getAccounts().size());
-}*/
+}
 
 TEST(test_1, h){
     Bank ba;

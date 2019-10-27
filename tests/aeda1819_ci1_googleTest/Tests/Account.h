@@ -22,6 +22,8 @@ public:
 	string getCodH() const;
 	string getCodIBAN() const;
 	double getBalance() const;
+	virtual double getCharge() const;
+	virtual double getWithdraw() const;
 	//...
 
 };
@@ -31,6 +33,8 @@ class CheckingAccount: public Account {
 	double limit; //lower limit for free checking
 public:
 	CheckingAccount (string hold, string codeH, string codeA, double bal, double lim);
+	double getCharge() const;
+	double getWithdraw() const;
 	//...
 
 };
@@ -41,6 +45,8 @@ protected:
 	double rate;
 public:
 	SavingsAccount(string hold, string codeH, string codeA, double bal, double pct); //pct = percentage interest rate
+	double getCharge() const;
+	virtual double getWithdraw() const;
 	//...
 
 };
@@ -50,6 +56,7 @@ class TimeAccount: public SavingsAccount {
 	double funds_avail;
 public:
 	TimeAccount(string hold, string codeH, string codeA, double bal, double pct);
+	double getWithdraw() const;
 	//...
 
 };

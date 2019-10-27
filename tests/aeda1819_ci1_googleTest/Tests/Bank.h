@@ -11,6 +11,17 @@
 #include "BankOfficer.h"
 
 
+#include <set>
+template<class T>
+unsigned int numberDifferent(const vector<T> & v1)
+{
+    set<T> unique;
+    if (v1.size() != 0)
+        for (int i = 0; i < v1.size(); i++)
+            unique.insert(v1[i]);
+    return unique.size();
+}
+
 class Bank {
 	vector<Account *> accounts;
 	vector<BankOfficer> bankOfficers;
@@ -26,6 +37,13 @@ public:
 	vector<Account *> removeBankOfficer(string name);
 	const BankOfficer& addAccountToBankOfficer(Account *ac, string name);
 	void sortAccounts();
+};
+
+class NoBankOfficerException {
+    string name;
+public:
+    NoBankOfficerException(string name) {this->name = name; };
+    string getName() {return name;};
 };
 
 

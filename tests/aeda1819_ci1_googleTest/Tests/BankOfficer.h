@@ -10,6 +10,8 @@
 #include <vector>
 
 class BankOfficer {
+    static int current_id;
+
 	unsigned int id;
 	string name;
 	vector<Account *> myAccounts;
@@ -25,6 +27,8 @@ public:
 	//-------
 	BankOfficer(string nm);
 	vector<Account *> removeBankOfficer(string name);
+
+	bool operator > (BankOfficer& b2);
 };
 
 #endif /* SRC_BANKOFFICER_H_ */
