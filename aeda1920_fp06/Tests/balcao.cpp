@@ -5,13 +5,12 @@
 
 using namespace std;
 
-//a alterar
 Cliente::Cliente() {
+    numPresentes = rand() % 5 + 1;
 }
 
-//a alterar
 int Cliente::getNumPresentes() const {
-    return 0;
+    return numPresentes;
 }
 
 //a alterar
