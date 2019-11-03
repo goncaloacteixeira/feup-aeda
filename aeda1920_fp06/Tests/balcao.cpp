@@ -25,9 +25,18 @@ void Balcao:: proximoEvento()
 {
 }
 
-//a alterar
 void Balcao::chegada()
 {
+    Cliente c;
+    if (clientes.empty())
+        prox_saida = tempo_atual + c.getNumPresentes()*tempo_embrulho;
+    prox_chegada = rand() % 20 + 1;
+
+    clientes.push(c);
+
+    // cout << "Tempo atual: " << tempo_atual << endl;
+    cout << "chegou novo cliente com " << c.getNumPresentes() << " presentes\n";
+
 }
 
 //a alterar
