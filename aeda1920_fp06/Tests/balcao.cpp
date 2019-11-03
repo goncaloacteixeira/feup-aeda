@@ -13,8 +13,11 @@ int Cliente::getNumPresentes() const {
     return numPresentes;
 }
 
-//a alterar
 Balcao::Balcao(int te): tempo_embrulho(te) {
+    tempo_atual = 0;
+    prox_chegada = rand() % 20 + 1;
+    prox_saida = 0;
+    clientes_atendidos = 0;
 }
 
 //a alterar
@@ -43,25 +46,22 @@ ostream & operator << (ostream & out, const Balcao & b1)
      return out;
 }
 
-//a alterar
 int Balcao::getTempoEmbrulho() const {
-	return 0;
+	return tempo_embrulho;
 }
 
-//a alterar
 int Balcao::getProxSaida() const {
-	return 0;
+	return prox_saida;
 }
 
-//a alterar
 int Balcao::getClientesAtendidos() const {
-	return 0;
+	return clientes_atendidos;
 }
 
-//a alterar
 Cliente & Balcao::getProxCliente() {
-    Cliente *c = new Cliente();
-    return *c;
+    if (clientes.empty())
+        throw FilaVazia();
+    return clientes.front();
 }
 
       
