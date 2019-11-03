@@ -23,6 +23,7 @@ Balcao::Balcao(int te): tempo_embrulho(te) {
 //a alterar
 void Balcao:: proximoEvento()
 {
+
 }
 
 void Balcao::chegada()
@@ -39,9 +40,16 @@ void Balcao::chegada()
 
 }
 
-//a alterar
 void Balcao::saida()
 {
+    Cliente c = getProxCliente();
+    clientes.pop();
+    prox_saida = tempo_atual + clientes.front().getNumPresentes()*tempo_embrulho;
+
+    // tempo_atual += tempo_atual + c.getNumPresentes()*tempo_embrulho;
+
+    cout << "Tempo atual: " << tempo_atual << endl;
+    cout << "saiu cliente com " << c.getNumPresentes() << " presentes\n";
 }
 
 
