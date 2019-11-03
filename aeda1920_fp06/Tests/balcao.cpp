@@ -23,14 +23,23 @@ Balcao::Balcao(int te): tempo_embrulho(te) {
 //a alterar
 void Balcao:: proximoEvento()
 {
-
+    if (prox_saida < prox_chegada) {
+        saida();
+    }
+    else
+        chegada();
 }
 
 void Balcao::chegada()
 {
     Cliente c;
+
+    tempo_atual += prox_chegada;
+
     if (clientes.empty())
-        prox_saida = tempo_atual + c.getNumPresentes()*tempo_embrulho;
+        prox_saida = c.getNumPresentes()*tempo_embrulho;
+    else
+        prox_saida -= prox_chegada;
     prox_chegada = rand() % 20 + 1;
 
     clientes.push(c);
@@ -42,14 +51,25 @@ void Balcao::chegada()
 
 void Balcao::saida()
 {
-    Cliente c = getProxCliente();
-    clientes.pop();
-    prox_saida = tempo_atual + clientes.front().getNumPresentes()*tempo_embrulho;
+    tempo_atual += prox_saida;
+    prox_chegada -= prox_saida;
+    try {
+        Cliente c = getProxCliente();
+        clientes.pop();
+        prox_saida = clientes.front().getNumPresentes()*tempo_embrulho;
 
-    // tempo_atual += tempo_atual + c.getNumPresentes()*tempo_embrulho;
 
-    cout << "Tempo atual: " << tempo_atual << endl;
-    cout << "saiu cliente com " << c.getNumPresentes() << " presentes\n";
+        clientes_atendidos += 1;
+        // tempo_atual += tempo_atual + c.getNumPresentes()*tempo_embrulho;
+
+//    cout << "Tempo atual: " << tempo_atual << endl;
+        cout << "saiu cliente com " << c.getNumPresentes() << " presentes\n";
+    }
+    catch (FilaVazia)
+    {
+        chegada();
+    }
+
 }
 
 

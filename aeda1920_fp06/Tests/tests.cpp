@@ -135,14 +135,24 @@ TEST(test_2, e_ProximoEvento){
     cout << "Este teste nao falha. Verifique na consola os valores." << endl;
     EXPECT_TRUE(true);
     Balcao b;
-    b.proximoEvento();
-    cout << "01: " << "Clientes atendidos: " << b.getClientesAtendidos() << " Tempo actual: " << b.getTempoAtual() << " Prox chegada: " << b.getProxChegada() << " Prox Saida: " << b.getProxSaida() << endl;
-    b.proximoEvento();
-    cout << "02: " << "Clientes atendidos: " << b.getClientesAtendidos() << " Tempo actual: " << b.getTempoAtual() << " Prox chegada: " << b.getProxChegada() << " Prox Saida: " << b.getProxSaida() << endl;
-    b.proximoEvento();
-    cout << "03: " << "Clientes atendidos: " << b.getClientesAtendidos() << " Tempo actual: " << b.getTempoAtual() << " Prox chegada: " << b.getProxChegada() << " Prox Saida: " << b.getProxSaida() << endl;
-    b.proximoEvento();
-    cout << "04: " << "Clientes atendidos: " << b.getClientesAtendidos() << " Tempo actual: " << b.getTempoAtual() << " Prox chegada: " << b.getProxChegada() << " Prox Saida: " << b.getProxSaida() << endl;
+
+    cout << b.getTempoEmbrulho() << endl << endl;
+
+    b.chegada();
+
+    for (int i = 0; i < 20; i++) {
+        b.proximoEvento();
+        cout << setfill('0') << setw(2) << i << ": " << "Clientes atendidos: " << b.getClientesAtendidos() << " Tempo actual: " << b.getTempoAtual() << " Prox chegada: " << b.getProxChegada() << " Prox Saida: " << b.getProxSaida() << endl;
+        /*b.proximoEvento();
+        cout << "02: " << "Clientes atendidos: " << b.getClientesAtendidos() << " Tempo actual: " << b.getTempoAtual()
+             << " Prox chegada: " << b.getProxChegada() << " Prox Saida: " << b.getProxSaida() << endl;
+        b.proximoEvento();
+        cout << "03: " << "Clientes atendidos: " << b.getClientesAtendidos() << " Tempo actual: " << b.getTempoAtual()
+             << " Prox chegada: " << b.getProxChegada() << " Prox Saida: " << b.getProxSaida() << endl;
+        b.proximoEvento();
+        cout << "04: " << "Clientes atendidos: " << b.getClientesAtendidos() << " Tempo actual: " << b.getTempoAtual()
+             << " Prox chegada: " << b.getProxChegada() << " Prox Saida: " << b.getProxSaida() << endl;*/
+    }
 }
 
 TEST(test_2, f_Operador){
