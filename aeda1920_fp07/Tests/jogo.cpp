@@ -14,10 +14,17 @@ Jogo::Jogo(int niv, vector<int> &pontos, vector<bool> &estados)
     jogo = iniciaJogo(0,niv,pontos,estados);
 }
 
-//a alterar
 string Jogo::escreveJogo()
 {
-	return "";
+    string s;
+	BTItrLevel<Circulo> it(jogo);
+	while (!it.isAtEnd()) {
+	    s += to_string(it.retrieve().getPontuacao()) + "-";
+        (it.retrieve().getEstado()) ? s += "true-" : s += "false-";
+        s += to_string(it.retrieve().getNVisitas()) + "\n";
+        it.advance();
+	}
+	return s;
 }
 
 //a alterar
