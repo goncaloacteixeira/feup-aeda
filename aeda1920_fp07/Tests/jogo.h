@@ -26,6 +26,7 @@ class Jogo {
 	BinaryTree<Circulo> jogo;
 public:
 	Jogo(int niv, vector<int> &pontos, vector<bool> &estados);
+	BinaryTree<Circulo> iniciaJogo(int pos, int niv, vector<int> &pontos, vector<bool> &estados);
 	string escreveJogo();
 	int jogada();
 	int maisVisitado();
