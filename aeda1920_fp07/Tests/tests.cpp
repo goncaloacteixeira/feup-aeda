@@ -9,14 +9,14 @@ using testing::Eq;
 
 TEST(test_1, a_CriaDicionario){
     ifstream fich;
-    fich.open("dic.txt");
+    fich.open("C:/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp07/Tests/dic.txt");
     Dicionario d1;
     d1.lerDicionario(fich);
     fich.close();
     BST<PalavraSignificado> arvPals = d1.getPalavras();
     bool isEmp = arvPals.isEmpty();
     EXPECT_EQ(false, isEmp);
-    if (isEmp==false) {
+    if (!isEmp) {
         BSTItrIn<PalavraSignificado> it(arvPals);
         it.advance();
         it.advance();

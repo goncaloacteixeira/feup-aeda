@@ -12,13 +12,22 @@ BST<PalavraSignificado> Dicionario::getPalavras() const {
 
 //a alterar
 bool PalavraSignificado::operator < (const PalavraSignificado &ps1) const {
-     return true;
+    return (this->palavra < ps1.palavra);
 }
 
 //a alterar
-void Dicionario::lerDicionario(ifstream &fich)
-{
-     return;
+void Dicionario::lerDicionario(ifstream &fich) {
+
+    PalavraSignificado palavra("", "");
+
+    string line1, line2;
+    while (getline(fich, line1)) {
+        getline(fich, line2);
+        palavra = PalavraSignificado(line1, line2);
+        palavras.insert(palavra);
+    }
+
+
 }
 
 //a alterar
