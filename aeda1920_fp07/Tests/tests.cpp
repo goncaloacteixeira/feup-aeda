@@ -60,7 +60,7 @@ TEST(test_1, c_ConsultaDicionario){
 
 TEST(test_1, d_CorrigeDicionario){
     ifstream fich;
-    fich.open("dic.txt");
+    fich.open("C:/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp07/Tests/dic.txt");
 
     Dicionario d1;
     d1.lerDicionario(fich);

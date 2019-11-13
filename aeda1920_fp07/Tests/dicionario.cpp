@@ -26,7 +26,6 @@ void Dicionario::lerDicionario(ifstream &fich) {
     }
 }
 
-//a alterar
 string Dicionario::consulta(string palavra) const
 {
     BSTItrIn<PalavraSignificado> it(palavras);
@@ -46,7 +45,23 @@ string Dicionario::consulta(string palavra) const
 //a alterar
 bool Dicionario::corrige(string palavra, string significado)
 {
-    return true;
+    try {
+        consulta(palavra);
+        BSTItrIn<PalavraSignificado> it(palavras);
+        while(!it.isAtEnd()) {
+            if (it.retrieve().getPalavra() == palavra) {
+                PalavraSignificado find = palavras.find(PalavraSignificado(it.retrieve().getPalavra(), it.retrieve().getSignificado()));
+                palavras.remove(find);
+                palavras.insert(PalavraSignificado(palavra, significado));
+                return true;
+            }
+            it.advance();
+        }
+    }
+    catch (PalavraNaoExiste &c){
+        palavras.insert(PalavraSignificado(palavra, significado));
+        return false;
+    }
 }
 
 void Dicionario::imprime() const
