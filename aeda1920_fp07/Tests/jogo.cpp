@@ -30,7 +30,30 @@ string Jogo::escreveJogo()
 //a alterar
 int Jogo::jogada()
 {
-	return 0;
+    BTItrLevel<Circulo> it(jogo);
+    int pos = 1;
+    int pontos = -1;
+
+    if (it.isAtEnd())
+        return pontos;
+    while (true) {
+        Circulo &c = it.retrieve();
+        int n;
+        (!c.getEstado()) ? n = pos : n = pos + 1;
+        c.mudaEstado();
+        c.incNVisitas();
+        pontos = c.getPontuacao();
+        int i = 0;
+        while (i < n && !it.isAtEnd()) {
+            it.advance();
+            i++;
+        }
+        if (it.isAtEnd())
+            break;
+        else
+            pos += n;
+    }
+    return pontos;
 }
 
 

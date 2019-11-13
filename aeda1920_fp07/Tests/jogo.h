@@ -17,6 +17,7 @@ public:
  bool getEstado() const { return estado; }
  void mudaEstado() { if (estado==false) estado=true; else estado=false; }
  int getNVisitas() const { return nVisitas; }
+ void incNVisitas() { nVisitas++; }
  friend ostream &operator << (ostream &os, Circulo &c1);
 };
 
