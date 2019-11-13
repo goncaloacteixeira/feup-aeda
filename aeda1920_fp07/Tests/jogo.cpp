@@ -27,7 +27,6 @@ string Jogo::escreveJogo()
 	return s;
 }
 
-//a alterar
 int Jogo::jogada()
 {
     BTItrLevel<Circulo> it(jogo);
@@ -57,10 +56,17 @@ int Jogo::jogada()
 }
 
 
-//a alterar
 int Jogo::maisVisitado()
 {
-	return 0;
+	int max = 0;
+    BTItrLevel<Circulo> it(jogo);
+    it.advance();
+    while (!it.isAtEnd()) {
+        if (it.retrieve().getNVisitas() > max)
+            max = it.retrieve().getNVisitas();
+        it.advance();
+    }
+    return max;
 }
 
 BinaryTree<Circulo> Jogo::iniciaJogo(int pos, int niv, vector<int> &pontos, vector<bool> &estados) {
