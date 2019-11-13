@@ -28,7 +28,7 @@ TEST(test_1, b_ImprimeDicionario){
     cout << "Este teste nao falha. Verifique na consola os valores" << endl;
     EXPECT_TRUE(true);
     ifstream fich;
-    fich.open("dic.txt");
+    fich.open("C:/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp07/Tests/dic.txt");
 
     Dicionario d1;
     d1.lerDicionario(fich);

@@ -10,12 +10,10 @@ BST<PalavraSignificado> Dicionario::getPalavras() const {
 	return palavras;
 }
 
-//a alterar
 bool PalavraSignificado::operator < (const PalavraSignificado &ps1) const {
     return (this->palavra < ps1.palavra);
 }
 
-//a alterar
 void Dicionario::lerDicionario(ifstream &fich) {
 
     PalavraSignificado palavra("", "");
@@ -26,8 +24,6 @@ void Dicionario::lerDicionario(ifstream &fich) {
         palavra = PalavraSignificado(line1, line2);
         palavras.insert(palavra);
     }
-
-
 }
 
 //a alterar
@@ -42,9 +38,13 @@ bool Dicionario::corrige(string palavra, string significado)
     return true;
 }
 
-//a alterar
 void Dicionario::imprime() const
 {
-    return;
+    BSTItrIn<PalavraSignificado> it(palavras);
+    while(!it.isAtEnd()) {
+        cout << it.retrieve().getPalavra() << endl;
+        cout << it.retrieve().getSignificado() << endl;
+        it.advance();
+    }
 }
 
