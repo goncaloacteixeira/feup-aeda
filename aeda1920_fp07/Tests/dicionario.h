@@ -28,7 +28,6 @@ public:
       void imprime() const;
 };
 
-// a alterar
 class PalavraNaoExiste
 {
     PalavraSignificado antes = PalavraSignificado("", "");

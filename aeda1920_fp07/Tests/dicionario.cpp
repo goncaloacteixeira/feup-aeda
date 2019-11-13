@@ -42,7 +42,6 @@ string Dicionario::consulta(string palavra) const
     throw PalavraNaoExiste(last, PalavraSignificado("",""));
 }
 
-//a alterar
 bool Dicionario::corrige(string palavra, string significado)
 {
     try {
