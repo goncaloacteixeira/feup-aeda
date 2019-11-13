@@ -29,7 +29,18 @@ void Dicionario::lerDicionario(ifstream &fich) {
 //a alterar
 string Dicionario::consulta(string palavra) const
 {
-    return "";
+    BSTItrIn<PalavraSignificado> it(palavras);
+    PalavraSignificado last("", "");
+    while(!it.isAtEnd()) {
+        if (it.retrieve().getPalavra() == palavra)
+            return it.retrieve().getSignificado();
+        if (it.retrieve().getPalavra() > palavra) {
+            throw PalavraNaoExiste(last, it.retrieve());
+        }
+        last = it.retrieve();
+        it.advance();
+    }
+    throw PalavraNaoExiste(last, PalavraSignificado("",""));
 }
 
 //a alterar

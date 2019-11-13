@@ -31,11 +31,18 @@ public:
 // a alterar
 class PalavraNaoExiste
 {
+    PalavraSignificado antes = PalavraSignificado("", "");
+    PalavraSignificado depois = PalavraSignificado("", "");
 public:
-	string getPalavraAntes() const { return ""; }
-	string getSignificadoAntes() const { return ""; }
-	string getPalavraApos() const { return ""; }
-	string getSignificadoApos() const { return ""; }
+    PalavraNaoExiste(PalavraSignificado antes, PalavraSignificado depois) {
+        this->antes = antes;
+        this->depois = depois;
+    }
+
+	string getPalavraAntes() const { return antes.getPalavra(); }
+	string getSignificadoAntes() const { return antes.getSignificado(); }
+	string getPalavraApos() const { return depois.getPalavra(); }
+	string getSignificadoApos() const { return depois.getSignificado(); }
 };
 
 

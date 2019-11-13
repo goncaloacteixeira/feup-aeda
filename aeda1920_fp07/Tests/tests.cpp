@@ -38,11 +38,12 @@ TEST(test_1, b_ImprimeDicionario){
 
 TEST(test_1, c_ConsultaDicionario){
     ifstream fich;
-    fich.open("dic.txt");
+    fich.open("C:/Users/skidr/OneDrive/Desktop/git/AEDA/aeda1920_fp07/Tests/dic.txt");
 
     Dicionario d1;
     d1.lerDicionario(fich);
     fich.close();
+
     EXPECT_EQ("mamifero felino", d1.consulta("gato"));
     EXPECT_THROW(d1.consulta("rio"), PalavraNaoExiste);
     try {
