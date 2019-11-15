@@ -33,7 +33,7 @@ void Balcao::chegada()
 {
     Cliente c;
 
-    tempo_atual += prox_chegada;
+    // tempo_atual += prox_chegada;
 
     if (clientes.empty())
         prox_saida = c.getNumPresentes()*tempo_embrulho;
@@ -48,7 +48,7 @@ void Balcao::chegada()
 
 void Balcao::saida()
 {
-    tempo_atual += prox_saida;
+    // tempo_atual += prox_saida;
     prox_chegada -= prox_saida;
     try {
         Cliente c = getProxCliente();
