@@ -78,14 +78,28 @@ int CGrupo::numAvariados(int cilind)
 }
 
 //Exercicio 1 c)   
-bool CPista::prepararCorrida(int numeroKarts, int cilind)
-{
-    return true;
+bool CPista::prepararCorrida(int numeroKarts, int cilind) {
+    int count = 0;
+    for (CKart kart : getFrotaActual())
+        if (kart.getCilindrada() == cilind && !kart.getAvariado())
+            count++;
+    if (count < numeroKarts) {
+        for (CKart kart : getFrotaActual())
+            if (kart.getCilindrada() == cilind && !kart.getAvariado())
+                this->kartsLinhaPartida.push(kart);
+        return false;
+    }
+    else {
+        for (CKart kart : getFrotaActual())
+            if (kart.getCilindrada() == cilind && !kart.getAvariado())
+                this->kartsLinhaPartida.push(kart);
+        return true;
+    }
 }
 
 //Exercicio 1 d) 
 int CPista::inicioCorrida()
 {
-    return 0;
+    
 }
 
