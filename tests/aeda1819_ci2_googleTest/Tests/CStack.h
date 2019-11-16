@@ -38,8 +38,10 @@ public:
         cout << endl;
     }
     void adicionaN(int n)
-	{  //Grupo 2 a)
-    	
+	{
+        if (n == 0) return;
+        for (int i = 0; i < n; i++)
+            push(items[top] + 1);
 	}
 	bool inverte4() 
 	{   //Grupo 2 b)
