@@ -956,9 +956,10 @@ TEST(TypedEqTest, CanDescribeSelf) {
 
 // Tests that TypedEq<T>(v) has type Matcher<T>.
 
-// Type<T>::IsTypeOf(v) compiles if and only if the type of value v is T, where
-// T is a "bare" type (i.e. not in the form of const U or U&).  If v's type is
-// not T, the compiler will generate a message about "undefined reference".
+// Type<T>::IsTypeOf(v) compiles if the type of value v is T, where T
+// is a "bare" type (i.e. not in the form of const U or U&).  If v's
+// type is not T, the compiler will generate a message about
+// "undefined reference".
 template <typename T>
 struct Type {
   static bool IsTypeOf(const T& /* v */) { return true; }
@@ -2639,8 +2640,8 @@ class IsGreaterThan {
 // For testing Truly().
 const int foo = 0;
 
-// This predicate returns true if and only if the argument references foo and
-// has a zero value.
+// This predicate returns true if the argument references foo and has
+// a zero value.
 bool ReferencesFooAndIsZero(const int& n) {
   return (&n == &foo) && (n == 0);
 }
@@ -3593,7 +3594,7 @@ class Uncopyable {
   GTEST_DISALLOW_COPY_AND_ASSIGN_(Uncopyable);
 };
 
-// Returns true if and only if x.value() is positive.
+// Returns true if x.value() is positive.
 bool ValueIsPositive(const Uncopyable& x) { return x.value() > 0; }
 
 MATCHER_P(UncopyableIs, inner_matcher, "") {
@@ -4316,16 +4317,6 @@ TEST(ResultOfTest, WorksForLambdas) {
       "xxx");
   EXPECT_TRUE(matcher.Matches(3));
   EXPECT_FALSE(matcher.Matches(1));
-}
-
-TEST(ResultOfTest, WorksForNonCopyableArguments) {
-  Matcher<std::unique_ptr<int>> matcher = ResultOf(
-      [](const std::unique_ptr<int>& str_len) {
-        return std::string(static_cast<size_t>(*str_len), 'x');
-      },
-      "xxx");
-  EXPECT_TRUE(matcher.Matches(std::unique_ptr<int>(new int(3))));
-  EXPECT_FALSE(matcher.Matches(std::unique_ptr<int>(new int(1))));
 }
 
 const int* ReferencingFunction(const int& n) { return &n; }
@@ -6396,7 +6387,7 @@ class SampleOptional {
   explicit SampleOptional(T value)
       : value_(std::move(value)), has_value_(true) {}
   SampleOptional() : value_(), has_value_(false) {}
-  operator bool() const { return has_value_; }
+  explicit operator bool() const { return has_value_; }
   const T& operator*() const { return value_; }
 
  private:
@@ -6434,6 +6425,39 @@ TEST(OptionalTest, DoesNotMatchNullopt) {
 TEST(OptionalTest, WorksWithMoveOnly) {
   Matcher<SampleOptional<std::unique_ptr<int>>> m = Optional(Eq(nullptr));
   EXPECT_TRUE(m.Matches(SampleOptional<std::unique_ptr<int>>(nullptr)));
+}
+
+TEST(OptionalTest, TupleDescribesSelf) {
+  const Matcher<std::tuple<SampleOptional<int>, int>> m = Optional(Eq());
+  EXPECT_EQ("are optionals where the values are an equal pair", Describe(m));
+}
+
+TEST(OptionalTest, TupleExplainsSelf) {
+  const Matcher<std::tuple<SampleOptional<int>, int>> m = Optional(Eq());
+  EXPECT_EQ("which match",
+            Explain(m, std::make_tuple(SampleOptional<int>(1), 1)));
+  EXPECT_EQ("whose values don't match",
+            Explain(m, std::make_tuple(SampleOptional<int>(1), 2)));
+}
+
+TEST(OptionalTest, TupleMatchesNonEmpty) {
+  const Matcher<std::tuple<SampleOptional<int>, int>> m1 = Optional(Eq());
+  const Matcher<std::tuple<SampleOptional<int>, int>> m2 = Optional(Lt());
+  EXPECT_TRUE(m1.Matches(std::make_tuple(SampleOptional<int>(1), 1)));
+  EXPECT_FALSE(m1.Matches(std::make_tuple(SampleOptional<int>(1), 2)));
+  EXPECT_FALSE(m2.Matches(std::make_tuple(SampleOptional<int>(1), 1)));
+  EXPECT_TRUE(m2.Matches(std::make_tuple(SampleOptional<int>(1), 2)));
+}
+
+TEST(OptionalTest, TupleDoesNotMatchNullopt) {
+  const Matcher<std::tuple<SampleOptional<int>, int>> m1 = Optional(Eq());
+  EXPECT_FALSE(m1.Matches(std::make_tuple(SampleOptional<int>(), 1)));
+}
+
+TEST(OptionalTest, TupleWorksInPointwise) {
+  std::vector<SampleOptional<int>> v = {
+      SampleOptional<int>(1), SampleOptional<int>(2), SampleOptional<int>(3)};
+  EXPECT_THAT(v, Pointwise(Optional(Eq()), {1, 2, 3}));
 }
 
 class SampleVariantIntString {

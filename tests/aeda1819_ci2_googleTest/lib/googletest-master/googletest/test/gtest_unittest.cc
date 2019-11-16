@@ -233,6 +233,7 @@ using testing::internal::AppendUserMessage;
 using testing::internal::ArrayAwareFind;
 using testing::internal::ArrayEq;
 using testing::internal::CodePointToUtf8;
+using testing::internal::CompileAssertTypesEqual;
 using testing::internal::CopyArray;
 using testing::internal::CountIf;
 using testing::internal::EqFailure;
@@ -261,6 +262,7 @@ using testing::internal::OsStackTraceGetterInterface;
 using testing::internal::ParseInt32Flag;
 using testing::internal::RelationToSourceCopy;
 using testing::internal::RelationToSourceReference;
+using testing::internal::RemoveReference;
 using testing::internal::ShouldRunTestOnShard;
 using testing::internal::ShouldShard;
 using testing::internal::ShouldUseColor;
@@ -2167,12 +2169,12 @@ static Environment* record_property_env GTEST_ATTRIBUTE_UNUSED_ =
 
 // First, some predicates and predicate-formatters needed by the tests.
 
-// Returns true if and only if the argument is an even number.
+// Returns true if the argument is an even number.
 bool IsEven(int n) {
   return (n % 2) == 0;
 }
 
-// A functor that returns true if and only if the argument is an even number.
+// A functor that returns true if the argument is an even number.
 struct IsEvenFunctor {
   bool operator()(int n) { return IsEven(n); }
 };
@@ -2216,13 +2218,13 @@ struct AssertIsEvenFunctor {
   }
 };
 
-// Returns true if and only if the sum of the arguments is an even number.
+// Returns true if the sum of the arguments is an even number.
 bool SumIsEven2(int n1, int n2) {
   return IsEven(n1 + n2);
 }
 
-// A functor that returns true if and only if the sum of the arguments is an
-// even number.
+// A functor that returns true if the sum of the arguments is an even
+// number.
 struct SumIsEven3Functor {
   bool operator()(int n1, int n2, int n3) {
     return IsEven(n1 + n2 + n3);
@@ -5343,7 +5345,7 @@ TEST_P(CodeLocationForTESTP, Verify) {
   VERIFY_CODE_LOCATION;
 }
 
-INSTANTIATE_TEST_SUITE_P(All, CodeLocationForTESTP, Values(0));
+INSTANTIATE_TEST_SUITE_P(, CodeLocationForTESTP, Values(0));
 
 template <typename T>
 class CodeLocationForTYPEDTEST : public Test {
@@ -7101,12 +7103,42 @@ TEST(IsAProtocolMessageTest, ValueIsFalseWhenTypeIsNotAProtocolMessage) {
   EXPECT_FALSE(IsAProtocolMessage<const ConversionHelperBase>::value);
 }
 
+// Tests that CompileAssertTypesEqual compiles when the type arguments are
+// equal.
+TEST(CompileAssertTypesEqual, CompilesWhenTypesAreEqual) {
+  CompileAssertTypesEqual<void, void>();
+  CompileAssertTypesEqual<int*, int*>();
+}
+
+// Tests that RemoveReference does not affect non-reference types.
+TEST(RemoveReferenceTest, DoesNotAffectNonReferenceType) {
+  CompileAssertTypesEqual<int, RemoveReference<int>::type>();
+  CompileAssertTypesEqual<const char, RemoveReference<const char>::type>();
+}
+
+// Tests that RemoveReference removes reference from reference types.
+TEST(RemoveReferenceTest, RemovesReference) {
+  CompileAssertTypesEqual<int, RemoveReference<int&>::type>();
+  CompileAssertTypesEqual<const char, RemoveReference<const char&>::type>();
+}
+
+// Tests GTEST_REMOVE_REFERENCE_.
+
+template <typename T1, typename T2>
+void TestGTestRemoveReference() {
+  CompileAssertTypesEqual<T1, GTEST_REMOVE_REFERENCE_(T2)>();
+}
+
+TEST(RemoveReferenceTest, MacroVersion) {
+  TestGTestRemoveReference<int, int>();
+  TestGTestRemoveReference<const char, const char&>();
+}
+
 // Tests GTEST_REMOVE_REFERENCE_AND_CONST_.
 
 template <typename T1, typename T2>
 void TestGTestRemoveReferenceAndConst() {
-  static_assert(std::is_same<T1, GTEST_REMOVE_REFERENCE_AND_CONST_(T2)>::value,
-                "GTEST_REMOVE_REFERENCE_AND_CONST_ failed.");
+  CompileAssertTypesEqual<T1, GTEST_REMOVE_REFERENCE_AND_CONST_(T2)>();
 }
 
 TEST(RemoveReferenceToConstTest, Works) {
@@ -7121,8 +7153,7 @@ TEST(RemoveReferenceToConstTest, Works) {
 
 template <typename T1, typename T2>
 void TestGTestReferenceToConst() {
-  static_assert(std::is_same<T1, GTEST_REFERENCE_TO_CONST_(T2)>::value,
-                "GTEST_REFERENCE_TO_CONST_ failed.");
+  CompileAssertTypesEqual<T1, GTEST_REFERENCE_TO_CONST_(T2)>();
 }
 
 TEST(GTestReferenceToConstTest, Works) {
@@ -7353,15 +7384,20 @@ TEST(IndexSequence, MakeIndexSequence) {
 // ElemFromList
 TEST(ElemFromList, Basic) {
   using testing::internal::ElemFromList;
-  EXPECT_TRUE(
-      (std::is_same<int, ElemFromList<0, int, double, char>::type>::value));
-  EXPECT_TRUE(
-      (std::is_same<double, ElemFromList<1, int, double, char>::type>::value));
-  EXPECT_TRUE(
-      (std::is_same<char, ElemFromList<2, int, double, char>::type>::value));
+  using Idx = testing::internal::MakeIndexSequence<3>::type;
   EXPECT_TRUE((
-      std::is_same<char, ElemFromList<7, int, int, int, int, int, int, int,
-                                      char, int, int, int, int>::type>::value));
+      std::is_same<int, ElemFromList<0, Idx, int, double, char>::type>::value));
+  EXPECT_TRUE(
+      (std::is_same<double,
+                    ElemFromList<1, Idx, int, double, char>::type>::value));
+  EXPECT_TRUE(
+      (std::is_same<char,
+                    ElemFromList<2, Idx, int, double, char>::type>::value));
+  EXPECT_TRUE(
+      (std::is_same<
+          char, ElemFromList<7, testing::internal::MakeIndexSequence<12>::type,
+                             int, int, int, int, int, int, int, char, int, int,
+                             int, int>::type>::value));
 }
 
 // FlatTuple
