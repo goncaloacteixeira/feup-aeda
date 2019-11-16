@@ -26,6 +26,7 @@ TEST(test_1, test_a){
 TEST(test_1, test_b){
     CGrupo grupo1;
     grupo1.criaGrupo();
+
     EXPECT_EQ(grupo1.numAvariados(134), 210);
     EXPECT_EQ(grupo1.numAvariados(250), 219);
     EXPECT_EQ(grupo1.numAvariados(450), 212);

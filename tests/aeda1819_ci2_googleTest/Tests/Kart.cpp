@@ -32,7 +32,6 @@ void CGrupo::criaGrupo()
     }
 }
 
-
 vector <CKart> CPista::getKartsAvariados()
 {
     vector<CKart> aux;
@@ -66,9 +65,13 @@ vector<CKart> CGrupo::ordenaKarts() {
 }
 
 //Exercicio 1 b)  
-int CGrupo::numAvariados(int cilind)
-{
-    return 0;
+int CGrupo::numAvariados(int cilind) {
+    int count = 0;
+    for (CPista pista : this->pistasG)
+        for (CKart kart : pista.getKartsAvariados())
+            if (kart.getCilindrada() == cilind)
+                count++;
+    return count;
 }
 
 //Exercicio 1 c)   
