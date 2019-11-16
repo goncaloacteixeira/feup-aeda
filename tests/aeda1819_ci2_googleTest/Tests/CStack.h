@@ -45,7 +45,20 @@ public:
 	}
 	bool inverte4() 
 	{   //Grupo 2 b)
-    	return true;
-	}	
+    	if (top < 3) return false;
+
+        int a,b,c,d;
+        a = items[top];
+        pop();
+        b = items[top];
+        pop();
+        c = items[top];
+        pop();
+        d = items[top];
+        pop();
+
+        push(a); push(b); push(c); push(d);
+        return true;
+    }
 }; 
 
