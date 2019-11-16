@@ -100,6 +100,12 @@ bool CPista::prepararCorrida(int numeroKarts, int cilind) {
 //Exercicio 1 d) 
 int CPista::inicioCorrida()
 {
-    
+    int count = 0;
+    while (!kartsLinhaPartida.empty()) {
+        this->kartsEmProva.push_back(kartsLinhaPartida.front());
+        kartsLinhaPartida.pop();
+        count++;
+    }
+    return count;
 }
 
