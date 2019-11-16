@@ -45,9 +45,25 @@ vector <CKart> CPista::getKartsAvariados()
 //Exercicio 1 a)     
 vector<CKart> CGrupo::ordenaKarts()
 {
-	vector<CKart> vord;
-	return vord;
-    
+    vector<CKart> kar;
+    // por cada kart em cada pista (range-based for loop)
+    for (auto pista : this->pistasG)
+        for (auto kart : pista.getFrotaActual())
+            kar.push_back(kart);
+
+    if (kar.empty())
+        return kar;
+
+    // BubbleSort
+    for (unsigned int j = kar.size() - 1; j > 0; j--) {
+        bool troca = false;
+        for (unsigned int i = 0; i < j; i++)
+            if (kar[i + 1].getNumero() < kar[i].getNumero()) {
+                swap(kar[i], kar[i + 1]);
+                troca = true;
+            }
+        if (!troca) return kar;
+    }
 }
 
 //Exercicio 1 b)  
