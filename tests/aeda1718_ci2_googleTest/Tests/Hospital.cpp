@@ -84,9 +84,22 @@ queue<Patient> Hospital::removeDoctor(unsigned codM1) {
 
 
 bool Hospital::putInLessBusyDoctor(unsigned cod1, string medicalSpecialty1) {
-	// TODO
-	return true;
 
+    bool flag = false;
+    for (auto &doc : doctors)
+        if (doc.getMedicalSpecialty() == medicalSpecialty1)
+            flag = true;
+
+    if (!flag) return false;
+
+    Doctor *menosOcupado = &doctors.front();
+
+    for (auto &doc : doctors)
+        if (doc.getPatients().size() < menosOcupado->getPatients().size() && doc.getMedicalSpecialty() == medicalSpecialty1)
+            menosOcupado = &doc;
+
+    menosOcupado->addPatient(Patient(cod1,medicalSpecialty1));
+    return true;
 }
 
 
