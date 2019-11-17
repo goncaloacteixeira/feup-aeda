@@ -24,11 +24,10 @@ list< stack<Article*> > Purchase::getBags() const {
  * Create an Article associated with the client of this purchase.
  */
 Article* Purchase::createArticle(long barCode, bool present, bool deliverHome) {
-
-	// TODO
-
-	return 0;
-
+    auto* a = new Article(client, barCode);
+    a->setPresent(present);
+    a->setDeliverHome(deliverHome);
+    return a;
 }
 
 /**
