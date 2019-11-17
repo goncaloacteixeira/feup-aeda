@@ -68,7 +68,31 @@ public:
   	}
 	void intercalar(const CSimpleList &lst) //Grupo 2 c)
 	{
-	
+        CNode *l1 = first;
+        CNode *l2 = lst.first;
+
+        do {
+            if (l2 != nullptr) {
+                /*
+                 * Enquanto l2 não acabar, cria-se um novo CNode com
+                 * data de l2 e link para o proximo elemento de l1
+                 */
+                auto* n = new CNode(l2->data(), l1->next());
+                l1->setNext(n);
+                l2 = l2->next();
+            }
+            if (l1 != nullptr) {
+                // passa-se ao seguinte porque, o seguinte tem informação de l2
+                l1 = l1->next();
+                if (l1 != nullptr)
+                    // passa-se ao seguinte, o seguinte tem info de l1
+                    l1 = l1->next();
+            }
+            // acaba quando ambos os "iteradores" acabarem
+            if (l1 == nullptr && l2 == nullptr)
+                break;
+        } while (true);
+
 	}
 	int zipar() //Grupo 2 d)
 	{
