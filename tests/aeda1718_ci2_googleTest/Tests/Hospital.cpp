@@ -105,8 +105,29 @@ bool Hospital::putInLessBusyDoctor(unsigned cod1, string medicalSpecialty1) {
 
 
 void Hospital::processPatient(unsigned codM1) {
-	// TODO
 
+    bool isDoc = false;
+    Patient patient(1,"");
+    for (auto& doc : doctors)
+        if (doc.getCode() == codM1) {
+            try {
+                patient = doc.removeNextPatient();
+                isDoc = true;
+            }
+            catch (Doctor::PatientInexistent &e) { }
+        }
+
+    if (!isDoc) return;
+
+    for (auto& tray : letterTray)
+        if (tray.size() != trayCapacity) {
+            tray.push(patient);
+            return;
+        }
+
+    stack<Patient> p1;
+    p1.push(patient);
+    addTrays(p1);
 }
 
 
