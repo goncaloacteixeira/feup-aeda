@@ -48,11 +48,22 @@ void Purchase::putInBag(Article* article) {
  * All other articles are pushed back into the bags where they were, maintaining order.
  */
 vector<Article*> Purchase::popPresents() {
-
-	// TODO
-
 	vector<Article*> presents;
-	return presents;
 
+	for (auto &bag : bags) {
+	    vector<Article*> notPresents = {};
+	    while (!bag.empty()) {
+	        if (bag.top()->getPresent())
+	            presents.push_back(bag.top());
+	        else
+	            notPresents.push_back(bag.top());
+	        bag.pop();
+	    }
+	    for (auto it = notPresents.rbegin(); it != notPresents.rend(); it++)
+	        bag.push(*it);
+	    notPresents.clear();
+	}
+
+	return presents;
 }
 
