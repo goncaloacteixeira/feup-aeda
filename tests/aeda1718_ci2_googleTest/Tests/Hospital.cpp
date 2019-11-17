@@ -56,9 +56,17 @@ void Hospital::sortDoctors() {
 
 
 bool Hospital::addDoctor(unsigned codM1, string medicalSpecialty1) {
-	// TODO
-	return true;
 
+	int count = 0;
+	for (auto it = doctors.begin(); it != doctors.end(); it++)
+	    if (it->getMedicalSpecialty() == medicalSpecialty1)
+	        count++;
+	if (count < 3) {
+        doctors.emplace_back(codM1, medicalSpecialty1);
+        return true;
+    }
+	else
+	    return false;
 }
 
 
