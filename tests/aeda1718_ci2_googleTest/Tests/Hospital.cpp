@@ -30,9 +30,11 @@ list<stack<Patient> > Hospital::getTrays() const {
 
 unsigned Hospital::numPatients(string medicalSpecialty) const
 {
-	// TODO
-	return 0;
-
+    unsigned count = 0;
+	for (auto it = doctors.begin(); it != doctors.end(); it++)
+        if (it->getMedicalSpecialty() == medicalSpecialty)
+            count += it->getPatients().size();
+    return count;
 }
 
 void Hospital::sortDoctors() {
