@@ -132,9 +132,17 @@ void Hospital::processPatient(unsigned codM1) {
 
 
 unsigned Hospital::removePatients(unsigned codP1) {
-	// TODO
-	return 0;
 
+    int count = 0;
+    for (auto it = letterTray.begin(); it != letterTray.end(); it++) {
+        if (it->top().getCode() == codP1) {
+            it->pop();
+            count++;
+        }
+        if (it->empty())
+            it = --letterTray.erase(it);
+    }
+    return count;
 }
 
 
