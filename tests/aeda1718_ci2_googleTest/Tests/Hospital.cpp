@@ -58,8 +58,8 @@ void Hospital::sortDoctors() {
 bool Hospital::addDoctor(unsigned codM1, string medicalSpecialty1) {
 
 	int count = 0;
-	for (auto it = doctors.begin(); it != doctors.end(); it++)
-	    if (it->getMedicalSpecialty() == medicalSpecialty1)
+	for (auto & doctor : doctors)
+	    if (doctor.getMedicalSpecialty() == medicalSpecialty1)
 	        count++;
 	if (count < 3) {
         doctors.emplace_back(codM1, medicalSpecialty1);
@@ -72,10 +72,14 @@ bool Hospital::addDoctor(unsigned codM1, string medicalSpecialty1) {
 
 
 queue<Patient> Hospital::removeDoctor(unsigned codM1) {
-	// TODO
-	queue<Patient> p1;
-	return p1;
 
+    for (auto it = doctors.begin(); it != doctors.end(); it++)
+        if (it->getCode() == codM1) {
+            queue<Patient> p = it->getPatients();
+            doctors.erase(it);
+            return p;
+        }
+    throw DoctorInexistent();
 }
 
 
