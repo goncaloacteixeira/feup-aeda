@@ -43,10 +43,12 @@ void AfterSalesService::dropPresentsOnTable(vector<Article*> presents) {
  * Remove from the table all articles of a given client.
  */
 vector<Article*> AfterSalesService::pickPresentsFromTable(long client) {
-
-	// TODO
-
 	vector<Article*> clientPresents;
+	for (auto it = presentsTable.begin(); it != presentsTable.end(); it++)
+	    if ((*it)->getClient() == client) {
+	        clientPresents.push_back(*it);
+	        it = --presentsTable.erase(it);
+	    }
 	return clientPresents;
 }
 
