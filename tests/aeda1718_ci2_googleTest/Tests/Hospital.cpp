@@ -37,9 +37,20 @@ unsigned Hospital::numPatients(string medicalSpecialty) const
     return count;
 }
 
-void Hospital::sortDoctors() {
-	// TODO
+bool foo (const Doctor &d1, const Doctor &d2) {
+    if (d1.getPatients().size() < d2.getPatients().size())
+        return true;
+    if (d1.getPatients().size() > d2.getPatients().size())
+        return false;
+    if (d1.getMedicalSpecialty() < d2.getMedicalSpecialty())
+        return true;
+    if (d1.getMedicalSpecialty() > d2.getMedicalSpecialty())
+        return false;
+    return d1.getCode() < d2.getCode();
+}
 
+void Hospital::sortDoctors() {
+    doctors.sort(foo);
 }
 
 

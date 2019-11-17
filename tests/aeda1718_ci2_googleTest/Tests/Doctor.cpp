@@ -52,7 +52,26 @@ Patient Doctor::removeNextPatient() {
 
 
 void Doctor::moveToFront(unsigned codP1) {
-	// TODO
+	if (this->patients.empty())
+	    return;
 
+	vector<Patient> pats;
+	Patient p1(1,"");
+	bool flag = false;
+	while (!patients.empty()) {
+	    if (patients.front().getCode() == codP1) {
+            flag = true;
+            p1 = patients.front();
+	    }
+	    else
+	        pats.push_back(patients.front());
+	    patients.pop();
+	}
+
+    if (flag)
+        patients.push(p1);
+
+    for (const auto& pat : pats)
+	    patients.push(pat);
 }
 
