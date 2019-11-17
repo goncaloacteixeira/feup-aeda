@@ -70,9 +70,9 @@ vector<CKart> CGrupo::ordenaKarts()
 int CGrupo::numAvariados(int cilind)
 {
     int count = 0;
-    for (CPista pista : this->pistasG)
-        for (CKart kart : pista.getKartsAvariados())
-            if (kart.getCilindrada() == cilind)
+    for (CPista &pista : this->pistasG)
+        for (CKart &kart : pista.getKartsAvariados())
+            if ((kart.getCilindrada() == cilind) && kart.getAvariado())
                 count++;
     return count;
 }

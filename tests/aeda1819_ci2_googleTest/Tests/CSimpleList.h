@@ -96,7 +96,34 @@ public:
 	}
 	int zipar() //Grupo 2 d)
 	{
-		return 0;
+        CNode* l = first;
+        CNode* aux;
+        int count = 0;
+
+        do {
+            if (l != nullptr) {
+                int data = l->data();
+                aux = l;
+                while (true) {
+                    aux = aux->next();
+                    if (aux != nullptr) {
+                        if (data == aux->data())
+                            count++;
+                        else
+                            break;
+                    } else
+                        break;
+                }
+                l->setNext(aux);
+                if (l->next() != nullptr)
+                    l = l->next();
+                else
+                    break;
+            }
+            else
+                break;
+        } while (true);
+        return count;
 	}
 }; 
 
