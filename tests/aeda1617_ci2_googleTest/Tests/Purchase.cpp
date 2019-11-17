@@ -34,9 +34,13 @@ Article* Purchase::createArticle(long barCode, bool present, bool deliverHome) {
  * Add an Article to the bags of this purchase. A new bag is added when the last bag is full.
  */
 void Purchase::putInBag(Article* article) {
-
-	// TODO
-
+    if (bags.back().size() != BAG_SIZE && !bags.empty()) {
+        bags.back().push(article);
+        return;
+    }
+    stack<Article*> bag;
+    bag.push(article);
+    bags.push_back(bag);
 }
 
 /**
