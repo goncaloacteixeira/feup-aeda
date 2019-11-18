@@ -4,6 +4,8 @@
 #include <string>
 #include "pizzeria.h"
 
+using testing::Eq;
+
 TEST(test_1, a){
 	vector<string> m1;
 	m1.push_back("pepperoni");
@@ -61,7 +63,6 @@ TEST(test_1, b){
 }
 
 TEST(test_1, c){
-/*
 	Menu m1;
 	vector<string> is1;
 	is1.push_back("chorizo");
@@ -84,7 +85,6 @@ TEST(test_1, c){
 	m1.setIngredients(is2);
 	is1 = m1.getIngredients();
 	EXPECT_EQ(5, is1.size());
-*/
 }
 
 TEST(test_1, d){

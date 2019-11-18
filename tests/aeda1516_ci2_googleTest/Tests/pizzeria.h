@@ -34,6 +34,10 @@ public:
 	vector<string> getIngredients() const;
 	void addLike() { ++likes; }
 	int getLikes() const { return likes; }
+    class ExceptionIngredientsRepeated {
+    public:
+	    ExceptionIngredientsRepeated() {}
+	};
 
 	void setIngredients(const vector<string> &is1);
 };
@@ -70,7 +74,5 @@ bool isSet(const vector<T>& v1) {
     set<T> uniques = {v1.begin(), v1.end()};
     return (v1.size() == uniques.size());
 }
-
-
 
 #endif /* PIZZERIA_H_ */

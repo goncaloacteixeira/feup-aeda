@@ -41,7 +41,11 @@ string Menu::getName() const { return name; }
 void Menu::setName(string n1) { name = n1; }
 vector<string> Menu::getIngredients() const { return ingredients; }
 
-
+void Menu::setIngredients(const vector<string> &is1) {
+    if (!isSet(is1))
+        throw ExceptionIngredientsRepeated();
+    this->ingredients = is1;
+}
 
 
 /*
