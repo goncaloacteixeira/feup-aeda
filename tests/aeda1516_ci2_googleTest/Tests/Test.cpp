@@ -131,7 +131,6 @@ TEST(test_1, d){
 }
 
 TEST(test_1, e){
-/*
 	vector<string> m1;
 	m1.push_back("pepperoni");
 	m1.push_back("mozzarella");
@@ -181,7 +180,6 @@ TEST(test_1, e){
 
 	EXPECT_EQ("chicken", rank[0].getName());
 	EXPECT_EQ("tuna", rank[3].getName());
-*/
 }
 
 TEST(test_1, f){

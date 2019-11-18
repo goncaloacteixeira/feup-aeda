@@ -96,6 +96,25 @@ vector<Menu> Pizzeria::optionsWithinIngredientLimits(int i1, int i2) const {
     return res;
 }
 
+bool foo(Menu& m1, Menu& m2) {
+    if (m2.getLikes() < m1.getLikes())
+        return true;
+    else if (m2.getLikes() > m1.getLikes())
+        return false;
+    else if (m2.getIngredients().size() < m1.getIngredients().size())
+        return true;
+    else if (m2.getIngredients().size() > m1.getIngredients().size())
+        return false;
+    return (m1.getName() < m2.getName());
+}
+
+#include <algorithm>
+vector<Menu> Pizzeria::popularityRank() const {
+    vector<Menu> menusRank = this->getMenus();
+    sort(menusRank.begin(), menusRank.end(), foo);
+    return menusRank;
+}
+
 
 
 
