@@ -18,6 +18,7 @@
 using namespace std;
 
 class Menu {
+    static int current_id;
 	int id;
 	string name;
 	int likes;

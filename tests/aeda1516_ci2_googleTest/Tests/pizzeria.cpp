@@ -11,10 +11,21 @@
  * CLASS MENU
  */
 
+
 Menu::Menu() {
 	id = 0;
 	name = "";
 	likes = 0;
+}
+
+int Menu::current_id = 1;
+
+Menu::Menu(string n1, vector<string> is1) {
+    this->likes = 0;
+    this->name = n1;
+    this->ingredients = is1;
+    this->id = current_id;
+    current_id++;
 }
 
 Menu::Menu(int id1, string n1, vector<string> is1, int lks1) {
