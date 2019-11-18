@@ -66,6 +66,10 @@ public:
 	Customer* chefCustomer();
 	Menu& removeIngredient(vector<string> is1, string i1);
 
+    class ExceptionInvalidIngredientLimits {
+    public:
+        ExceptionInvalidIngredientLimits() {}
+    };
 };
 
 #include <set>

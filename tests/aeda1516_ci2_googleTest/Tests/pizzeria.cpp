@@ -85,6 +85,17 @@ int Pizzeria::addCustomer(Customer* c1) {
 	return customers.size();
 }
 
+vector<Menu> Pizzeria::optionsWithinIngredientLimits(int i1, int i2) const {
+    if (i1<1 or i2<1 or i1>i2)
+        throw ExceptionInvalidIngredientLimits();
+    vector<Menu> res;
+    for (auto menu : menus) {
+        if (menu.getIngredients().size() <= i2 and menu.getIngredients().size() >= i1)
+            res.emplace_back(menu);
+    }
+    return res;
+}
+
 
 
 

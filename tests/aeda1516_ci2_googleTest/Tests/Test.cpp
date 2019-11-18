@@ -88,7 +88,6 @@ TEST(test_1, c){
 }
 
 TEST(test_1, d){
-/*
 	vector<string> m1;
 	m1.push_back("pepperoni");
 	m1.push_back("mozzarella");
@@ -129,7 +128,6 @@ TEST(test_1, d){
 	}
 	catch(Pizzeria::ExceptionInvalidIngredientLimits& e) {
 	}
- */
 }
 
 TEST(test_1, e){
