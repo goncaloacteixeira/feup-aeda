@@ -103,10 +103,15 @@ void AfterSalesService::enqueueArticles() {
  * Process the first present to wrap. If it is an article to deliver home, the article is placed in the toDeliver queue.
  */
 Article* AfterSalesService::wrapNext() {
-
-	// TODO
-
-	return 0;
-
+    if (toWrap.empty())
+        return nullptr;
+    if (toWrap.front()->getDeliverHome()) {
+        toDeliver.push(toWrap.front());
+        toWrap.pop();
+        return nullptr;
+    }
+    Article* toReturn = toWrap.front();
+    toWrap.pop();
+    return toReturn;
 }
 
