@@ -115,6 +115,27 @@ vector<Menu> Pizzeria::popularityRank() const {
     return menusRank;
 }
 
-
+Customer *Pizzeria::chefCustomer() {
+    if (menus.empty()) return nullptr;
+    Customer* c;
+    int auxMenus = 1;
+    int auxLikes = 0;
+    for (auto customer : this->getCustomers()) {
+        int custMenus = 0;
+        int custLikes = 0;
+        for (const auto& menu : menus) {
+            if (menu.getName() == customer->getName()) {
+                custMenus++;
+                custLikes += menu.getLikes();
+            }
+        }
+        if (custLikes / custMenus > auxLikes / auxMenus) {
+            auxLikes = custLikes;
+            auxMenus = custMenus;
+            c = customer;
+        }
+    }
+    return c;
+}
 
 

@@ -183,7 +183,6 @@ TEST(test_1, e){
 }
 
 TEST(test_1, f){
-/*
 	vector<string> m1;
 	m1.push_back("pepperoni");
 	m1.push_back("mozzarella");
@@ -261,7 +260,6 @@ TEST(test_1, f){
 	marios2.addCustomer(&c2);
 
 	EXPECT_EQ(222333555, marios2.chefCustomer()->getNIF());
-*/
 }
 
 TEST(test_1, g){
