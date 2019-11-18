@@ -36,7 +36,7 @@ TEST(test_1, a){
 }
 
 TEST(test_1, b){
-/*	vector<string> v1;
+	vector<string> v1;
 	v1.push_back("pepperoni");
 	v1.push_back("onion");
 	v1.push_back("oregano");
@@ -57,7 +57,7 @@ TEST(test_1, b){
     EXPECT_EQ(true, isSet(v1));
     EXPECT_EQ(false, isSet(v2));
     EXPECT_EQ(true, isSet(v3));
-    EXPECT_EQ(true, isSet(v4));*/
+    EXPECT_EQ(true, isSet(v4));
 }
 
 TEST(test_1, c){

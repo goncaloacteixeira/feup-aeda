@@ -64,6 +64,13 @@ public:
 
 };
 
+#include <set>
+template <class T>
+bool isSet(const vector<T>& v1) {
+    set<T> uniques = {v1.begin(), v1.end()};
+    return (v1.size() == uniques.size());
+}
+
 
 
 #endif /* PIZZERIA_H_ */
