@@ -108,8 +108,22 @@ void Restaurant::storeDryDishes(string collection, TypeOfDish type) {
  */
 void Restaurant::setupTable(vector<Table>::size_type idx, string collection) {
 
-	// TODO
+    if (idx >= tables.size()) return;
+    for (auto &place : tables[idx].getPlaces()) {
+        if (!place.empty())
+            throw TableNotReadyException();
+    }
 
+    int sizeTable = tables[idx].size();
+    if (sizeTable > getCleanDishStack(collection, Plate).size())
+        throw NotEnoughDishesException();
+
+    vector<Dish *> toPut;
+    for (int i = 0; i < sizeTable; i++) {
+        toPut.push_back(getCleanDishStack(collection, Plate).top());
+        getCleanDishStack(collection, Plate).pop();
+    }
+    tables[idx].putOn(toPut);
 }
 
 /**
