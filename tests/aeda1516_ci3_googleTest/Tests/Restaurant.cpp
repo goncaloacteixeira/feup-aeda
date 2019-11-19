@@ -130,11 +130,16 @@ void Restaurant::setupTable(vector<Table>::size_type idx, string collection) {
  * Picks the dry dishes and groups them.
  * Returns the grouped dishes.
  */
+bool foo(Dish* d1, Dish* d2) {
+    if (d1->getCollection() < d2->getCollection())
+        return true;
+    return d1->getCollection() == d2->getCollection() && d1->getType() < d2->getType();
+}
+
 list<Dish*> Restaurant::pickupAndGroupDryDishes() {
-	list<Dish*> dry_grouped;
-
-	// TODO
-
+	list<Dish*> dry_grouped = drying;
+	dry_grouped.sort(foo);
+	drying.clear();
 	return dry_grouped;
 }
 
