@@ -148,9 +148,21 @@ list<Dish*> Restaurant::pickupAndGroupDryDishes() {
  * Returns the number of stacks that have been updated.
  */
 int Restaurant::storeGroupedDishes(list<Dish*> grouped_dishes) {
-
-	// TODO
-
-	return 0;
+    int count = 0;
+    for (auto it = grouped_dishes.begin(); it != grouped_dishes.end(); it++) {
+        int aux = 1;
+        Dish currentDish = **it;
+        it++;
+        if (it != grouped_dishes.end()) {
+            while (**it == currentDish) {
+                aux++;
+                it++;
+            }
+        }
+        it--;
+        addDishes(aux, currentDish.getCollection(), currentDish.getType());
+        count++;
+    }
+	return count;
 }
 
