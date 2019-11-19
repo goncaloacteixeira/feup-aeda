@@ -69,7 +69,9 @@ void Restaurant::addDishes(unsigned int n, string collection, TypeOfDish type) {
 Dish* Restaurant::washDish() {
 	Dish* d;
 
-	// TODO
+	d = this->dirty.front();
+	this->dirty.pop();
+	this->drying.push_back(d);
 
 	return d;
 }
