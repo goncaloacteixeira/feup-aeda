@@ -58,9 +58,8 @@ const list<Dish*>& Restaurant::getDrying() const {
  * Adds a number of dishes of a collection/type to the respective clean stack.
  */
 void Restaurant::addDishes(unsigned int n, string collection, TypeOfDish type) {
-    // TODO
-
-    return;
+    for (int i = 0; i < n; i++)
+        this->getCleanDishStack(collection,type).push(new Dish(collection,type));
 }
 
 /**

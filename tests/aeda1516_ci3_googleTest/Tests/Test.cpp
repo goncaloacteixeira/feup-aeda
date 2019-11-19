@@ -39,7 +39,6 @@ TEST(test_1, a) {
     EXPECT_EQ(5, r.getCleanDishStack("Asian", Bowl).size());
 
     EXPECT_EQ(4, r.getCleanDishStack("Asian", Plate).size());
-
 }
 
 // Restaurant::washDish()
