@@ -3,7 +3,7 @@
 #include "Supermercado.h"
 
 TEST(test_1, a) {
-/*	Item i1(5, 2, 2, "uva", "fruta");
+	Item i1(5, 2, 2, "uva", "fruta");
 	Item i2(10, 1, 1, "dentifico", "higiene");
 	Item i3(7, 3, 3, "detergente", "limpeza");
 
@@ -25,7 +25,7 @@ TEST(test_1, a) {
 	joao.addCesto(c2);
 
 	EXPECT_EQ(5, joao.numeroItens());
-	EXPECT_EQ(39, joao.valorItens());*/
+	EXPECT_EQ(39, joao.valorItens());
 }
 
 TEST(test_1, b) {

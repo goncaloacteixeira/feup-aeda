@@ -69,8 +69,8 @@ public:
 	}
 	int numCestos() const { return cestos.size(); }
 
-	//int numeroItens() const;
-	//int valorItens() const;
+	int numeroItens() const;
+	int valorItens() const;
 	//int trocarItem(Item& novoItem);
 	//void organizarCestos();
 	//vector<string> contarItensPorTipo();
