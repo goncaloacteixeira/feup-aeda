@@ -81,8 +81,10 @@ Dish* Restaurant::washDish() {
  */
 void Restaurant::clearTable(vector<Table>::size_type idx) {
 
-	// TODO
-
+    if (idx >= tables.size()) return;
+    vector<Dish* > dirtyDishes = tables[idx].clear();
+    for (auto &dish : dirtyDishes)
+        dirty.push(dish);
 }
 
 /**
