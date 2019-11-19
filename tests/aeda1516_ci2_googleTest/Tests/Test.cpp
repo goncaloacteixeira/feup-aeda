@@ -263,7 +263,6 @@ TEST(test_1, f){
 }
 
 TEST(test_1, g){
-/*
 	vector<string> is1;
 	is1.push_back("pepperoni");
 	is1.push_back("mozzarella");
@@ -310,7 +309,6 @@ TEST(test_1, g){
 	catch(Menu::ExceptionIngredientNotPresent&e) {
 		EXPECT_EQ("pepperoni", e.getIngredient());
 	}
-*/
 }
 
 

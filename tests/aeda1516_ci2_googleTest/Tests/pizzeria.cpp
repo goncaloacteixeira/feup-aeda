@@ -138,4 +138,21 @@ Customer *Pizzeria::chefCustomer() {
     return c;
 }
 
+Menu &Pizzeria::removeIngredient(vector<string> is1, string i1) {
+    for (auto &menu : menus) {
+        if (menu.getIngredients() == is1) {
+            vector<string> toUpdate = menu.getIngredients();
+            for (int i = 0; i < menu.getIngredients().size(); i++) {
+                if (toUpdate[i] == i1) {
+                    toUpdate.erase(toUpdate.begin() + i);
+                    menu.setIngredients(toUpdate);
+                    return menu;
+                }
+            }
+            throw Menu::ExceptionIngredientNotPresent(i1);
+        }
+    }
+    throw ExceptionInexistentMenu();
+}
+
 

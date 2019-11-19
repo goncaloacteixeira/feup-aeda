@@ -34,9 +34,17 @@ public:
 	vector<string> getIngredients() const;
 	void addLike() { ++likes; }
 	int getLikes() const { return likes; }
-    class ExceptionIngredientsRepeated {
+
+	class ExceptionIngredientsRepeated {
     public:
 	    ExceptionIngredientsRepeated() {}
+	};
+
+	class ExceptionIngredientNotPresent {
+	    string name;
+    public:
+	    ExceptionIngredientNotPresent(string name) { this->name = name; }
+	    string getIngredient() { return this->name; }
 	};
 
 	void setIngredients(const vector<string> &is1);
@@ -65,6 +73,11 @@ public:
 	vector<Menu> popularityRank() const;
 	Customer* chefCustomer();
 	Menu& removeIngredient(vector<string> is1, string i1);
+
+	class ExceptionInexistentMenu {
+	public:
+	    ExceptionInexistentMenu() { }
+	};
 
     class ExceptionInvalidIngredientLimits {
     public:
