@@ -91,9 +91,14 @@ void Restaurant::clearTable(vector<Table>::size_type idx) {
  * Stores in the respective clean stack all drying dishes of a given collection and type.
  */
 void Restaurant::storeDryDishes(string collection, TypeOfDish type) {
-
-	// TODO
-
+    int count = 0;
+    for (auto it = drying.begin(); it != drying.end(); it++) {
+        if ((*it)->getCollection() == collection && (*it)->getType() == type) {
+            count++;
+            it = drying.erase(it);
+        }
+    }
+    addDishes(count, collection, type);
 }
 
 /**
