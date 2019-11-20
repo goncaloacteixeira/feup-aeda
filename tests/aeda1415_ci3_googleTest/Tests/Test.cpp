@@ -29,7 +29,6 @@ TEST(test_1, a) {
 }
 
 TEST(test_1, b) {
-	/*
 	Item maca(1, 1, 1, "maca", "fruta");
 	Item arroz(2, 1, 1, "arroz", "grao");
 	Item lixivia(3, 2, 2, "lixivia", "limpeza");
@@ -55,7 +54,6 @@ TEST(test_1, b) {
 	Item shampooBarato(3, 2, 2, "shampoo", "higiene");
 
 	EXPECT_EQ(3, joao.trocarItem(shampooBarato));
-	*/
 }
 
 TEST(test_1, c) {

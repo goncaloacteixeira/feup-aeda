@@ -27,3 +27,22 @@ int Cliente::valorItens() const {
     }
     return price;
 }
+
+int Cliente::trocarItem(Item &novoItem) {
+    int count = 1;
+    for (auto &cesto : cestos) {
+        stack<Item> toStay;
+        while (!cesto.getItens().empty()) {
+            if (cesto.getItens().top().produto == novoItem.produto && cesto.getItens().top().preco > novoItem.preco)
+                count++;
+            else
+                toStay.push(cesto.getItens().top());
+            cesto.popItem();
+        }
+        while (!toStay.empty()) {
+            cesto.pushItem(toStay.top());
+            toStay.pop();
+        }
+    }
+    return count;
+}
