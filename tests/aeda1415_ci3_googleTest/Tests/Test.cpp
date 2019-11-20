@@ -57,7 +57,6 @@ TEST(test_1, b) {
 }
 
 TEST(test_1, c) {
-	/*
 	Item i1(1, 1, 100, "melancia", "fruta");
 	Item i2(1, 1, 60, "melao", "fruta");
 	Item i3(1, 1, 20, "maca", "fruta");
@@ -90,7 +89,6 @@ TEST(test_1, c) {
 	temp.pop();
 	EXPECT_EQ(100, temp.top().peso);
 	temp.pop();
-	*/
 }
 
 TEST(test_1, d) {

@@ -46,3 +46,20 @@ int Cliente::trocarItem(Item &novoItem) {
     }
     return count;
 }
+
+bool foo(Item i1, Item i2) {
+    return i1.peso > i2.peso;
+}
+
+void Cliente::organizarCestos() {
+    for (auto& cesto : cestos) {
+        vector<Item> items;
+        while (!cesto.getItens().empty()) {
+            items.push_back(cesto.topItem());
+            cesto.popItem();
+        }
+        sort(items.begin(), items.end(), foo);
+        for (auto& item : items)
+            cesto.pushItem(item);
+    }
+}

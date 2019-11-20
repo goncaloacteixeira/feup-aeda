@@ -72,7 +72,7 @@ public:
 	int numeroItens() const;
 	int valorItens() const;
 	int trocarItem(Item& novoItem);
-	//void organizarCestos();
+	void organizarCestos();
 	//vector<string> contarItensPorTipo();
 	//int novoItem(const Item& umItem);
 };
