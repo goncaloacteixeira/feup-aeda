@@ -63,3 +63,29 @@ void Cliente::organizarCestos() {
             cesto.pushItem(item);
     }
 }
+
+vector<string> Cliente::contarItensPorTipo() {
+    vector<string> ret;
+    vector<pair<string,int>> info;
+    for (auto& cesto : cestos) {
+        stack<Item> items = cesto.getItens();
+        while (!items.empty()) {
+            bool flag = false;
+            int i;
+            for (i = 0; i < info.size(); i++) {
+                if (info[i].first == items.top().tipo) {
+                    flag = true;
+                    break;
+                }
+            }
+            if (flag)
+                info[i].second++;
+            else
+                info.push_back(pair<string,int>(items.top().tipo, 1));
+            items.pop();
+        }
+    }
+    for (auto &pair : info)
+        ret.push_back(pair.first + " " + to_string(pair.second));
+    return ret;
+}

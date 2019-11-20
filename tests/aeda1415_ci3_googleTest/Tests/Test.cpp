@@ -92,7 +92,6 @@ TEST(test_1, c) {
 }
 
 TEST(test_1, d) {
-	/*
 	Item maca(1, 1, 1, "maca", "fruta");
 	Item arroz(2, 1, 1, "arroz", "grao");
 	Item lixivia(3, 2, 2, "lixivia", "limpeza");
@@ -123,7 +122,6 @@ TEST(test_1, d) {
 	it = find(contagens.begin(), contagens.end(), "higiene 5");
 
 	EXPECT_EQ(it != contagens.end(), true);
-	*/
 }
 
 TEST(test_1, e) {
