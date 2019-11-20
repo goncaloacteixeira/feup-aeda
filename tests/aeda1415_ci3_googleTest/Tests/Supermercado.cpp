@@ -114,3 +114,12 @@ int Cesto::novoItem(const Item &umItem) {
     itens.push(umItem);
     return ++count;
 }
+
+int Supermercado::novoCliente(Cliente &umCliente) {
+    if (umCliente.getIdade() >= 65) {
+        (filaNormal.size() >= filaPrioritaria.size()) ? filaPrioritaria.push(umCliente) : filaNormal.push(umCliente);
+    }
+    else
+        filaNormal.push(umCliente);
+    return filaNormal.size() + filaPrioritaria.size();
+}

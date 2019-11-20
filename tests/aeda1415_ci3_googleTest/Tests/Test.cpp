@@ -146,7 +146,6 @@ TEST(test_1, e) {
 }
 
 TEST(test_1, f) {
-	/*
 	Supermercado jumbo;
 	Item i1(1, 3, 3, "melancia", "fruta");
 	Item i2(1, 3, 3, "melao", "fruta");
@@ -179,7 +178,6 @@ TEST(test_1, f) {
 	maria.addCesto(c);
 	EXPECT_EQ(4, jumbo.novoCliente(joana));
 	EXPECT_EQ(2, jumbo.tamanhoFilaNormal());
-	*/
 }
 
 TEST(test_1, g) {

@@ -89,7 +89,7 @@ public:
 	queue<Cliente> getFilaNormal() const { return filaNormal; }
 	queue<Cliente> getFilaPrioritaria() const { return filaPrioritaria; }
 
-	//int novoCliente(Cliente& umCliente);
+	int novoCliente(Cliente& umCliente);
 	//Cliente sairDaFila(string umNomeDeCliente);
 };
 
