@@ -48,7 +48,7 @@ public:
 	void popItem(){ if(!itens.empty()) itens.pop(); }
 	void pushItem(const Item& umItem){ itens.push(umItem); }
 	bool empty() const{ return itens.empty(); }
-	//int novoItem(const Item& umItem);
+	int novoItem(const Item& umItem);
 };
 
 class Cliente {
@@ -74,7 +74,7 @@ public:
 	int trocarItem(Item& novoItem);
 	void organizarCestos();
 	vector<string> contarItensPorTipo();
-	//int novoItem(const Item& umItem);
+	int novoItem(const Item& umItem);
 };
 
 class Supermercado {

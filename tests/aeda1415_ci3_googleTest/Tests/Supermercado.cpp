@@ -89,3 +89,28 @@ vector<string> Cliente::contarItensPorTipo() {
         ret.push_back(pair.first + " " + to_string(pair.second));
     return ret;
 }
+
+int Cliente::novoItem(const Item &umItem) {
+    for (auto &cesto : cestos)
+        if (cesto.novoItem(umItem) != 0)
+            return cestos.size();
+    cestos.push_back(Cesto({umItem}));
+    return cestos.size();
+}
+
+int Cesto::novoItem(const Item &umItem) {
+    stack<Item> items = getItens();
+    int volume = 0;
+    int peso = 0;
+    int count = 0;
+    while(!items.empty()) {
+        volume += items.top().volume;
+        peso += items.top().peso;
+        count++;
+        items.pop();
+    }
+    if ((volume + umItem.volume) > max_volume || (peso + umItem.peso) > max_peso)
+        return 0;
+    itens.push(umItem);
+    return ++count;
+}

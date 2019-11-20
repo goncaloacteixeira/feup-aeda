@@ -125,7 +125,6 @@ TEST(test_1, d) {
 }
 
 TEST(test_1, e) {
-	/*
 	Item i1(1, 3, 3, "melancia", "fruta");
 	Item i2(1, 3, 3, "melao", "fruta");
 	Item i3(1, 3, 3, "maca", "fruta");
@@ -144,7 +143,6 @@ TEST(test_1, e) {
 	joao.addCesto(c);
 
 	EXPECT_EQ(2, joao.novoItem(i4));
-	*/
 }
 
 TEST(test_1, f) {
