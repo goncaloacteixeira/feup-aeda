@@ -181,7 +181,7 @@ TEST(test_1, f) {
 }
 
 TEST(test_1, g) {
-/*	Cliente joao("Joao", 30);
+	Cliente joao("Joao", 30);
 	Cliente maria("Maria", 10);
 	Cliente ana("Ana", 72);
 	Cliente rui("Rui", 20);
@@ -222,7 +222,7 @@ TEST(test_1, g) {
 
 	c1=jumbo.sairDaFila("Ana");
 	EXPECT_EQ("Ana",c1.getNome());
-	EXPECT_EQ(0,jumbo.tamanhoFilaPrioritaria());*/
+	EXPECT_EQ(0,jumbo.tamanhoFilaPrioritaria());
 }
 
 

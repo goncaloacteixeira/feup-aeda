@@ -123,3 +123,43 @@ int Supermercado::novoCliente(Cliente &umCliente) {
         filaNormal.push(umCliente);
     return filaNormal.size() + filaPrioritaria.size();
 }
+
+Cliente Supermercado::sairDaFila(string umNomeDeCliente) {
+    queue<Cliente> aux;
+    Cliente *c = new Cliente("",0);
+    bool found = false;
+    while (!filaNormal.empty()) {
+        if (filaNormal.front().getNome() == umNomeDeCliente) {
+            *c = filaNormal.front();
+            found = true;
+        }
+        else {
+            aux.push(filaNormal.front());
+        }
+        filaNormal.pop();
+    }
+    while (!aux.empty()) {
+        filaNormal.push(aux.front());
+        aux.pop();
+    }
+
+    if (found) return *c;
+
+    while (!filaPrioritaria.empty()) {
+        if (filaPrioritaria.front().getNome() == umNomeDeCliente) {
+            *c = filaPrioritaria.front();
+            found = true;
+        }
+        else {
+            aux.push(filaPrioritaria.front());
+        }
+        filaPrioritaria.pop();
+    }
+    while (!aux.empty()) {
+        filaPrioritaria.push(aux.front());
+        aux.pop();
+    }
+
+    if (found) return *c;
+    throw ClienteInexistente(umNomeDeCliente);
+}

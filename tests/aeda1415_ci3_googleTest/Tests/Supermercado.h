@@ -90,7 +90,14 @@ public:
 	queue<Cliente> getFilaPrioritaria() const { return filaPrioritaria; }
 
 	int novoCliente(Cliente& umCliente);
-	//Cliente sairDaFila(string umNomeDeCliente);
+	Cliente sairDaFila(string umNomeDeCliente);
+
+    class ClienteInexistente {
+        string nome;
+    public:
+        explicit ClienteInexistente(string nome) { this->nome = std::move(nome); }
+        string getNome() { return nome; }
+    };
 };
 
 
