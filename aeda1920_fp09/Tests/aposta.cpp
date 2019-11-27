@@ -19,7 +19,6 @@ void Aposta::geraAposta(const vector<unsigned> & valores, unsigned n) {
     }
 }
 
-//a alterar
 unsigned Aposta::calculaCertos(const tabHInt & sorteio) const
 {
     unsigned count = 0;
