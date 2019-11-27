@@ -4,13 +4,10 @@
 
 using namespace std;
 
-// a alterar
-bool Aposta::contem(unsigned num) const
-{
-	return true;
+bool Aposta::contem(unsigned num) const {
+    return !(numeros.find(num) == numeros.end());
 }
 
-//a alterar
 
 void Aposta::geraAposta(const vector<unsigned> & valores, unsigned n) {
     for (auto &number : valores) {
