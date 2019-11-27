@@ -22,7 +22,12 @@ void Aposta::geraAposta(const vector<unsigned> & valores, unsigned n) {
 //a alterar
 unsigned Aposta::calculaCertos(const tabHInt & sorteio) const
 {
-    return 0;
+    unsigned count = 0;
+    for (auto &num : numeros)
+        if (sorteio.find(num) != sorteio.end())
+            count++;
+
+    return count;
 }
 
 
