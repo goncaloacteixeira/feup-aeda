@@ -3,6 +3,7 @@
 
 #include "aposta.h"
 #include <string>
+#include <utility>
 
 using namespace std;
 
@@ -11,11 +12,14 @@ struct apostaHash
 {
 	int operator() (const Aposta & ap) const
 	{
-		return 0;
+		return ap.getNumeros().size();
 	}
 	
 	bool operator() (const Aposta & ap1, const Aposta & ap2) const
 	{
+	    for (auto &number : ap1.getNumeros())
+	        if (!ap2.contem(number))
+	            return false;
 	    return true;
 	}
 };

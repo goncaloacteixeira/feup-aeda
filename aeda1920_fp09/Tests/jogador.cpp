@@ -3,7 +3,7 @@
 //a alterar
 void Jogador::adicionaAposta(const Aposta & ap)
 {
-
+    apostas.insert(ap);
 }
 
 //a alterar
