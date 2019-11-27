@@ -1,15 +1,17 @@
 #include "jogador.h"
 
-//a alterar
 void Jogador::adicionaAposta(const Aposta & ap)
 {
     apostas.insert(ap);
 }
 
-//a alterar
 unsigned Jogador::apostasNoNumero(unsigned num) const
 {
-	return 0;
+	int count = 0;
+	for (auto &aposta : apostas)
+	    if (aposta.contem(num))
+	        count++;
+	return count;
 }
 
 //a alterar

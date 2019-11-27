@@ -7,7 +7,6 @@
 
 using namespace std;
 
-//a alterar
 struct apostaHash
 {
 	int operator() (const Aposta & ap) const
