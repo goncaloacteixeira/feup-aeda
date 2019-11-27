@@ -11,9 +11,15 @@ bool Aposta::contem(unsigned num) const
 }
 
 //a alterar
-void Aposta::geraAposta(const vector<unsigned> & valores, unsigned n)
-{
 
+void Aposta::geraAposta(const vector<unsigned> & valores, unsigned n) {
+    for (auto &number : valores) {
+        if (n == 0) return;
+        if (numeros.find(number) == numeros.end()) {
+            numeros.insert(number);
+            n--;
+        }
+    }
 }
 
 //a alterar
