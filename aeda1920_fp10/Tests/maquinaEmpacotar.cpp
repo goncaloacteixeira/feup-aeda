@@ -36,9 +36,24 @@ unsigned MaquinaEmpacotar::carregaPaletaObjetos(vector<Objeto> &objs) {
     return count;
 }
 
-// a alterar
 Caixa MaquinaEmpacotar::procuraCaixa(Objeto& obj) {
 	Caixa cx;
+	vector<Caixa> toStay;
+	while (!caixas.empty()) {
+	    if (caixas.top().getCargaLivre() >= obj.getPeso()) {
+	        cx = caixas.top();
+	        caixas.pop();
+	        break;
+	    }
+	    else {
+	        toStay.emplace_back(caixas.top());
+	        caixas.pop();
+	    }
+	}
+
+	for (const auto& box : toStay)
+	    caixas.push(box);
+
 	return cx;
 }
 

@@ -49,9 +49,8 @@ bool Objeto::operator<(const Objeto& o1) const {
 	return this->getPeso() < o1.getPeso();
 }
 
-// a alterar
 bool Caixa::operator<(const Caixa& c1) const {
-	return true;
+	return this->getCargaLivre() > c1.getCargaLivre();
 }
 
 // a alterar
