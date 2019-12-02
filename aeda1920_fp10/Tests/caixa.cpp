@@ -53,9 +53,19 @@ bool Caixa::operator<(const Caixa& c1) const {
 	return this->getCargaLivre() > c1.getCargaLivre();
 }
 
-// a alterar
 string Caixa::imprimeConteudo() const {
-	return "";
+	if (!this->objetos.empty()) {
+	    stringstream ss;
+	    ss << "C" << this->id << "[ ";
+	    STACK_OBJS copy = objetos;
+	    while (!copy.empty()) {
+            ss << copy.top() << " ";
+            copy.pop();
+	    }
+	    ss << "]";
+	    return ss.str();
+	}
+	return "Caixa " + to_string(this->id) + " vazia!\n";
 }
 
 
