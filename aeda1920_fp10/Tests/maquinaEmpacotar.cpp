@@ -82,9 +82,17 @@ string MaquinaEmpacotar::imprimeObjetosPorEmpacotar() const {
 
 }
 
-// a alterar
 Caixa MaquinaEmpacotar::caixaMaisObjetos() const {
+	if (caixas.empty())
+	    throw MaquinaSemCaixas();
+
+	HEAP_CAIXAS copy = caixas;
 	Caixa cx;
+	while (!copy.empty()) {
+	    if (cx.getSize() < copy.top().getSize())
+	        cx = copy.top();
+	    copy.pop();
+	}
 	return cx;
 }
 
