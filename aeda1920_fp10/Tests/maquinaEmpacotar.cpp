@@ -67,9 +67,19 @@ unsigned MaquinaEmpacotar::empacotaObjetos() {
     return caixas.size();
 }
 
-// a alterar
 string MaquinaEmpacotar::imprimeObjetosPorEmpacotar() const {
-	return "";
+    if (!objetos.empty()) {
+        // create a copy as the function is const
+        HEAP_OBJS copy = objetos;
+        stringstream ss;
+        while (!copy.empty()) {
+            ss << copy.top() << endl;
+            copy.pop();
+        }
+        return ss.str();
+    }
+    return "Nao ha objetos!\n";
+
 }
 
 // a alterar
