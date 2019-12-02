@@ -57,9 +57,14 @@ Caixa MaquinaEmpacotar::procuraCaixa(Objeto& obj) {
 	return cx;
 }
 
-// a alterar
 unsigned MaquinaEmpacotar::empacotaObjetos() {
-	return 0;
+    while (!objetos.empty()) {
+        Caixa cx = MaquinaEmpacotar::procuraCaixa(const_cast<Objeto &>(objetos.top()));
+        cx.addObjeto(const_cast<Objeto &>(objetos.top()));
+        caixas.push(cx);
+        objetos.pop();
+	}
+    return caixas.size();
 }
 
 // a alterar
