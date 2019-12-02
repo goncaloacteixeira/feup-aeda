@@ -37,7 +37,7 @@ GTEST_DEFAULT_OUTPUT_FILE = 'test_detail.xml'
 
 class GTestXMLTestCase(gtest_test_utils.TestCase):
   """
-  Base class for Tests of Google Test's XML output functionality.
+  Base class for tests of Google Test's XML output functionality.
   """
 
 
@@ -169,7 +169,7 @@ class GTestXMLTestCase(gtest_test_utils.TestCase):
     *  The stack traces are removed.
     """
 
-    if element.tagName == 'testsuites':
+    if element.tagName in ('testsuites', 'testsuite', 'testcase'):
       timestamp = element.getAttributeNode('timestamp')
       timestamp.value = re.sub(r'^\d{4}-\d\d-\d\dT\d\d:\d\d:\d\d$',
                                '*', timestamp.value)

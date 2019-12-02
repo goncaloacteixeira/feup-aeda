@@ -46,7 +46,7 @@ using internal::Notification;
 using internal::TestPropertyKeyIs;
 using internal::ThreadWithParam;
 
-// In order to run Tests in this file, for platforms where Google Test is
+// In order to run tests in this file, for platforms where Google Test is
 // thread safe, implement ThreadWithParam. See the description of its API
 // in gtest-port.h, where it is defined for already supported platforms.
 

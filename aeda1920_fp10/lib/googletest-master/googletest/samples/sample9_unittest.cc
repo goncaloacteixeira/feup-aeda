@@ -29,7 +29,7 @@
 
 // This sample shows how to use Google Test listener API to implement
 // an alternative console output and how to use the UnitTest reflection API
-// to enumerate test cases and Tests and to inspect their results.
+// to enumerate test cases and tests and to inspect their results.
 
 #include <stdio.h>
 
@@ -45,7 +45,7 @@ using ::testing::TestPartResult;
 using ::testing::UnitTest;
 namespace {
 // Provides alternative output mode which produces minimal amount of
-// information about Tests.
+// information about tests.
 class TersePrinter : public EmptyTestEventListener {
  private:
   // Called before any test activity starts.
@@ -133,13 +133,13 @@ int main(int argc, char **argv) {
   int ret_val = RUN_ALL_TESTS();
 
   // This is an example of using the UnitTest reflection API to inspect test
-  // results. Here we discount failures from the Tests we expected to fail.
+  // results. Here we discount failures from the tests we expected to fail.
   int unexpectedly_failed_tests = 0;
-  for (int i = 0; i < unit_test.total_test_case_count(); ++i) {
-    const TestCase& test_case = *unit_test.GetTestCase(i);
-    for (int j = 0; j < test_case.total_test_count(); ++j) {
-      const TestInfo& test_info = *test_case.GetTestInfo(j);
-      // Counts failed Tests that were not meant to fail (those without
+  for (int i = 0; i < unit_test.total_test_suite_count(); ++i) {
+    const testing::TestSuite& test_suite = *unit_test.GetTestSuite(i);
+    for (int j = 0; j < test_suite.total_test_count(); ++j) {
+      const TestInfo& test_info = *test_suite.GetTestInfo(j);
+      // Counts failed tests that were not meant to fail (those without
       // 'Fails' in the name).
       if (test_info.result()->Failed() &&
           strcmp(test_info.name(), "Fails") != 0) {

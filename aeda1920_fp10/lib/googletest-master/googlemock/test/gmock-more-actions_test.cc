@@ -30,7 +30,7 @@
 
 // Google Mock - a framework for writing C++ mock classes.
 //
-// This file Tests the built-in actions in gmock-more-actions.h.
+// This file tests the built-in actions in gmock-more-actions.h.
 
 #include "gmock/gmock-more-actions.h"
 
@@ -57,7 +57,6 @@ using testing::ReturnPointee;
 using testing::SaveArg;
 using testing::SaveArgPointee;
 using testing::SetArgReferee;
-using testing::StaticAssertTypeEq;
 using testing::Unused;
 using testing::WithArg;
 using testing::WithoutArgs;

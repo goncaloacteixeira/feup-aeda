@@ -96,7 +96,6 @@ TEST(Test, Test) {
 int kTestForContinuingTest = 0;
 
 TEST(Test, Test2) {
-  // FIXME: how to force Test2 to be after Test?
   kTestForContinuingTest = 1;
 }
 
@@ -111,7 +110,7 @@ int main(int argc, char** argv) {
   }
 
   if (kTestForContinuingTest == 0) {
-    Fail("Should have continued with other Tests, but did not.");
+    Fail("Should have continued with other tests, but did not.");
   }
   return 0;
 }

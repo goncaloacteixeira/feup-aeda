@@ -23,9 +23,17 @@ HEAP_CAIXAS MaquinaEmpacotar::getCaixas() const {
 }
 
 
-// a alterar
 unsigned MaquinaEmpacotar::carregaPaletaObjetos(vector<Objeto> &objs) {
-	return 0;
+	unsigned count = 0;
+    for (auto it = objs.begin(); it != objs.end(); it++) {
+        if ((*it).getPeso() <= this->capacidadeCaixas) {
+            objetos.push(*it);
+            objs.erase(it);
+            count++;
+            it--;
+        }
+    }
+    return count;
 }
 
 // a alterar

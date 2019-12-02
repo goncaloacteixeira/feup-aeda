@@ -30,7 +30,7 @@
 // The Google C++ Testing and Mocking Framework (Google Test)
 //
 // This header file defines internal utilities needed for implementing
-// death Tests.  They are subject to change without notice.
+// death tests.  They are subject to change without notice.
 // GOOGLETEST_CM0001 DO NOT DELETE
 
 #ifndef GTEST_INCLUDE_GTEST_INTERNAL_GTEST_DEATH_TEST_INTERNAL_H_
@@ -63,7 +63,7 @@ GTEST_DISABLE_MSC_WARNINGS_PUSH_(4251 \
 // style, as defined by the --gtest_death_test_style and/or
 // --gtest_internal_run_death_test flags.
 
-// In describing the results of death Tests, these terms are used with
+// In describing the results of death tests, these terms are used with
 // the corresponding definitions:
 //
 // exit status:  The integer exit information in the format specified
@@ -142,7 +142,7 @@ class GTEST_API_ DeathTest {
 
 GTEST_DISABLE_MSC_WARNINGS_POP_()  //  4251
 
-// Factory interface for death Tests.  May be mocked out for testing.
+// Factory interface for death tests.  May be mocked out for testing.
 class DeathTestFactory {
  public:
   virtual ~DeathTestFactory() { }
@@ -176,12 +176,6 @@ inline Matcher<const ::std::string&> MakeDeathTestMatcher(
     const ::std::string& regex) {
   return ContainsRegex(regex);
 }
-#if GTEST_HAS_GLOBAL_STRING
-inline Matcher<const ::std::string&> MakeDeathTestMatcher(
-    const ::string& regex) {
-  return ContainsRegex(regex);
-}
-#endif
 
 // If a Matcher<const ::std::string&> is passed to EXPECT_DEATH (etc.), it's
 // used directly.

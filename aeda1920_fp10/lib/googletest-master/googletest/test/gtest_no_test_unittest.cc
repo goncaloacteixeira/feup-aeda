@@ -35,7 +35,7 @@
 int main(int argc, char **argv) {
   testing::InitGoogleTest(&argc, argv);
 
-  // An ad-hoc assertion outside of all Tests.
+  // An ad-hoc assertion outside of all tests.
   //
   // This serves three purposes:
   //

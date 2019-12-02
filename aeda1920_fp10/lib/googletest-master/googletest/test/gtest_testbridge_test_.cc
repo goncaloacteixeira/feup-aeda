@@ -33,7 +33,7 @@
 
 #include "gtest/gtest.h"
 
-// These Tests are used to detect if filtering is working. Only
+// These tests are used to detect if filtering is working. Only
 // 'TestThatSucceeds' should ever run.
 
 TEST(TestFilterTest, TestThatSucceeds) {}

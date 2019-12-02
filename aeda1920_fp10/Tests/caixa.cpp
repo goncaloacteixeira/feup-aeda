@@ -45,9 +45,8 @@ ostream& operator<<(ostream& os, Objeto obj) {
 
 unsigned Caixa::ultimoId = 1;
 
-// a alterar
 bool Objeto::operator<(const Objeto& o1) const {
-	return true;
+	return this->getPeso() < o1.getPeso();
 }
 
 // a alterar

@@ -30,7 +30,7 @@
 // The purpose of this file is to generate Google Test output under
 // various conditions.  The output will then be verified by
 // googletest-output-test.py to ensure that Google Test generates the
-// desired messages.  Therefore, most Tests in this file are MEANT TO
+// desired messages.  Therefore, most tests in this file are MEANT TO
 // FAIL.
 
 #include "gtest/gtest-spi.h"
@@ -82,7 +82,7 @@ TEST(PassingTest, PassingTest1) {
 TEST(PassingTest, PassingTest2) {
 }
 
-// Tests that parameters of failing parameterized Tests are printed in the
+// Tests that parameters of failing parameterized tests are printed in the
 // failing test summary.
 class FailingParamTest : public testing::TestWithParam<int> {};
 
@@ -91,10 +91,18 @@ TEST_P(FailingParamTest, Fails) {
 }
 
 // This generates a test which will fail. Google Test is expected to print
-// its parameter when it outputs the list of all failed Tests.
-INSTANTIATE_TEST_CASE_P(PrintingFailingParams,
-                        FailingParamTest,
-                        testing::Values(2));
+// its parameter when it outputs the list of all failed tests.
+INSTANTIATE_TEST_SUITE_P(PrintingFailingParams,
+                         FailingParamTest,
+                         testing::Values(2));
+
+// Tests that an empty value for the test suite basename yields just
+// the test name without any prior /
+class EmptyBasenameParamInst : public testing::TestWithParam<int> {};
+
+TEST_P(EmptyBasenameParamInst, Passes) { EXPECT_EQ(1, GetParam()); }
+
+INSTANTIATE_TEST_SUITE_P(All, EmptyBasenameParamInst, testing::Values(1));
 
 static const char kGoldenString[] = "\"Line\0 1\"\nLine 2";
 
@@ -461,7 +469,11 @@ TEST_F(FatalFailureInSetUpTest, FailureInSetUp) {
 }
 
 TEST(AddFailureAtTest, MessageContainsSpecifiedFileAndLineNumber) {
-  ADD_FAILURE_AT("foo.cc", 42) << "Expected failure in foo.cc";
+  ADD_FAILURE_AT("foo.cc", 42) << "Expected nonfatal failure in foo.cc";
+}
+
+TEST(GtestFailAtTest, MessageContainsSpecifiedFileAndLineNumber) {
+  GTEST_FAIL_AT("foo.cc", 42) << "Expected fatal failure in foo.cc";
 }
 
 #if GTEST_IS_THREADSAFE
@@ -471,7 +483,7 @@ void DieIf(bool should_die) {
   GTEST_CHECK_(!should_die) << " - death inside DieIf().";
 }
 
-// Tests running death Tests in a multi-threaded context.
+// Tests running death tests in a multi-threaded context.
 
 // Used for coordination between the main and the spawn thread.
 struct SpawnThreadNotifications {
@@ -496,7 +508,7 @@ static void ThreadRoutine(SpawnThreadNotifications* notifications) {
 
 // This is a death-test test, but it's not named with a DeathTest
 // suffix.  It starts threads which might interfere with later
-// death Tests, so it must run after all other death Tests.
+// death tests, so it must run after all other death tests.
 class DeathTestAndMultiThreadsTest : public testing::Test {
  protected:
   // Starts a thread and waits for it to begin.
@@ -508,7 +520,7 @@ class DeathTestAndMultiThreadsTest : public testing::Test {
   // Tells the thread to finish, and reaps it.
   // Depending on the version of the thread library in use,
   // a manager thread might still be left running that will interfere
-  // with later death Tests.  This is unfortunate, but this class
+  // with later death tests.  This is unfortunate, but this class
   // cleans up after itself as best it can.
   void TearDown() override {
     notifications_.spawn_thread_ok_to_terminate.Notify();
@@ -521,48 +533,48 @@ class DeathTestAndMultiThreadsTest : public testing::Test {
 
 #endif  // GTEST_IS_THREADSAFE
 
-// The MixedUpTestCaseTest test case verifies that Google Test will fail a
-// test if it uses a different fixture class than what other Tests in
+// The MixedUpTestSuiteTest test case verifies that Google Test will fail a
+// test if it uses a different fixture class than what other tests in
 // the same test case use.  It deliberately contains two fixture
 // classes with the same name but defined in different namespaces.
 
-// The MixedUpTestCaseWithSameTestNameTest test case verifies that
-// when the user defines two Tests with the same test case name AND
+// The MixedUpTestSuiteWithSameTestNameTest test case verifies that
+// when the user defines two tests with the same test case name AND
 // same test name (but in different namespaces), the second test will
 // fail.
 
 namespace foo {
 
-class MixedUpTestCaseTest : public testing::Test {
+class MixedUpTestSuiteTest : public testing::Test {
 };
 
-TEST_F(MixedUpTestCaseTest, FirstTestFromNamespaceFoo) {}
-TEST_F(MixedUpTestCaseTest, SecondTestFromNamespaceFoo) {}
+TEST_F(MixedUpTestSuiteTest, FirstTestFromNamespaceFoo) {}
+TEST_F(MixedUpTestSuiteTest, SecondTestFromNamespaceFoo) {}
 
-class MixedUpTestCaseWithSameTestNameTest : public testing::Test {
+class MixedUpTestSuiteWithSameTestNameTest : public testing::Test {
 };
 
-TEST_F(MixedUpTestCaseWithSameTestNameTest,
+TEST_F(MixedUpTestSuiteWithSameTestNameTest,
        TheSecondTestWithThisNameShouldFail) {}
 
 }  // namespace foo
 
 namespace bar {
 
-class MixedUpTestCaseTest : public testing::Test {
+class MixedUpTestSuiteTest : public testing::Test {
 };
 
-// The following two Tests are expected to fail.  We rely on the
+// The following two tests are expected to fail.  We rely on the
 // golden file to check that Google Test generates the right error message.
-TEST_F(MixedUpTestCaseTest, ThisShouldFail) {}
-TEST_F(MixedUpTestCaseTest, ThisShouldFailToo) {}
+TEST_F(MixedUpTestSuiteTest, ThisShouldFail) {}
+TEST_F(MixedUpTestSuiteTest, ThisShouldFailToo) {}
 
-class MixedUpTestCaseWithSameTestNameTest : public testing::Test {
+class MixedUpTestSuiteWithSameTestNameTest : public testing::Test {
 };
 
 // Expected to fail.  We rely on the golden file to check that Google Test
 // generates the right error message.
-TEST_F(MixedUpTestCaseWithSameTestNameTest,
+TEST_F(MixedUpTestSuiteWithSameTestNameTest,
        TheSecondTestWithThisNameShouldFail) {}
 
 }  // namespace bar
@@ -756,7 +768,7 @@ TEST(ExpectFatalFailureTest, FailsWhenStatementThrows) {
 
 #endif  // GTEST_HAS_EXCEPTIONS
 
-// This #ifdef block Tests the output of value-parameterized Tests.
+// This #ifdef block tests the output of value-parameterized tests.
 
 std::string ParamNameFunc(const testing::TestParamInfo<std::string>& info) {
   return info.param;
@@ -773,19 +785,19 @@ TEST_P(ParamTest, Failure) {
   EXPECT_EQ("b", GetParam()) << "Expected failure";
 }
 
-INSTANTIATE_TEST_CASE_P(PrintingStrings,
-                        ParamTest,
-                        testing::Values(std::string("a")),
-                        ParamNameFunc);
+INSTANTIATE_TEST_SUITE_P(PrintingStrings,
+                         ParamTest,
+                         testing::Values(std::string("a")),
+                         ParamNameFunc);
 
-// This #ifdef block Tests the output of typed Tests.
+// This #ifdef block tests the output of typed tests.
 #if GTEST_HAS_TYPED_TEST
 
 template <typename T>
 class TypedTest : public testing::Test {
 };
 
-TYPED_TEST_CASE(TypedTest, testing::Types<int>);
+TYPED_TEST_SUITE(TypedTest, testing::Types<int>);
 
 TYPED_TEST(TypedTest, Success) {
   EXPECT_EQ(0, TypeParam());
@@ -804,14 +816,14 @@ class TypedTestNames {
  public:
   template <typename T>
   static std::string GetName(int i) {
-    if (testing::internal::IsSame<T, char>::value)
+    if (std::is_same<T, char>::value)
       return std::string("char") + ::testing::PrintToString(i);
-    if (testing::internal::IsSame<T, int>::value)
+    if (std::is_same<T, int>::value)
       return std::string("int") + ::testing::PrintToString(i);
   }
 };
 
-TYPED_TEST_CASE(TypedTestWithNames, TypesForTestWithNames, TypedTestNames);
+TYPED_TEST_SUITE(TypedTestWithNames, TypesForTestWithNames, TypedTestNames);
 
 TYPED_TEST(TypedTestWithNames, Success) {}
 
@@ -819,14 +831,14 @@ TYPED_TEST(TypedTestWithNames, Failure) { FAIL(); }
 
 #endif  // GTEST_HAS_TYPED_TEST
 
-// This #ifdef block Tests the output of type-parameterized Tests.
+// This #ifdef block tests the output of type-parameterized tests.
 #if GTEST_HAS_TYPED_TEST_P
 
 template <typename T>
 class TypedTestP : public testing::Test {
 };
 
-TYPED_TEST_CASE_P(TypedTestP);
+TYPED_TEST_SUITE_P(TypedTestP);
 
 TYPED_TEST_P(TypedTestP, Success) {
   EXPECT_EQ(0U, TypeParam());
@@ -836,32 +848,32 @@ TYPED_TEST_P(TypedTestP, Failure) {
   EXPECT_EQ(1U, TypeParam()) << "Expected failure";
 }
 
-REGISTER_TYPED_TEST_CASE_P(TypedTestP, Success, Failure);
+REGISTER_TYPED_TEST_SUITE_P(TypedTestP, Success, Failure);
 
 typedef testing::Types<unsigned char, unsigned int> UnsignedTypes;
-INSTANTIATE_TYPED_TEST_CASE_P(Unsigned, TypedTestP, UnsignedTypes);
+INSTANTIATE_TYPED_TEST_SUITE_P(Unsigned, TypedTestP, UnsignedTypes);
 
 class TypedTestPNames {
  public:
   template <typename T>
   static std::string GetName(int i) {
-    if (testing::internal::IsSame<T, unsigned char>::value) {
+    if (std::is_same<T, unsigned char>::value) {
       return std::string("unsignedChar") + ::testing::PrintToString(i);
     }
-    if (testing::internal::IsSame<T, unsigned int>::value) {
+    if (std::is_same<T, unsigned int>::value) {
       return std::string("unsignedInt") + ::testing::PrintToString(i);
     }
   }
 };
 
-INSTANTIATE_TYPED_TEST_CASE_P(UnsignedCustomName, TypedTestP, UnsignedTypes,
+INSTANTIATE_TYPED_TEST_SUITE_P(UnsignedCustomName, TypedTestP, UnsignedTypes,
                               TypedTestPNames);
 
 #endif  // GTEST_HAS_TYPED_TEST_P
 
 #if GTEST_HAS_DEATH_TEST
 
-// We rely on the golden file to verify that Tests whose test case
+// We rely on the golden file to verify that tests whose test case
 // name ends with DeathTest are run first.
 
 TEST(ADeathTest, ShouldRunFirst) {
@@ -869,7 +881,7 @@ TEST(ADeathTest, ShouldRunFirst) {
 
 # if GTEST_HAS_TYPED_TEST
 
-// We rely on the golden file to verify that typed Tests whose test
+// We rely on the golden file to verify that typed tests whose test
 // case name ends with DeathTest are run first.
 
 template <typename T>
@@ -877,7 +889,7 @@ class ATypedDeathTest : public testing::Test {
 };
 
 typedef testing::Types<int, double> NumericTypes;
-TYPED_TEST_CASE(ATypedDeathTest, NumericTypes);
+TYPED_TEST_SUITE(ATypedDeathTest, NumericTypes);
 
 TYPED_TEST(ATypedDeathTest, ShouldRunFirst) {
 }
@@ -887,21 +899,21 @@ TYPED_TEST(ATypedDeathTest, ShouldRunFirst) {
 # if GTEST_HAS_TYPED_TEST_P
 
 
-// We rely on the golden file to verify that type-parameterized Tests
+// We rely on the golden file to verify that type-parameterized tests
 // whose test case name ends with DeathTest are run first.
 
 template <typename T>
 class ATypeParamDeathTest : public testing::Test {
 };
 
-TYPED_TEST_CASE_P(ATypeParamDeathTest);
+TYPED_TEST_SUITE_P(ATypeParamDeathTest);
 
 TYPED_TEST_P(ATypeParamDeathTest, ShouldRunFirst) {
 }
 
-REGISTER_TYPED_TEST_CASE_P(ATypeParamDeathTest, ShouldRunFirst);
+REGISTER_TYPED_TEST_SUITE_P(ATypeParamDeathTest, ShouldRunFirst);
 
-INSTANTIATE_TYPED_TEST_CASE_P(My, ATypeParamDeathTest, NumericTypes);
+INSTANTIATE_TYPED_TEST_SUITE_P(My, ATypeParamDeathTest, NumericTypes);
 
 # endif  // GTEST_HAS_TYPED_TEST_P
 
@@ -1024,6 +1036,56 @@ TEST_F(ExpectFailureTest, ExpectNonFatalFailureOnAllThreads) {
                                          "Some other non-fatal failure.");
 }
 
+class DynamicFixture : public testing::Test {
+ protected:
+  DynamicFixture() { printf("DynamicFixture()\n"); }
+  ~DynamicFixture() override { printf("~DynamicFixture()\n"); }
+  void SetUp() override { printf("DynamicFixture::SetUp\n"); }
+  void TearDown() override { printf("DynamicFixture::TearDown\n"); }
+
+  static void SetUpTestSuite() { printf("DynamicFixture::SetUpTestSuite\n"); }
+  static void TearDownTestSuite() {
+    printf("DynamicFixture::TearDownTestSuite\n");
+  }
+};
+
+template <bool Pass>
+class DynamicTest : public DynamicFixture {
+ public:
+  void TestBody() override { EXPECT_TRUE(Pass); }
+};
+
+auto dynamic_test = (
+    // Register two tests with the same fixture correctly.
+    testing::RegisterTest(
+        "DynamicFixture", "DynamicTestPass", nullptr, nullptr, __FILE__,
+        __LINE__, []() -> DynamicFixture* { return new DynamicTest<true>; }),
+    testing::RegisterTest(
+        "DynamicFixture", "DynamicTestFail", nullptr, nullptr, __FILE__,
+        __LINE__, []() -> DynamicFixture* { return new DynamicTest<false>; }),
+
+    // Register the same fixture with another name. That's fine.
+    testing::RegisterTest(
+        "DynamicFixtureAnotherName", "DynamicTestPass", nullptr, nullptr,
+        __FILE__, __LINE__,
+        []() -> DynamicFixture* { return new DynamicTest<true>; }),
+
+    // Register two tests with the same fixture incorrectly.
+    testing::RegisterTest(
+        "BadDynamicFixture1", "FixtureBase", nullptr, nullptr, __FILE__,
+        __LINE__, []() -> DynamicFixture* { return new DynamicTest<true>; }),
+    testing::RegisterTest(
+        "BadDynamicFixture1", "TestBase", nullptr, nullptr, __FILE__, __LINE__,
+        []() -> testing::Test* { return new DynamicTest<true>; }),
+
+    // Register two tests with the same fixture incorrectly by ommiting the
+    // return type.
+    testing::RegisterTest(
+        "BadDynamicFixture2", "FixtureBase", nullptr, nullptr, __FILE__,
+        __LINE__, []() -> DynamicFixture* { return new DynamicTest<true>; }),
+    testing::RegisterTest("BadDynamicFixture2", "Derived", nullptr, nullptr,
+                          __FILE__, __LINE__,
+                          []() { return new DynamicTest<true>; }));
 
 // Two test environments for testing testing::AddGlobalTestEnvironment().
 
@@ -1049,13 +1111,13 @@ class BarEnvironment : public testing::Environment {
 
 // The main function.
 //
-// The idea is to use Google Test to run all the Tests we have defined (some
+// The idea is to use Google Test to run all the tests we have defined (some
 // of them are intended to fail), and then compare the test results
 // with the "golden" file.
 int main(int argc, char **argv) {
   testing::GTEST_FLAG(print_time) = false;
 
-  // We just run the Tests, knowing some of them are intended to fail.
+  // We just run the tests, knowing some of them are intended to fail.
   // We will use a separate Python script to compare the output of
   // this program with the golden file.
 

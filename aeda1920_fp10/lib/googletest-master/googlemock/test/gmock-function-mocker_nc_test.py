@@ -1,4 +1,4 @@
-"""Negative compilation Tests for Google Mock macro MOCK_METHOD."""
+"""Negative compilation tests for Google Mock macro MOCK_METHOD."""
 
 import os
 import sys
@@ -6,7 +6,7 @@ import sys
 IS_LINUX = os.name == "posix" and os.uname()[0] == "Linux"
 if not IS_LINUX:
   sys.stderr.write(
-      "WARNING: Negative compilation Tests are not supported on this platform")
+      "WARNING: Negative compilation tests are not supported on this platform")
   sys.exit(0)
 
 # Suppresses the 'Import not at the top of the file' lint complaint.
@@ -18,7 +18,7 @@ from google3.testing.pybase import googletest
 
 
 class GMockMethodNCTest(googletest.TestCase):
-  """Negative compilation Tests for MOCK_METHOD."""
+  """Negative compilation tests for MOCK_METHOD."""
 
   # The class body is intentionally empty.  The actual test*() methods
   # will be defined at run time by a call to

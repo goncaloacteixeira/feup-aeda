@@ -12,6 +12,10 @@
 #   Test and Google Mock's option() definitions, and thus must be
 #   called *after* the options have been defined.
 
+if (POLICY CMP0054)
+  cmake_policy(SET CMP0054 NEW)
+endif (POLICY CMP0054)
+
 # Tweaks CMake's default compiler/linker settings to suit Google Test's needs.
 #
 # This must be a macro(), as inside a function string() can only
@@ -22,6 +26,8 @@ macro(fix_default_compiler_settings_)
     # This replacement code is taken from sample in the CMake Wiki at
     # https://gitlab.kitware.com/cmake/community/wikis/FAQ#dynamic-replace.
     foreach (flag_var
+             CMAKE_C_FLAGS CMAKE_C_FLAGS_DEBUG CMAKE_C_FLAGS_RELEASE
+             CMAKE_C_FLAGS_MINSIZEREL CMAKE_C_FLAGS_RELWITHDEBINFO
              CMAKE_CXX_FLAGS CMAKE_CXX_FLAGS_DEBUG CMAKE_CXX_FLAGS_RELEASE
              CMAKE_CXX_FLAGS_MINSIZEREL CMAKE_CXX_FLAGS_RELWITHDEBINFO)
       if (NOT BUILD_SHARED_LIBS AND NOT gtest_force_shared_crt)
@@ -75,6 +81,12 @@ macro(config_compiler_and_linker)
     # Suppress "unreachable code" warning
     # http://stackoverflow.com/questions/3232669 explains the issue.
     set(cxx_base_flags "${cxx_base_flags} -wd4702")
+  elseif (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    set(cxx_base_flags "-Wall -Wshadow -Werror -Wconversion")
+    set(cxx_exception_flags "-fexceptions")
+    set(cxx_no_exception_flags "-fno-exceptions")
+    set(cxx_strict_flags "-W -Wpointer-arith -Wreturn-type -Wcast-qual -Wwrite-strings -Wswitch -Wunused-parameter -Wcast-align -Wchar-subscripts -Winline -Wredundant-decls")
+    set(cxx_no_rtti_flags "-fno-rtti")
   elseif (CMAKE_COMPILER_IS_GNUCXX)
     set(cxx_base_flags "-Wall -Wshadow -Werror")
     if(NOT CMAKE_CXX_COMPILER_VERSION VERSION_LESS 7.0.0)
@@ -119,7 +131,7 @@ macro(config_compiler_and_linker)
   endif()
   set(cxx_base_flags "${cxx_base_flags} ${GTEST_HAS_PTHREAD_MACRO}")
 
-  # For building gtest's own Tests and samples.
+  # For building gtest's own tests and samples.
   set(cxx_exception "${cxx_base_flags} ${cxx_exception_flags}")
   set(cxx_no_exception
     "${CMAKE_CXX_FLAGS} ${cxx_base_flags} ${cxx_no_exception_flags}")
@@ -130,7 +142,7 @@ macro(config_compiler_and_linker)
   set(cxx_strict "${cxx_default} ${cxx_strict_flags}")
 endmacro()
 
-# Defines the gtest & gtest_main libraries.  User Tests should link
+# Defines the gtest & gtest_main libraries.  User tests should link
 # with one of them.
 function(cxx_library_with_type name type cxx_flags)
   # type can be either STATIC or SHARED to denote a static or shared library.
@@ -197,7 +209,7 @@ endfunction()
 function(cxx_executable_with_flags name cxx_flags libs)
   add_executable(${name} ${ARGN})
   if (MSVC)
-    # BigObj required for Tests.
+    # BigObj required for tests.
     set(cxx_flags "${cxx_flags} -bigobj")
   endif()
   if (cxx_flags)

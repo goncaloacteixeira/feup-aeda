@@ -117,13 +117,12 @@ const int kNumberOfParamTests = 10;
 class MyParamTest : public testing::TestWithParam<int> {};
 
 TEST_P(MyParamTest, ShouldPass) {
-  // FIXME: Make parameter value checking robust WRT order of Tests.
   GTEST_CHECK_INT_EQ_(g_param_test_count % kNumberOfParamTests, GetParam());
   g_param_test_count++;
 }
-INSTANTIATE_TEST_CASE_P(MyParamSequence,
-                        MyParamTest,
-                        testing::Range(0, kNumberOfParamTests));
+INSTANTIATE_TEST_SUITE_P(MyParamSequence,
+                         MyParamTest,
+                         testing::Range(0, kNumberOfParamTests));
 
 // Resets the count for each test.
 void ResetCounts() {
@@ -162,7 +161,7 @@ void TestRepeat(int repeat) {
 }
 
 // Tests using --gtest_repeat when --gtest_filter specifies an empty
-// set of Tests.
+// set of tests.
 void TestRepeatWithEmptyFilter(int repeat) {
   GTEST_FLAG(repeat) = repeat;
   GTEST_FLAG(filter) = "None";
@@ -173,7 +172,7 @@ void TestRepeatWithEmptyFilter(int repeat) {
 }
 
 // Tests using --gtest_repeat when --gtest_filter specifies a set of
-// successful Tests.
+// successful tests.
 void TestRepeatWithFilterForSuccessfulTests(int repeat) {
   GTEST_FLAG(repeat) = repeat;
   GTEST_FLAG(filter) = "*-*ShouldFail";
@@ -189,7 +188,7 @@ void TestRepeatWithFilterForSuccessfulTests(int repeat) {
 }
 
 // Tests using --gtest_repeat when --gtest_filter specifies a set of
-// failed Tests.
+// failed tests.
 void TestRepeatWithFilterForFailedTests(int repeat) {
   GTEST_FLAG(repeat) = repeat;
   GTEST_FLAG(filter) = "*ShouldFail";
@@ -223,7 +222,7 @@ int main(int argc, char **argv) {
 
   TestRepeatWithFilterForFailedTests(4);
 
-  // It would be nice to verify that the Tests indeed loop forever
+  // It would be nice to verify that the tests indeed loop forever
   // when GTEST_FLAG(repeat) is negative, but this test will be quite
   // complicated to write.  Since this flag is for interactive
   // debugging only and doesn't affect the normal test result, such a
