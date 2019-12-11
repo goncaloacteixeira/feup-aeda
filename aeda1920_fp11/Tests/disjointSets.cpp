@@ -25,8 +25,6 @@ void DisjointSets::unionSets(int root1, int root2)
     set[root2] = root1;
 }
 
-//a implementar
-
 int DisjointSets::getNumberOfSets() const
 {
     int count = 0;

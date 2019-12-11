@@ -12,6 +12,7 @@ DisjointSets Maze::getSets() const {
 
 void Maze::printMaze() const
 {
+    cout << endl;
     cout << setw(3) << " ";
     for (int j=0; j<ncols; j++) {
         cout << setw(6) << "______";
@@ -54,9 +55,20 @@ void Maze::printMaze() const
 
 
 
-// a implementar
-
 Maze::Maze(int rows, int cols) {
+    this->ncols = cols;
+    this->nrows = rows;
+    this->maze = DisjointSets(cols*rows);
+    vector<pair<int,int>> walls;
+    pair<int,int> pair;
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            pair.first = j;
+            pair.second = i;
+            walls.emplace_back(pair);
+        }
+    }
+    this->noWalls = walls;
 }
 
 vector<int> Maze::getNeighbours(int x) const {
