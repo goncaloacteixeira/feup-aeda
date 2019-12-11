@@ -18,6 +18,7 @@ int DisjointSets::find(int v) const
     return find(set[v]);
 }
 
+#include "iostream"
 // Perform Union of two subsets
 void DisjointSets::unionSets(int root1, int root2)
 {
@@ -28,6 +29,10 @@ void DisjointSets::unionSets(int root1, int root2)
 
 int DisjointSets::getNumberOfSets() const
 {
-    return 0;
+    int count = 0;
+    for (auto &i : set)
+        if (i == -1)
+            count++;
+    return count;
 }
 
