@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <utility>
 #include <algorithm>
+#include <time.h>
 
 using namespace std;
 
@@ -59,23 +60,70 @@ Maze::Maze(int rows, int cols) {
     this->ncols = cols;
     this->nrows = rows;
     this->maze = DisjointSets(cols*rows);
-    vector<pair<int,int>> walls;
-    pair<int,int> pair;
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-            pair.first = j;
-            pair.second = i;
-            walls.emplace_back(pair);
-        }
-    }
-    this->noWalls = walls;
+
 }
 
 vector<int> Maze::getNeighbours(int x) const {
     vector<int> res;
+
+    vector<vector<int>> table;
+    pair<int,int> xy;
+    int current = 0;
+    for (int i = 0; i < nrows; i++) {
+        vector<int> aux;
+        for (int j = 0; j < ncols; j++) {
+            if (current == x) {
+                xy.first = i;
+                xy.second = j;
+            }
+            aux.push_back(this->maze.find(current));
+            current++;
+        }
+        table.push_back(aux);
+    }
+
+
+    if (xy.first == 0) {
+        res.push_back(ncols+x);
+    }
+    else if (xy.first == nrows-1) {
+        res.push_back(x-ncols);
+    }
+    else {
+        res.push_back(ncols+x);
+        res.push_back(x-ncols);
+    }
+
+    if (xy.second == 0) {
+        res.push_back(x+1);
+    }
+    else if (xy.second == ncols - 1) {
+        res.push_back(x-1);
+    }
+    else {
+        res.push_back(x+1);
+        res.push_back(x-1);
+    }
+
     return res;
 }
 
 void Maze::buildRandomMaze() {
-}
 
+    srand(time(NULL));
+
+    vector<int> neigh;
+    int i = 0;
+    int j;
+
+    while (this->maze.getNumberOfSets() != 1) {
+        neigh = this->getNeighbours(i);
+        j = neigh[rand() % neigh.size()];
+
+        if (this->maze.find(j) != this->maze.find(i) && this->maze.find(j) == j) {
+            this->maze.unionSets(i, j);
+            noWalls.emplace_back(i, j);
+        }
+        (i+1==ncols*nrows) ? i = 0 : i++;
+    }
+}
