@@ -83,7 +83,29 @@ void REAgency::setClientProfiles(priority_queue<Client>& profiles) {
 // TODO: Part I   - BST
 //
 void REAgency::generateCatalog() {
-	//TODO: A
+	// A
+	vector<Property*> toCat = {properties[0]};
+	Property* aux = properties[0];
+	int maxPrice = properties[0]->getPrice();
+    for (int i = 1; i < properties.size(); i++) {
+        if (aux->getAddress() != properties[i]->getAddress() ||
+                aux->getPostalCode() != properties[i]->getPostalCode() ||
+                aux->getTypology() != properties[i]->getTypology()) {
+            PropertyTypeItem pti(aux->getAddress(),aux->getPostalCode(),aux->getTypology(),maxPrice);
+            pti.setItems(toCat);
+            catalogItems.insert(pti);
+            toCat = { properties[i] };
+            aux = properties[i];
+            maxPrice = properties[i]->getPrice();
+        }
+        else {
+            if (maxPrice < properties[i]->getPrice())
+                maxPrice = properties[i]->getPrice();
+            toCat.push_back(properties[i]);
+        }
+    }
+    free(aux);
+    toCat.clear();
 }
 
 vector<Property*> REAgency::getAvailableProperties(Property* property) const {
