@@ -39,6 +39,5 @@ void Client::addVisiting(string address, string postalCode, string typology, str
 
 
 bool Client::operator<(const Client& c1) const {
-
 	return get<2>(this->getVisiting()) < get<2>(c1.getVisiting());
 }

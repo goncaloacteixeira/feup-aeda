@@ -184,8 +184,29 @@ void REAgency::addBestClientProfiles(const vector<Client>candidates, int min) {
 }
 
 vector<Property*> REAgency::suggestProperties() {
-	//TODO: G
 	vector<Property*> tempProperties;
+	priority_queue<Client> temp = this->getClientProfiles();
 
+	Property* toAdd = nullptr;
+	while(!temp.empty()) {
+	    int aux = stoi(get<1>(temp.top().getVisiting()));
+	    toAdd = nullptr;
+	    int diff = 100000;
+	    for (auto &p : this->getProperties()) {
+	        if (get<0>(p->getReservation()) == nullptr &&
+                    (get<0>(temp.top().getVisiting()) !=  p->getAddress() ||
+                    get<1>(temp.top().getVisiting()) != p->getPostalCode() ||
+                    get<2>(temp.top().getVisiting()) != p->getTypology() ||
+                    get<3>(temp.top().getVisiting()) != to_string(p->getPrice()))) {
+	            if (abs(stoi(p->getPostalCode())-aux) < diff) {
+	                diff = abs(stoi(p->getPostalCode())-aux);
+	                toAdd = p;
+	            }
+	        }
+	    }
+	    if (toAdd != nullptr)
+	        tempProperties.push_back(toAdd);
+	    temp.pop();
+	}
 	return tempProperties;
 }
