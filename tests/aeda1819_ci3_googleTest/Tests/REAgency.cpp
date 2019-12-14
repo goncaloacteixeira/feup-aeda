@@ -110,7 +110,20 @@ void REAgency::generateCatalog() {
 
 vector<Property*> REAgency::getAvailableProperties(Property* property) const {
 	vector<Property*> temp;
-	//TODO: B
+    BSTItrIn<PropertyTypeItem> it(catalogItems);
+
+    while(!it.isAtEnd()) {
+        if (it.retrieve().getTypology() == property->getTypology() &&
+                it.retrieve().getAddress() == property->getAddress() &&
+                it.retrieve().getPostalCode() == property->getPostalCode()) {
+            for (auto &p : it.retrieve().getItems()) {
+                tuple<Client *, int> aux = p->getReservation();
+                if (get<0>(aux) == NULL)
+                    temp.push_back(p);
+            }
+        }
+        it.advance();
+    }
 
 	return temp;
 }
