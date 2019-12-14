@@ -155,7 +155,14 @@ void REAgency::addClientRecord(Client* client) {
 }
 
 void REAgency::deleteClients() {
-	//TODO: E
+    auto it = listingRecords.begin();
+    while (it != listingRecords.end()) {
+        if (get<0>((*it).getClientPointer()->getVisiting()).empty()) {
+            it = listingRecords.erase(it);
+        }
+        else
+            it++;
+    }
 }
 
 //

@@ -181,11 +181,18 @@ TEST(test_1, test_e) {
 	Client* c1 = new Client("Joao", "joao@gmail.com");
 	Client* c2 = new Client("Tiago", "t.silva@gmail.com");
 
-	c1->addVisiting("Rua Dr Roberto Frias", "100","t2", "200000");
+    c1->addVisiting("Rua Dr Roberto Frias", "100","t2", "200000");
 
 	vector<ClientRecord> crs1;
+
+    // test added by skdGT
+    Client* c3 = new Client("Tiago", "example@gmail.com");
+    crs1.push_back(ClientRecord(c3));
+    // ---
+
 	crs1.push_back(ClientRecord(c1));
 	crs1.push_back(ClientRecord(c2));
+
 
 	REAgency r1;
 	r1.setClientRecords(crs1);

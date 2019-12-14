@@ -15,10 +15,12 @@ struct clientRecordHash
 {
 	int operator() (const ClientRecord& cr) const
 	{
-		//TODO:
-		int v = 0;
 
-		return v;
+	    if (!get<0>(cr.getClientPointer()->getVisiting()).empty()) {
+	        return cr.getClientPointer()->getVisitedProperties().size() +1;
+	    }
+
+		return cr.getClientPointer()->getVisitedProperties().size();
 	}
 
 	bool operator() (const ClientRecord& cr1, const ClientRecord& cr2) const
