@@ -36,12 +36,9 @@ void Client::addVisiting(string address, string postalCode, string typology, str
 			this->propertyListing = make_tuple(address, postalCode, typology, price);
 		}
 }
-//
-// TODO:
-//
+
 
 bool Client::operator<(const Client& c1) const {
-	//TODO:
 
-	return false;
+	return get<2>(this->getVisiting()) < get<2>(c1.getVisiting());
 }

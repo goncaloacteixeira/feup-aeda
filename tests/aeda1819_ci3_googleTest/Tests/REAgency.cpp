@@ -169,8 +169,18 @@ void REAgency::deleteClients() {
 // TODO: Part III - Priority Queue
 //
 void REAgency::addBestClientProfiles(const vector<Client>candidates, int min) {
-	//TODO: F
-
+	for (auto &c : candidates) {
+        int reservations = 0;
+        for (auto &p : this->getProperties()) {
+            if (get<0>(p->getReservation())->getEMail() == c.getEMail()) {
+                reservations++;
+            }
+        }
+        if (!c.getVisitedProperties().empty())
+            if ((float)reservations/c.getVisitedProperties().size() > min) {
+                this->clientProfiles.push(c);
+            }
+	}
 }
 
 vector<Property*> REAgency::suggestProperties() {
