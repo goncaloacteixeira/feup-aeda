@@ -129,16 +129,28 @@ vector<Property*> REAgency::getAvailableProperties(Property* property) const {
 }
 
 bool REAgency::reservePropertyFromCatalog(Property* property, Client* client, int percentage) {
-	//TODO: C
 
-	return false;
+    BSTItrIn<PropertyTypeItem> it(catalogItems);
+    vector<Property* > available = this->getAvailableProperties(property);
+
+    for (auto &p : available) {
+        if (p->getTypology() == property->getTypology() &&
+        p->getPostalCode() == property->getPostalCode() &&
+        p->getAddress() == property->getAddress()) {
+            client->addVisiting(property->getAddress(),property->getPostalCode(),property->getTypology(),to_string(p->getPrice()));
+            p->setReservation(make_tuple(client,p->getPrice()*(100-percentage)/100));
+            return true;
+        }
+    }
+    return false;
 }
 
 //
 // TODO: Part II  - Hash Table
 //
 void REAgency::addClientRecord(Client* client) {
-	//TODO: D
+
+    listingRecords.insert(client);
 
 }
 

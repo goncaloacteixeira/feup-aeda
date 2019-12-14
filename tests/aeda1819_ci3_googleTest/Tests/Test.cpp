@@ -50,6 +50,8 @@ TEST(test_1, test_a) {
 	PropertyTypeItem pti3 = agency.getTypeItem("Alameda das Antas", "300","t0");
 	ASSERT_EQ(1, pti3.getItems().size());
 	if(1==pti3.getItems().size()) notas[0]+=40;
+
+    cout << "\nPoints on line a): " << notas[0] << endl;
 }
 
 TEST(test_1, test_b) {
@@ -80,6 +82,9 @@ TEST(test_1, test_b) {
 	vector<Property*> av3 = agency.getAvailableProperties(pPtr3);
 	ASSERT_EQ(0, av3.size());
 	if(0==av3.size()) notas[1]+=40;
+
+    cout << "\nPoints on line b): " << notas[1] << endl;
+
 }
 
 TEST(test_1, test_c) {
@@ -128,6 +133,9 @@ TEST(test_1, test_c) {
 
 	ASSERT_EQ(160000, get<1>(pPtr1->getReservation()));
 	if(160000==get<1>(pPtr1->getReservation())) notas[2]+=20;
+
+
+	cout << "\nPoints on line c): " << notas[2] << endl;
 }
 
 TEST(test_1, test_d) {
@@ -164,6 +172,9 @@ TEST(test_1, test_d) {
 	cr1 = r1.getClientRecords();
 	ASSERT_EQ(5, cr1.size());
 	if(cr1.size()==5) notas[3]+=20;
+
+    cout << "\nPoints on line d): " << notas[3] << endl;
+
 }
 
 TEST(test_1, test_e) {
@@ -186,6 +197,9 @@ TEST(test_1, test_e) {
 
 	ASSERT_EQ("Joao", crs1[0].getName());
 	if("Joao"==crs1[0].getName()) notas[4]+=60;
+
+    cout << "\nPoints on line e): " << notas[4] << endl;
+
 }
 
 TEST(test_1, test_f) {
@@ -259,6 +273,9 @@ TEST(test_1, test_f) {
 
 	ASSERT_EQ("Pedro",r3.getClientProfiles().top().getName());
 	if("Pedro"==r3.getClientProfiles().top().getName()) notas[5]+=20;
+
+    cout << "\nPoints on line f): " << notas[5] << endl;
+
 }
 
 TEST(test_1, test_g) {
@@ -293,4 +310,7 @@ TEST(test_1, test_g) {
 
 	ASSERT_EQ(assertProp1[0]->getAddress(), assertProp2[0]->getAddress());
 	if(assertProp1[0]->getAddress()==assertProp2[0]->getAddress()) notas[6]+=60;
+
+    cout << "\nPoints on line g): " << notas[6] << endl;
+
 }

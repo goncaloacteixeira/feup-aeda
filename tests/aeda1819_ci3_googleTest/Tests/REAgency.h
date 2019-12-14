@@ -23,8 +23,7 @@ struct clientRecordHash
 
 	bool operator() (const ClientRecord& cr1, const ClientRecord& cr2) const
 	{
-		//TODO:
-		return false;
+		return cr1.getEMail() == cr2.getEMail();
 	}
 };
 
