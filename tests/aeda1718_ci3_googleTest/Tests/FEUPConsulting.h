@@ -28,8 +28,7 @@ struct StudentPtrHash
 
 	bool operator() (const StudentPtr& student1, const StudentPtr& student2) const
 	{
-		//TODO:
-		return true;
+		return student1.getEMail() == student2.getEMail();
 	}
 };
 

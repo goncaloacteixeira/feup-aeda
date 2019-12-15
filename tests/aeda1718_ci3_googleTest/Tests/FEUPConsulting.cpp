@@ -138,13 +138,12 @@ bool FEUPConsulting::assignProjectToStudent(Project* project, Student* student) 
 //
 
 void FEUPConsulting::addStudent(Student* student) {
-	//TODO:
+	students.insert(student);
 
 }
 
 void FEUPConsulting::changeStudentEMail(Student* student, string newEMail) {
-	//TODO
-
+	student->setEMail(move(newEMail));
 }
 
 
@@ -153,14 +152,37 @@ void FEUPConsulting::changeStudentEMail(Student* student, string newEMail) {
 //
 
 void FEUPConsulting::addActiveStudents(const vector<Student>& candidates, int min) {
-	//TODO:
+
+    for (auto &c : candidates) {
+        if (c.getPastProjects().size() >= min) {
+            activeStudents.push(c);
+        }
+    }
 
 }
 
 
 int FEUPConsulting::mostActiveStudent(Student& studentMaximus) {
-	//TODO:
-	return 0;
+    int count = activeStudents.size();
+
+    if (activeStudents.empty())
+        return 0;
+
+    if (count == 1) {
+        studentMaximus = activeStudents.top();
+        return 1;
+    }
+
+    Student aux = activeStudents.top();
+    activeStudents.pop();
+    Student aux2 = activeStudents.top();
+    activeStudents.push(aux);
+
+    if (aux.getPastProjects().size() == aux2.getPastProjects().size())
+        return 0;
+
+    studentMaximus = aux;
+    return count;
 
 }
 

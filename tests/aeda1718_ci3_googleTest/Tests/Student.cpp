@@ -51,10 +51,8 @@ vector<string> Student::getPastProjects() const {
 	return this->pastProjects;
 }
 
-// TODO
 bool Student::operator<(const Student& stu1) const {
-	//TODO
-	return true;
+	return this->getPastProjects().size() < stu1.getPastProjects().size();
 }
 
 
