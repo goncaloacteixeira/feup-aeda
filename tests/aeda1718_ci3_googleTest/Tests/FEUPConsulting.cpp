@@ -98,9 +98,20 @@ void FEUPConsulting::addAvailability(Student* student, string expertizeAvailable
 
 vector<Student*> FEUPConsulting::getCandidateStudents(Project* project) const {
 	vector<Student*> temp;
-	//TODO:
-	return temp;
 
+    BSTItrIn<Expertize> it(this->expertizes);
+    while(!it.isAtEnd()) {
+        if (it.retrieve() == Expertize(project->getExpertize(),project->getCost())) {
+            for (auto &s : it.retrieve().getConsultants()) {
+                if (s->getCurrentProject().empty()) {
+                    temp.push_back(s);
+                }
+            }
+        }
+        it.advance();
+    }
+
+	return temp;
 }
 
 
