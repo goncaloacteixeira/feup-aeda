@@ -81,7 +81,6 @@ void FEUPConsulting::setActiveStudents(priority_queue<Student>& students) {
 //
 
 void FEUPConsulting::addAvailability(Student* student, string expertizeAvailable, unsigned cost) {
-	//TODO
 	BSTItrIn<Expertize> it(this->expertizes);
 
 	while (!it.isAtEnd()) {
