@@ -116,9 +116,21 @@ vector<Student*> FEUPConsulting::getCandidateStudents(Project* project) const {
 
 
 bool FEUPConsulting::assignProjectToStudent(Project* project, Student* student) {
-	//TODO:
-	return true;
+    if (project->getConsultant() != nullptr)
+        return false;
+    if (!student->getCurrentProject().empty())
+        return false;
 
+    vector<Student *> availableStuds = this->getCandidateStudents(project);
+
+    for (auto &s : availableStuds) {
+        if (s->getName() == student->getName() && s->getEMail() == student->getEMail()) {
+            project->setConsultant(student);
+            student->addProject(project->getTitle());
+            return true;
+        }
+    }
+    return false;
 }
 
 //
