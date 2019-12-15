@@ -33,11 +33,13 @@ void Expertize::addConsultant(Student* student) {
 }
 
 bool Expertize::operator<(const Expertize &exp1) const {
-	//TODO
-	return true;
+
+	if (this->name == exp1.name) {
+	    return this->cost < exp1.cost;
+	}
+    return this->name < exp1.name;
 }
 
 bool Expertize::operator==(const Expertize &exp1) const {
-	//TODO
-	return true;
+	return this->name == exp1.name && this->cost == exp1.cost;
 }

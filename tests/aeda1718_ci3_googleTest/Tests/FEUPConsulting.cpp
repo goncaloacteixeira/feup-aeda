@@ -82,7 +82,19 @@ void FEUPConsulting::setActiveStudents(priority_queue<Student>& students) {
 
 void FEUPConsulting::addAvailability(Student* student, string expertizeAvailable, unsigned cost) {
 	//TODO
+	BSTItrIn<Expertize> it(this->expertizes);
 
+	while (!it.isAtEnd()) {
+	    if (it.retrieve() == Expertize(expertizeAvailable,cost)) {
+	        it.retrieve().addConsultant(student);
+	        return;
+	    }
+	    it.advance();
+	}
+
+	Expertize exp1(expertizeAvailable,cost);
+	exp1.addConsultant(student);
+	expertizes.insert(exp1);
 }
 
 vector<Student*> FEUPConsulting::getCandidateStudents(Project* project) const {
