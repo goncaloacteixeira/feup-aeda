@@ -160,9 +160,11 @@ void ReadingClub::addUserRecord(User* user) {
 }
 
 void ReadingClub::changeUserEMail(User* user, string newEMail) {
-	//TODO:
-	//...
-
+	for (auto& u : userRecords) {
+	    if (u.getEMail() == newEMail && u.getName() != user->getName())
+	        return;
+	}
+    user->setEMail(newEMail);
 }
 
 
