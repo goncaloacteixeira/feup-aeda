@@ -58,20 +58,15 @@ void BookCatalogItem::addItems(Book* book) {
 	this->items.push_back(book);
 }
 
-//
-// TODO:
-//
 
 bool BookCatalogItem::operator<(const BookCatalogItem &bci1) const {
-	//TODO:
-	//...
-
-	return false;
+	if (this->title == bci1.title) {
+	    return this->author < bci1.author;
+	}
+	return this->title < bci1.title;
 }
 
 bool BookCatalogItem::operator==(const BookCatalogItem &bci1) const {
-	//TODO:
-	//...
 
-	return false;
+	return this->title == bci1.title && this->author == bci1.author;
 }

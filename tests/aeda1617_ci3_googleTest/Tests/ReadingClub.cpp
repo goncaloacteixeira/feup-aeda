@@ -89,10 +89,34 @@ void ReadingClub::setBestReaderCandidates(priority_queue<User>& candidates) {
 // TODO: Part I   - BST
 //
 
-void ReadingClub::generateCatalog() {
-	//TODO:
-	//...
+bool sortBooks(Book* b1, Book* b2) {
+    if (b1->getTitle() == b2->getTitle()) {
+        if (b1->getAuthor() == b2->getAuthor()) {
+            return b1->getYear() < b2->getYear();
+        }
+        return b1->getAuthor() < b2->getAuthor();
+    }
+    return b1->getTitle() < b2->getTitle();
+}
 
+#include <algorithm>
+void ReadingClub::generateCatalog() {
+	vector<Book*> aux = {books.begin(), books.end()};
+	sort(aux.begin(),aux.end(),sortBooks);
+
+	Book* b1 = aux[0];
+	BookCatalogItem bci1(b1->getTitle(), b1->getAuthor(), b1->getYear());
+    bci1.addItems(b1);
+
+	for (int i = 1; i < aux.size(); i++) {
+	    if (aux[i]->getTitle() != b1->getTitle() || aux[i]->getAuthor() != b1->getAuthor()) {
+	        catalogItems.insert(bci1);
+	        bci1 = BookCatalogItem(aux[i]->getTitle(),aux[i]->getAuthor(),aux[i]->getYear());
+	    }
+	    bci1.addItems(aux[i]);
+	    b1 = aux[i];
+	}
+    aux.clear();
 }
 
 vector<Book*> ReadingClub::getAvailableItems(Book* book) const {
