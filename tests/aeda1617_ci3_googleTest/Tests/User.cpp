@@ -54,14 +54,19 @@ int User::numReadings() const {
 	return this->titlesRead.size() + num;
 }
 
-//
-// TODO:
-//
-bool User::operator<(const User& u1) const {
-	//TODO:
-	//...
 
-	return false;
+bool User::operator<(const User& u1) const {
+	if ((this->getReading().first.empty() && u1.getReading().first.empty()) || !(this->getReading().first.empty() && u1.getReading().first.empty())) {
+	    return this->getReadings().size() < u1.getReadings().size();
+	}
+
+	if (!this->getReading().first.empty() && u1.getReading().first.empty()) {
+        return this->getReadings().size() + 1 < u1.getReadings().size();
+	}
+
+    if (this->getReading().first.empty() && !u1.getReading().first.empty()) {
+        return this->getReadings().size() < u1.getReadings().size() + 1;
+    }
 }
 
 

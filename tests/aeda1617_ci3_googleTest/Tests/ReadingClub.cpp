@@ -173,8 +173,15 @@ void ReadingClub::changeUserEMail(User* user, string newEMail) {
 //
 
 void ReadingClub::addBestReaderCandidates(const vector<User>& candidates, int min) {
-	//TODO:
-	//...
+
+    for (auto& c : candidates) {
+        int count = 0;
+        if (!c.getReading().first.empty())
+            count++;
+        count += c.getReadings().size();
+        if (count >= min)
+            readerCandidates.push(c);
+    }
 
 }
 
