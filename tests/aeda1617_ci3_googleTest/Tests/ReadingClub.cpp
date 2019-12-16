@@ -140,10 +140,14 @@ vector<Book*> ReadingClub::getAvailableItems(Book* book) const {
 }
 
 bool ReadingClub::borrowBookFromCatalog(Book* book, User* reader) {
-	//TODO:
-	//...
+    vector<Book*> availableBooks = this->getAvailableItems(book);
 
-	return false;
+    if (availableBooks.empty())
+        return false;
+
+    reader->addReading(book->getTitle(),book->getAuthor());
+    book->setReader(reader);
+    return true;
 }
 
 
