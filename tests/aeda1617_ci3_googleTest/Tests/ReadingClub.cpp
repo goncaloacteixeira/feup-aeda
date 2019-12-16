@@ -186,8 +186,36 @@ void ReadingClub::addBestReaderCandidates(const vector<User>& candidates, int mi
 }
 
 int ReadingClub::awardReaderChampion(User& champion) {
-	//TODO:
-	//...
+	if (readerCandidates.empty())
+	    return 0;
+
+	User best = readerCandidates.top();
+
+    int first = 0;
+    if (!best.getReading().first.empty()) {
+        first += 1;
+    }
+    first += best.getReadings().size();
+
+    readerCandidates.pop();
+	if (readerCandidates.empty()) {
+	    champion = best;
+	    readerCandidates.push(best);
+	    return 1;
+	}
+
+	int second = 0;
+	if (!readerCandidates.top().getReading().first.empty()) {
+	    second += 1;
+	}
+	second += readerCandidates.top().getReadings().size();
+
+	readerCandidates.push(best);
+
+    if (second != first) {
+	    champion = best;
+	    return readerCandidates.size();
+	}
 
 	return 0;
 }
