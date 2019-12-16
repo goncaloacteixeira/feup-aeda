@@ -156,9 +156,7 @@ bool ReadingClub::borrowBookFromCatalog(Book* book, User* reader) {
 //
 
 void ReadingClub::addUserRecord(User* user) {
-	//TODO:
-	//...
-
+	userRecords.insert(user);
 }
 
 void ReadingClub::changeUserEMail(User* user, string newEMail) {

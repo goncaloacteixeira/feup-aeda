@@ -21,18 +21,13 @@ struct userRecordHash
 {
 	int operator() (const UserRecord& ur) const
 	{
-		//TODO:
-		//...
-
-		return 0;
+	    // just something to avoid collisions
+		return ur.getName().size() * 2 * ur.getEMail().size() % 2;
 	}
 
 	bool operator() (const UserRecord& ur1, const UserRecord& ur2) const
 	{
-		//TODO:
-		//...
-
-		return false;
+		return ur1.getName() == ur2.getName() && ur1.getEMail() == ur2.getEMail();
 	}
 };
 
