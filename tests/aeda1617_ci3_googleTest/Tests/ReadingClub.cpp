@@ -121,8 +121,20 @@ void ReadingClub::generateCatalog() {
 
 vector<Book*> ReadingClub::getAvailableItems(Book* book) const {
 	vector<Book*> temp;
-	//TODO:
-	//...
+
+	BSTItrIn<BookCatalogItem> it(catalogItems);
+
+	while(!it.isAtEnd()) {
+	    if (it.retrieve().getAuthor() == book->getAuthor() &&
+	        it.retrieve().getTitle() == book->getTitle()) {
+	        for (auto& b : it.retrieve().getItems()) {
+	            if (b->getReader() == nullptr) {
+	                temp.push_back(b);
+	            }
+	        }
+	    }
+	    it.advance();
+	}
 
 	return temp;
 }
