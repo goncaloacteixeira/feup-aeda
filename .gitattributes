@@ -1,4 +1,4 @@
 **/lib/* linguist-vendored=true
 **/**/lib/* linguist-vendored=true
-**/doc linguist-vendored=true
-**/docs linguist-vendored=true
+*/doc linguist-vendored=true
+*/docs linguist-vendored=true
