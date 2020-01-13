@@ -1,1 +1,0 @@
-/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/aeda1920_fp01.dir/main.cpp.o CMakeFiles/aeda1920_fp01.dir/Tests/tests.cpp.o CMakeFiles/aeda1920_fp01.dir/Tests/parque.cpp.o  -o aeda1920_fp01.exe -Wl,--out-implib,libaeda1920_fp01.dll.a -Wl,--major-image-version,0,--minor-image-version,0 lib/libgtestd.a lib/libgtest_maind.a lib/libgtestd.a 
