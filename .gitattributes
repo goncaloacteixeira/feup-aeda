@@ -1,2 +1,2 @@
 aeda*/lib/ linguist-vendored=true
-exams/aeda*/lib/ linguist-vendored=true
+tests/aeda*/lib/ linguist-vendored=true
